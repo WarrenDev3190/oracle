@@ -9,12 +9,19 @@
     "ramda": "^0.23.0",
     "sendgrid": "^5.1.0"
   },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
+    "watch:test": "npm run test -- --watch"
+  },
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
   "repository": {},
   "license": "MIT",
   "devDependencies": {
-    "config": "^1.26.1"
+    "chai": "^3.5.0",
+    "config": "^1.26.1",
+    "mocha": "^3.4.1",
+    "sinon": "^2.2.0"
   }
 }

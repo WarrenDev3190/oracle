@@ -4,6 +4,8 @@
 // It gathers the latest stories from English-Language Sources
 const Promise = require('bluebird')
 const getArticles = require('./libs/getArticles')
+const prepArticlesForApp = require('./libs/prepArticlesForApp')
+const cors = require('cors')({ origin: true })
 /**
  * [handleGetNewsAPI description]
  * @param  {Object} request  [Express Request Object with firebase 'niceties' 😜]
@@ -11,21 +13,17 @@ const getArticles = require('./libs/getArticles')
  * @return {Promise}         [firebase requires that functions return a Promise]
  */
 module.exports = function handleGetNewsAPI(request, response) {
-  return new Promise(function getNewsApiPromiseHandler(resolve, reject) {
-    getArticles()
-    .then(function handleAllArticles(allArticles) {
-      response.status(200).json({
-        status: 200,
-        data: allArticles,
-        message: 'ok'
+  cors(request, response, function corsHandler() {
+    return new Promise(function getNewsApiPromiseHandler(resolve, reject) {
+      getArticles()
+      .then(function handleAllArticles(allArticles) {
+        let articlesRes = allArticles.map(prepArticlesForApp)
+        response.send(articlesRes)
       })
-    })
-    .catch(function handleAllArticlesError(allArticlesErr) {
-      response.status(500).json({
-        status: 500,
-        error: allArticlesErr,
-        message: 'error retreiving articles'
+      .catch(function handleAllArticlesError(allArticlesErr) {
+        response.send(allArticlesErr)
       })
     })
   })
+
 }

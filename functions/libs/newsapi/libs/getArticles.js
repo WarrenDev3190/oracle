@@ -8,8 +8,7 @@ const logger = require('../../logger')
 module.exports = function getArticles() {
   return getSources()
   .then(function getSourcesHandler(sources) {
-      let sourcesIds = R.map(R.prop('id'), sources)
-      return Promise.map(sourcesIds, getArticlesBySource)
+      return Promise.map(sources, getArticlesBySource)
   })
   .then(function handleAllArticles(allArticles) {
       return R.flatten(allArticles)

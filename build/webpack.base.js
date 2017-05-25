@@ -65,6 +65,14 @@ module.exports = {
       template: path.resolve(__dirname, 'index.html'),
       filename: _.outputIndexPath
     }),
+    new webpack.DefinePlugin({
+      'FIREBASE': JSON.stringify({
+        apiKey: config.firebase.apiKey,
+        databaseURL: config.firebase.databaseURL,
+        authDomain: config.firebase.authDomain,
+        storageBucket: config.firebase.storageBucket
+      })
+    }),
     new webpack.LoaderOptionsPlugin(_.loadersOptions()),
     new CopyWebpackPlugin([
       {

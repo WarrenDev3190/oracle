@@ -1,0 +1,54 @@
+// Colors
+// ------------------------------------------------ //
+// Brand Blue
+// @type HEX
+$nc-blue: #1700fc;
+// Brand Grey
+// @type HEX
+$nc-gray: #9ba9ba;
+// Brand Green
+// @type HEX
+$nc-green: #28f392;
+// Brand Green Glow
+// @type rgba
+$nc-green-glow: rgba(40, 243, 146, .5);
+// Brand White
+// @type HEX
+$nc-white: #fff;
+// Error Red
+// @type HEX
+$nc-error-red: #ff5722;
+
+
+
+// Units
+// ------------------------------------------------ //
+/// Containers maximum width
+/// @type Length
+$max-width: 1180px !default;
+// Container Width
+// @type Length
+$nc-default-width: 768px !default;
+// XS
+// @type Length
+$nc-xs: .5em;
+// SM
+// @type Length
+$nc-sm: 1em;
+// MD
+// @type Length
+$nc-md: 1.5em;
+// LG
+// @type Lenght
+$nc-lg: 2em;
+
+// Maps
+// ------------------------------------------------ //
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;

@@ -1,0 +1,40 @@
+.nc-nav {
+  width: 100%;
+}
+
+.nc-nav__brand {
+  height: 75px;
+  width: 100%;
+  justify-content: center;
+  padding: 0 !important;
+
+  img {
+    width: 75px;
+  }
+}
+
+.nc-nav__navigation {
+  width: 100%;
+  justify-content: center;
+}
+
+.nc-nav__inner-nav {
+  width: auto;
+}
+
+.nc-nav-item {
+  display: inline;
+  padding: .5em;
+  margin-right: 1em;
+  a {
+    color: black !important;
+  }
+  &--active {
+    background: $nc-blue;
+    color: #fff;
+    border-radius: 1em;
+    a {
+      color: white !important;
+    }
+  }
+}

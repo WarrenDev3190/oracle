@@ -1,0 +1,13 @@
+.nc-login {
+  &__container {
+    max-width: $max-width;
+  }
+}
+
+.nc-error-message {
+  color: $nc-error-red;
+}
+
+.nc-login__logo .nc-brand {
+  width: 300px;
+}

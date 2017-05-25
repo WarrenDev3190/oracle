@@ -1,0 +1,9 @@
+.nc-button {
+  &--primary {
+    background-color: $nc-blue !important;
+  }
+
+  &--fullwidth {
+    width: 100% !important;
+  }
+}

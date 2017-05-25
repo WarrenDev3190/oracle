@@ -7,9 +7,10 @@ delete webpackConf.entry
 module.exports = function (config) {
   config.set({
     browsers: ['PhantomJS'],
-    singleRun: false,
+    singleRun: true,
     frameworks: ['mocha', 'chai'],
     files: [
+      '../../node_modules/es6-promise/dist/es6-promise.auto.js',
       '../**/*.spec.js'
     ],
     plugins: [

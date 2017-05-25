@@ -1,0 +1,23 @@
+.nc-topics-container {
+  max-width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.nc-topic-card {
+  background-color: $nc-gray;
+  color: $nc-white;
+  font-size: 14px;
+  width: calc(50% - 20px);
+  text-align: center;
+  font-weight: bold;
+  padding: $nc-md $nc-sm;
+  margin: 10px;
+  transition: all .3s ease;
+  &:hover {
+    cursor: pointer;
+  }
+  &--selected {
+    background: $nc-green;
+  }
+}

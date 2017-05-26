@@ -1,0 +1,21 @@
+.nc-layout-card {
+  padding: .5em;
+  &--selected {
+    border: 3px solid #28f392;
+  }
+
+  figure {
+    box-sizing: border-box;
+  }
+
+  figure img{
+    padding-bottom: 1.5em;
+  }
+
+  figure img:hover {
+    cursor: pointer;
+  }
+}
+caption {
+  display: block;
+}

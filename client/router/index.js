@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '../store'
-import cloudFunctions from '../services/cloudFunctions'
 import Login from '../components/Login.vue'
 import Topics from '../components/Topics.vue'
 import Keywords from '../components/Keywords.vue'
 import Stories from '../components/Stories.vue'
+import Layout from '../components/Layout.vue'
 import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
@@ -32,6 +32,11 @@ const router = new Router({
       name: 'stories',
       path: '/stories',
       component: Stories
+    },
+    {
+      name: 'layout',
+      path: '/layout',
+      component: Layout
     },
     {
       name: 'not-found',

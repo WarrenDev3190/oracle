@@ -9,7 +9,7 @@
           <md-input-container>
            <label for="selectedFilter">Select By Source</label>
            <md-select name="selectedFilter" v-model="selectedFilter">
-              <md-option :value="group" :key="i" v-for="(group,i) in Object.keys(articlesGrouped)">{{group}}</md-option>
+              <md-option :value="group" :key="i" v-for="(group,i) in Object.keys(articlesGrouped)">{{group | idToTitle}}</md-option>
            </md-select>
          </md-input-container>
         </div>
@@ -23,6 +23,7 @@
 <script type="text/javascript">
   import { mapGetters } from 'vuex'
   import cloudFunctions from '../services/cloudFunctions'
+  import { idToTitle } from '../utils'
   import Navigation from './Navigation.vue'
   import ArticleCard from './ArticleCard.vue'
   export default {
@@ -43,6 +44,9 @@
       return {
         selectedFilter: 'all'
       }
+    },
+    filters: {
+      idToTitle
     }
   }
 </script>

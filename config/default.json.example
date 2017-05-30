@@ -1,0 +1,8 @@
+{
+  "firebase": {
+    "apiKey":"_",
+    "authDomain":"projectoracle-b9c0e.firebaseapp.com",
+    "databaseURL":"https://projectoracle-b9c0e.firebaseio.com/",
+    "storageBucket":"gs://projectoracle-b9c0e.appspot.com"
+  }
+}

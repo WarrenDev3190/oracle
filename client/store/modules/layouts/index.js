@@ -13,7 +13,18 @@ const getters = {
 
 const mutations = {
   [TOGGLE_SELECTED_TEMPLATE]: (state, index) => {
-    state.layouts = state.layouts.map((layout, i) => i === index ? R.set(R.lensProp('selected'), !layout.selected, layout) : layout)
+
+    state.layouts = state.layouts.map(function(layout, i) {
+      if(layout.selected){
+        layout.selected = false
+      }
+      if(i === index){
+        layout.selected = true
+      }
+      return layout
+    })
+
+  //  state.layouts = state.layouts.map((layout, i) => i === index ? R.set(R.lensProp('selected'), !layout.selected, layout) : layout)
   }
 }
 

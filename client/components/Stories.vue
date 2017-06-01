@@ -20,7 +20,7 @@
           </md-input-container>
         </div>
         <div class="nc-articles nc-flex nc-flex--wrap">
-          <article-card v-bind:article="article" :key="article.index" v-for="article in articlesSourceGrouped[sourceFilter]"></article-card>
+          <article-card v-bind:article="article" :key="article.index" v-for="article in filteredArticles(allArticles, sourceFilter, dateFilter)"></article-card>
         </div>
       </div>
     </section>
@@ -45,6 +45,7 @@
     methods: {
       sortedFilterDate:  function (articles) {
         var thing = Object.keys(articles).sort(function(a,b) {
+            //Sort so all is at top, all other non-dates are next, and dates are below most recent to least recent
             var dateA = new Date(a)
             var dateB = new Date(b)
             if(a == "all"){
@@ -61,6 +62,7 @@
             }
           }
         ).map(function(dateS){
+          //Make the dates pretty
           var prefixD = dateS.substring(0, dateS.indexOf('T'))
           if(prefixD.trim() == ""){
             return dateS
@@ -71,6 +73,20 @@
           }
         })
         return thing
+      },
+      filteredArticles: function(articles, source, filterDate) {
+        //Make the pretty date normal
+        var pieces = filterDate.split('/')
+        if(pieces.length > 1){
+          var date = pieces[2] + "-" + pieces[0] + "-" + pieces[1] + "T00:00:00Z"
+        }
+        else{
+          var date = pieces
+        }
+        //Filter by both source and date
+        return articles.filter(function(a) {
+          return (source == "all" || a.source == source) && (date == "all" || a.filterDate == date)
+        })
       }
     },
     components: {

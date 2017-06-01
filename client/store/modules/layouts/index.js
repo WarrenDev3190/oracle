@@ -23,8 +23,6 @@ const mutations = {
       }
       return layout
     })
-
-  //  state.layouts = state.layouts.map((layout, i) => i === index ? R.set(R.lensProp('selected'), !layout.selected, layout) : layout)
   }
 }
 

@@ -6,18 +6,22 @@
       <md-progress md-indeterminate v-if="allArticles.length <= 0"></md-progress>
       <div class="nc-articles__container">
         <div class="nc-articles__controls" v-if="allArticles.length > 0">
-          <md-input-container>
-             <label for="sourceFilter">Select By Source</label>
-             <md-select name="sourceFilter" v-model="sourceFilter">
-                <md-option :value="group" :key="i" v-for="(group,i) in Object.keys(articlesSourceGrouped)">{{group | idToTitle}}</md-option>
-             </md-select>
-          </md-input-container>
-          <md-input-container>
-              <label for="dateFilter">Select By Date</label>
-              <md-select name="dateFilter" v-model="dateFilter">
-                 <md-option :value="filterDate" :key="i" v-for="(filterDate,i) in sortedFilterDate(articlesFilterDateGrouped)">{{filterDate | idToTitle}}</md-option>
-              </md-select>
-          </md-input-container>
+          <div class="nc-articles__controls__left">
+            <md-input-container>
+               <label for="sourceFilter">Select By Source</label>
+               <md-select name="sourceFilter" v-model="sourceFilter">
+                  <md-option :value="group" :key="i" v-for="(group,i) in Object.keys(articlesSourceGrouped)">{{group | idToTitle}}</md-option>
+               </md-select>
+            </md-input-container>
+          </div>
+          <div class="nc-articles__controls__right">
+            <md-input-container>
+                <label for="dateFilter">Select By Date</label>
+                <md-select name="dateFilter" v-model="dateFilter">
+                   <md-option :value="filterDate" :key="i" v-for="(filterDate,i) in sortedFilterDate(articlesFilterDateGrouped)">{{filterDate | idToTitle}}</md-option>
+                </md-select>
+            </md-input-container>
+          </div>
         </div>
         <div class="nc-articles nc-flex nc-flex--wrap">
           <article-card v-bind:article="article" :key="article.index" v-for="article in filteredArticles(allArticles, sourceFilter, dateFilter)"></article-card>

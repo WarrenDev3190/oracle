@@ -6,6 +6,7 @@ import Topics from '../components/Topics.vue'
 import Keywords from '../components/Keywords.vue'
 import Stories from '../components/Stories.vue'
 import Layout from '../components/Layout.vue'
+import Design from '../components/Design.vue'
 import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
@@ -37,6 +38,11 @@ const router = new Router({
       name: 'layout',
       path: '/layout',
       component: Layout
+    },
+    {
+      name: 'design',
+      path: '/design',
+      component: Design
     },
     {
       name: 'not-found',

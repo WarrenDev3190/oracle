@@ -1,11 +1,28 @@
 <template lang="html">
 
-  <div class="nc-news-group">
-
-    <div class="nc-news-group__title">{{title}}</div>
-
-    <news-story v-for="article in articles" :key="article.index" :title="article.title" :subtitle="articleSubtitle(article)" :link="article.url" :blurb="article.description" />
-
+  <div :style="{
+      'margin-bottom':'20px'
+    }"
+  >
+    <div :style="{
+        'font-family':'Arial,Helvetica,sans-serif',
+        'font-size':'11px',
+        'font-weight':'bold',
+        'text-align':'center',
+        'margin-bottom':'20px'
+      }"
+    >
+      {{title}}
+    </div>
+    <news-story
+      v-for="article in articles"
+      :key="article.index"
+      :title="article.title"
+      :subtitle="articleSubtitle(article)"
+      :link="article.url"
+      :blurb="article.description"
+      :accentColor="accentColor"
+    />
   </div>
 
 </template>
@@ -26,6 +43,10 @@
       }
     },
     props: {
+      accentColor:{
+        default:"#1700fc",
+        type:String
+      },
       title:{
         default:'GROUP TITLE',
         type:String

@@ -1,11 +1,22 @@
 <template lang="html">
 
-  <div class="nc-news">
-
-    <section-title :barColorStart="barColorStart" :barColorEnd="barColorEnd" :titleText="titleText"/>
-
-    <news-group v-for="(group, index) in newsGroups" :key="index" :title="group.title" :articles="group.articles" />
-
+  <div :style="{
+      'width':'100%',
+      'padding-top':'20px'
+    }"
+  >
+    <section-title
+      :barColorStart="barColorStart"
+      :barColorEnd="barColorEnd"
+      :titleText="titleText"
+    />
+    <news-group
+      v-for="(group, index) in newsGroups"
+      :key="index"
+      :title="group.title"
+      :articles="group.articles"
+      :accentColor="accentColor"
+    />
   </div>
 
 </template>
@@ -22,6 +33,10 @@
     methods: {
     },
     props: {
+      accentColor:{
+        default:"#1700fc",
+        type:String
+      },
       barColorStart:{
         default:'blue',
         type:String

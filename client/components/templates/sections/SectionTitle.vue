@@ -1,12 +1,36 @@
 <template lang="html">
-  <div class="nc-template__section">
-    <!-- necessary markup -->
-    <h2 class="nc-template__section__title">
-      <span>{{titleText}}</span>
-      <div class="nc-template__section__bar" :style="{'background-image': 'linear-gradient(to right,' + barColorStart + ' 80%, ' + barColorEnd + ' 90%)'}"></div>
-    </h2>
-    <!-- /necessary markup -->
-  </div>
+
+  <table :style="{
+    'width':'100%',
+    'padding-left':'30px',
+    'padding-right':'30px',
+    'margin-bottom':'20px'
+    }">
+    <tr>
+      <td :style="{
+        'font-family':'Impact, sans-serif',
+        'font-size':'24px',
+        'line-height':'1.25',
+        'text-align':'left',
+        'width':'1%',
+        }"
+        nowrap
+      >
+        {{titleText}}
+      </td>
+      <td>
+        <div :style="{
+          'align-self':'center',
+          'height':'5px',
+          'margin-left':'5px',
+          'background-image': 'linear-gradient(to right,' + barColorStart + ' 80%, ' + barColorEnd + ' 90%)'
+          }"
+        >
+        </div>
+      </td>
+    </tr>
+  </table>
+
 </template>
 <script type="text/javascript">
   export default {

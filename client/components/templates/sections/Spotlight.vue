@@ -2,12 +2,34 @@
 
   <div class="nc-spotlight">
 
-    <section-title :barColorStart="barColorStart" :barColorEnd="barColorEnd" :titleText="titleText"/>
+    <section-title
+      :barColorStart="barColorStart"
+      :barColorEnd="barColorEnd"
+      :titleText="titleText"
+      />
 
-    <div class="nc-spotlight__body">
-      <img class="nc-spotlight__body__image" :src="image"/>
-      <div class="nc-spotlight__body__text" v-html="bodyHtml"></div>
-    </div>
+    <table :style="{
+        'font-family':'Arial,Helvetica,sans-serif',
+        'font-size':'11px'
+      }"
+    >
+      <tr>
+        <td :style="{
+            'width':'50%'
+          }"
+        >
+          <img :src="image"/>
+        </td>
+        <td valign="top">
+          <div :style="{
+              'line-height':'1.0'
+            }"
+            v-html="bodyHtml"
+          >
+          </div>
+        </td>
+      </tr>
+    </table>
 
   </div>
 

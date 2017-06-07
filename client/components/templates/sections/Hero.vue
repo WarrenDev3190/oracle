@@ -1,7 +1,22 @@
 <template lang="html">
 
-  <div class="nc-hero" :style="{'backgroundColor': backgroundColor}">
-    <img class="nc-hero__image" :src="logo" alt="Logo" />
+  <div :style="{
+    'margin':'auto',
+    'width':'100%',
+    'height':'auto',
+    'backgroundColor':backgroundColor,
+    'margin-bottom':'20px'
+    }"
+  >
+    <img :style="{
+      'display':'block',
+      'margin':'auto',
+      'width':'100%',
+      'height':'auto !important'
+      }"
+      :src="logo"
+      alt="Logo"
+    />
   </div>
 
 </template>

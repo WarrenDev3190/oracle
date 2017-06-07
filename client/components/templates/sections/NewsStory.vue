@@ -1,12 +1,34 @@
 <template lang="html">
 
-  <div class="nc-news-story">
-
-    <a class="nc-news-story__title" :href="link" target="_blank">{{title}}</a>
+  <div :style="{
+      'font-family':'Arial,Helvetica,sans-serif',
+      'font-size':'11px',
+      'line-height':'1',
+      'margin-bottom':'20px'
+    }"
+  >
+    <a :style="{
+        'font-size':'12.8px',
+        'font-weight':'bold',
+        'color':accentColor + '!important'
+      }"
+      :href="link"
+      target="_blank"
+    >
+      {{title}}
+    </a>
     <br/>
-    <span class="nc-news-story__subtitle">{{subtitle}}</span>
+    <span :style="{
+        'font-size':'12.8px',
+        'font-weight':'bold'
+      }"
+    >
+      {{subtitle}}
+    </span>
     <br/>
-    <span class="nc-news-story__blurb">{{blurb}}</span>
+    <span>
+      {{blurb}}
+    </span>
 
   </div>
 
@@ -20,6 +42,10 @@
     methods: {
     },
     props: {
+      accentColor:{
+        default:"#1700fc",
+        type:String
+      },
       link:{
         default:"http://google.com",
         type:String

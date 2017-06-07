@@ -1,13 +1,38 @@
 <template lang="html">
 
-  <div class="nc-new-hires">
-
-    <section-title :barColorStart="barColorStart" :barColorEnd="barColorEnd" :titleText="titleText"/>
-
-    <div class="nc-new-hires__container" v-for="(hire, index) in newHires" :key="index">
-      <span class="nc-new-hires__name">{{hire.name}}</span>, <span class="nc-new-hires__position">{{hire.position}}</span>
+  <div :style="{
+      'width':'100%',
+      'font-family':'Arial,Helvetica,sans-serif',
+      'font-size':'11px',
+      'text-align':'left',
+      'line-height':'1.0',
+      'margin-bottom':'20px'
+    }"
+  >
+    <section-title
+      :barColorStart="barColorStart"
+      :barColorEnd="barColorEnd"
+      :titleText="titleText"
+    />
+    <div
+      v-for="(hire, index) in newHires"
+      :key="index"
+    >
+      <span :style="{
+          'font-size':'9pt',
+          'font-weight':'bold'
+        }"
+      >
+        {{hire.name}}
+      </span>
+      ,&nbsp;
+      <span :style="{
+          'font-size':'9pt'
+        }"
+      >
+        {{hire.position}}
+      </span>
     </div>
-
   </div>
 
 </template>

@@ -1,15 +1,62 @@
 <template lang="html">
-  <div>
-    <hero :logo="logo" :backgroundColor="heroBackground" />
-    <div class="nc-template__date">
-      <span> {{currentDate}} </span>
+  <div :style="{
+      'width':'600px',
+      'margin':'auto'
+    }"
+  >
+    <hero
+      :logo="logo"
+      :backgroundColor="heroBackground"
+    />
+    <div
+      :style="{
+        'text-align':'center',
+        'font':'Arial,Helvetica,sans-serif',
+        'font-size':'14px',
+        'font-weight':'bold',
+        'margin-bottom':'20px'
+        }"
+      >
+      <span>
+        {{currentDate}}
+      </span>
     </div>
-    <spotlight :barColorStart="sectionBarColorStart" :barColorEnd="sectionBarColorEnd" :bodyHtml="spotlightHtml" :image="spotlightImage" />
-    <news :barColorStart="sectionBarColorStart" :barColorEnd="sectionBarColorEnd" :newsGroups="newsGroups" />
-    <events :barColorStart="sectionBarColorStart" :barColorEnd="sectionBarColorEnd" :events="events" />
-    <new-hires :barColorStart="sectionBarColorStart" :barColorEnd="sectionBarColorEnd" :titleText="newHiresTitle" :newHires="newHires" />
-    <jobs :barColorStart="sectionBarColorStart" :barColorEnd="sectionBarColorEnd" :titleText="newHiresTitle" :newHires="newHires" />
-    <foot :email="footerEmail" :footerHtml="footerHtml" />
+    <spotlight
+      :barColorStart="sectionBarColorStart"
+      :barColorEnd="sectionBarColorEnd"
+      :bodyHtml="spotlightHtml"
+      :image="spotlightImage"
+    />
+    <news
+      :barColorStart="sectionBarColorStart"
+      :barColorEnd="sectionBarColorEnd"
+      :newsGroups="newsGroups"
+      :accentColor="accentColor"
+    />
+    <events
+      :accentColor="accentColor"
+      :barColorStart="sectionBarColorStart"
+      :barColorEnd="sectionBarColorEnd"
+      :events="events"
+    />
+    <new-hires
+      :barColorStart="sectionBarColorStart"
+      :barColorEnd="sectionBarColorEnd"
+      :titleText="newHiresTitle"
+      :newHires="newHires"
+    />
+    <jobs
+      :accentColor="accentColor"
+      :barColorStart="sectionBarColorStart"
+      :barColorEnd="sectionBarColorEnd"
+      :titleText="jobsTitle"
+      :jobs="jobReferrals"
+    />
+    <foot
+      :email="footerEmail"
+      :footerHtml="footerHtml"
+      :accentColor="accentColor"
+    />
   </div>
 </template>
 <script type="text/javascript">
@@ -39,6 +86,10 @@
     methods: {
     },
     props: {
+      accentColor:{
+        default:'rgb(0,167,225)',
+        type:String
+      },
       logo:{
         default:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_logo.png?alt=media&token=eeed6afe-45ec-4c4e-abe6-d4892f5a8c7c",
         type:String,
@@ -190,6 +241,49 @@
               name:"Gabrielle K. Farrell",
               position:"Customer Accounts Specialist"
             }
+          ]
+        },
+        type:Array
+      },
+      jobsTitle:{
+        default:"job referrals",
+        type:String
+      },
+      jobReferrals:{
+        default: function(){
+          return [
+              {
+                title:"District Marketing Representative",
+                location:"New York, NY",
+                description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                            "Donec sagittis ornare fermentum. Quisque mollis a tellus id " +
+                            "ornare. Vivamus luctus porta ligula, et commodo ligula.",
+                link:"http://google.com"
+              },
+              {
+                title:"Direct Response Manager",
+                location:"Nashville, TN",
+                description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                            "Donec sagittis ornare fermentum. Quisque mollis a tellus id " +
+                            "ornare. Vivamus luctus porta ligula, et commodo ligula.",
+                link:"http://google.com"
+              },
+              {
+                title:"Legacy Optimization Planner",
+                location:"Charlotte, NC",
+                description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                            "Donec sagittis ornare fermentum. Quisque mollis a tellus id " +
+                            "ornare. Vivamus luctus porta ligula, et commodo ligula.",
+                link:"http://google.com"
+              },
+              {
+                title:"Investor Program Manager",
+                location:"New York, NY",
+                description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                            "Donec sagittis ornare fermentum. Quisque mollis a tellus id " +
+                            "ornare. Vivamus luctus porta ligula, et commodo ligula.",
+                link:"http://google.com"
+              },
           ]
         },
         type:Array

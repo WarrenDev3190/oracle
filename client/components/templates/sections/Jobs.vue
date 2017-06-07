@@ -1,17 +1,53 @@
 <template lang="html">
 
-  <div class="nc-jobs">
-
-    <section-title :barColorStart="barColorStart" :barColorEnd="barColorEnd" :titleText="titleText"/>
-
-    <div class="nc-jobs__container" v-for="(job, index) in jobs" :key="index">
-
-      <span class="nc-jobs__title"><a :href="job.link" target="_blank">{{job.title}}</a> - </span><span class="nc-jobs__location">{{job.location}}</span>
+  <div :style="{
+      'width':'100%',
+      'font-family':'Arial,Helvetica,sans-serif',
+      'font-size':'11px',
+      'text-align':'left',
+      'line-height':'1.0',
+      'margin-bottom':'20px'
+    }"
+  >
+    <section-title
+      :barColorStart="barColorStart"
+      :barColorEnd="barColorEnd"
+      :titleText="titleText"
+    />
+    <div v-for="(job, index) in jobs"
+      :style="{
+          'margin-bottom':'20px'
+      }"
+      :key="index"
+    >
+      <span :style="{
+          'font-weight':'bold',
+          'font-size':'12.8px'
+        }"
+      >
+        <a
+          :href="job.link"
+          target="_blank"
+          :style="{
+            'color':accentColor
+          }"
+        >
+          {{job.title}}
+        </a>
+        &nbsp;-&nbsp;
+      </span>
+      <span :style="{
+          'font-weight':'bold',
+          'font-size':'12.8px'
+        }"
+      >
+        {{job.location}}
+      </span>
       <br/>
-      <span class = "nc-jobs__description">{{job.description}}</span>
-
+      <span>
+        {{job.description}}
+      </span>
     </div>
-
   </div>
 
 </template>
@@ -26,6 +62,10 @@
     methods: {
     },
     props: {
+      accentColor:{
+        default:"#1700fc",
+        type:String
+      },
       barColorStart:{
         default:'blue',
         type:String

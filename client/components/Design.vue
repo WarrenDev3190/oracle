@@ -1,9 +1,7 @@
 <template lang="html">
   <div>
       <navigation/>
-      <div :style="{'width':'600px', 'margin':'auto'}">
-        <time-template />
-      </div>
+      <time-template />
   </div>
 </template>
 

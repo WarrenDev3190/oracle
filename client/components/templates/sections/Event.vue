@@ -1,16 +1,50 @@
 <template lang="html">
 
-  <div class="nc-event">
-
-    <img class="nc-event__image" :src="image" />
-    <div class="nc-event__info">
-      <span class="nc-event__info__title">{{title}}</span>
+  <div :style="{
+      'width':'300px',
+      'text-align':'center',
+      'font-family':'Arial,Helvetica,sans-serif',
+      'font-size':'11px',
+      'line-height':'1.0'
+    }"
+  >
+    <img :style="{
+        'padding-left':'20px',
+        'padding-right':'20px'
+      }"
+      :src="image"
+    />
+    <div>
       <br/>
-      <span class="nc-event__info__date">{{date}}:</span>
-      <span class="nc-event__info__description">{{description}} | </span>
-      <a class="nc-event__info__link" :href="linkUrl" target="_blank">{{linkText}}</a>
+      <span :style="{
+          'font-weight':'bold',
+        }"
+      >
+        {{title}}
+      </span>
+      <br/>
+      <br/>
+      <span :style="{
+          'font-weight':'bold',
+          'font-size':'12.8px'
+        }"
+      >
+        {{date}}:
+      </span>
+      <span>
+        {{description}}|
+      </span>
+      <a :style="{
+        'font-size':'12.8px',
+        'font-weight':'bold',
+        'color':accentColor + ' !important'
+        }"
+        :href="linkUrl"
+        target="_blank"
+      >
+        {{linkText}}
+      </a>
     </div>
-
   </div>
 
 </template>
@@ -45,6 +79,10 @@
       },
       linkText:{
         default:"Event Link",
+        type:String
+      },
+      accentColor:{
+        default:"#1700fc",
         type:String
       }
     }

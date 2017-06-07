@@ -29,7 +29,8 @@
           :href="job.link"
           target="_blank"
           :style="{
-            'color':accentColor
+            'color':accentColor,
+            'text-decoration':'none'
           }"
         >
           {{job.title}}

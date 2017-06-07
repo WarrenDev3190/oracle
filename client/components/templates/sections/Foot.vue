@@ -15,7 +15,8 @@
     >
       Questions? Email:&nbsp;
       <a :style="{
-          'color':accentColor
+          'color':accentColor,
+          'text-decoration':'none'
         }"
         :href="'mailto:' + email"
       >

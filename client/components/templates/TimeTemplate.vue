@@ -13,9 +13,9 @@
         'text-align':'center',
         'font':'Arial,Helvetica,sans-serif',
         'font-size':'14px',
-        'font-weight':'bold',
+        'font-weight':'bolder',
         'margin-bottom':'20px'
-        }"
+      }"
       >
       <span>
         {{currentDate}}

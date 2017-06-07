@@ -29,19 +29,32 @@ const mutations = {
 const state = {
   layouts: [
     {
-      type: 'basic',
-      imageURL: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/basic-template.png?alt=media&token=5bf911c9-a5e6-49eb-952f-99a97d21ea9c',
-      selected: false
-    },
-    {
-      type: '1 2 1',
-      imageURL: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/1-2-1-template.png?alt=media&token=49f03fd3-92c4-42ab-82cd-a573adc61e7f',
-      selected: false
-    },
-    {
-      type: '1 1 2',
-      imageURL: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/1-1-2-template.png?alt=media&token=0ed4d797-79ac-44f1-b71a-165318825b93',
-      selected: false
+      type: 'time',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time-template.png?alt=media&token=74eb4c72-666c-41ef-85e6-510e4d40406c',
+      selected: true,
+      sections: [
+        {
+          title: "Spotlight",
+          on: true
+        },
+        {
+          title: "News",
+          on: true
+        },
+        {
+          title: "Events",
+          on: true
+        },
+        {
+          title: "Hires",
+          on: true
+        },
+        {
+          title: "Jobs",
+          on: true
+        }
+      ],
+      component:"time-template"
     }
   ]
 }

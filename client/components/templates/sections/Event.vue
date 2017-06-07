@@ -37,6 +37,7 @@
       <a :style="{
         'font-size':'12.8px',
         'font-weight':'bold',
+        'text-decoration':'none',
         'color':accentColor + ' !important'
         }"
         :href="linkUrl"

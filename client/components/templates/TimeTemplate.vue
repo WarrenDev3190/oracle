@@ -5,6 +5,7 @@
     }"
   >
     <hero
+      v-show="sections == undefined || sections['hero'] == undefined || sections['hero'].on"
       :logo="logo"
       :backgroundColor="heroBackground"
     />
@@ -22,30 +23,35 @@
       </span>
     </div>
     <spotlight
+      v-show="sections == undefined || sections['spotlight'] == undefined || sections['spotlight'].on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :bodyHtml="spotlightHtml"
       :image="spotlightImage"
     />
     <news
+      v-show="sections == undefined || sections['news'] == undefined || sections['news'].on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :newsGroups="newsGroups"
       :accentColor="accentColor"
     />
     <events
+      v-show="sections == undefined || sections['events'] == undefined || sections['events'].on"
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :events="events"
     />
     <new-hires
+      v-show="sections == undefined || sections['hires'] == undefined || sections['hires'].on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :titleText="newHiresTitle"
       :newHires="newHires"
     />
     <jobs
+    v-show="sections == undefined || sections['jobs'] == undefined || sections['jobs'].on"
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
@@ -53,6 +59,7 @@
       :jobs="jobReferrals"
     />
     <foot
+      v-show="sections == undefined || sections['foot'] == undefined || sections['foot'].on"
       :email="footerEmail"
       :footerHtml="footerHtml"
       :accentColor="accentColor"
@@ -300,6 +307,10 @@
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "<b>Nunc tristique orci efficitur bibendum dapibus.</b>",
         type:String
+      },
+      sections:{
+        default:{},
+        type:Object
       }
     }
   }

@@ -29,6 +29,7 @@
             'align-self':'center',
             'height':'5px',
             'margin-left':'5px',
+            'background-color': 'barColorSolid',
             'background-image': 'linear-gradient(to right,' + barColorStart + ' 80%, ' + barColorEnd + ' 90%)'
             }"
           >
@@ -54,6 +55,10 @@
       },
       barColorEnd:{
         default:'black',
+        type:String
+      },
+      barColorSolid:{
+        default:'blue',
         type:String
       },
       titleText:{

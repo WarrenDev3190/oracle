@@ -27,6 +27,7 @@
       v-show="!sections.spotlight.toggleable || sections.spotlight.on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
+      :barColorSolid="sectionBarColorStart"
       :bodyHtml="sections.spotlight.data.bodyHtml"
       :image="sections.spotlight.data.image"
       :titleText="sections.spotlight.titleText"
@@ -36,6 +37,7 @@
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
+      :barColorSolid="sectionBarColorStart"
       :newsGroups="sections.news.data.newsGroups"
       :titleText="sections.news.data.titleText"
     />
@@ -44,12 +46,14 @@
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
+      :barColorSolid="sectionBarColorStart"
       :events="sections.events.data.events"
     />
     <new-hires
       v-show="!sections.hires.toggleable || sections.hires.on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
+      :barColorSolid="sectionBarColorStart"
       :titleText="sections.hires.data.titleText"
       :newHires="sections.hires.data.hires"
     />
@@ -58,6 +62,7 @@
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
+      :barColorSolid="sectionBarColorStart"
       :titleText="sections.jobs.data.titleText"
       :jobs="sections.jobs.data.jobs"
     />

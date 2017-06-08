@@ -12,6 +12,7 @@
     <section-title
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
+      :barColorSolid="barColorSolid"
       :titleText="titleText"
     />
     <div
@@ -53,6 +54,10 @@
       },
       barColorEnd:{
         default:'black',
+        type:String
+      },
+      barColorSolid:{
+        default:'blue',
         type:String
       },
       titleText:{

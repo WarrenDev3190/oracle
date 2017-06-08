@@ -12,6 +12,7 @@
     <section-title
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
+      :barColorSolid="barColorSolid"
       :titleText="titleText"
     />
     <div v-for="(job, index) in jobs"
@@ -73,6 +74,10 @@
       },
       barColorEnd:{
         default:'black',
+        type:String
+      },
+      barColorSolid:{
+        default:'blue',
         type:String
       },
       titleText:{

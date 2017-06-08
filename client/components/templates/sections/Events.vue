@@ -8,6 +8,7 @@
     <section-title
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
+      :barColorSolid="barColorSolid"
       :titleText="titleText"
     />
     <table :style="{
@@ -72,6 +73,10 @@
       },
       barColorEnd:{
         default:'black',
+        type:String
+      },
+      barColorSolid:{
+        defualt:'blue',
         type:String
       },
       titleText:{

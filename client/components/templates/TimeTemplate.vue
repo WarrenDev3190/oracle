@@ -1,11 +1,12 @@
 <template lang="html">
   <div :style="{
       'width':'600px',
-      'margin':'auto'
+      'margin':'auto',
+      'background-color':'white'
     }"
   >
     <hero
-      v-show="sections == undefined || sections['hero'] == undefined || sections['hero'].on"
+      v-show="sections == undefined || sections['hero'] == undefined || !sections['hero'].toggleable || sections['hero'].on"
       :logo="logo"
       :backgroundColor="heroBackground"
     />
@@ -23,35 +24,35 @@
       </span>
     </div>
     <spotlight
-      v-show="sections == undefined || sections['spotlight'] == undefined || sections['spotlight'].on"
+      v-show="sections == undefined || sections['spotlight'] == undefined || !sections['spotlight'].toggleable || sections['spotlight'].on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :bodyHtml="spotlightHtml"
       :image="spotlightImage"
     />
     <news
-      v-show="sections == undefined || sections['news'] == undefined || sections['news'].on"
+      v-show="sections == undefined || sections['news'] == undefined || !sections['news'].toggleable || sections['news'].on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :newsGroups="newsGroups"
       :accentColor="accentColor"
     />
     <events
-      v-show="sections == undefined || sections['events'] == undefined || sections['events'].on"
+      v-show="sections == undefined || sections['events'] == undefined || !sections['events'].toggleable || sections['events'].on"
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :events="events"
     />
     <new-hires
-      v-show="sections == undefined || sections['hires'] == undefined || sections['hires'].on"
+      v-show="sections == undefined || sections['hires'] == undefined || !sections['hires'].toggleable || sections['hires'].on"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :titleText="newHiresTitle"
       :newHires="newHires"
     />
     <jobs
-    v-show="sections == undefined || sections['jobs'] == undefined || sections['jobs'].on"
+    v-show="sections == undefined || sections['jobs'] == undefined || !sections['jobs'].toggleable || sections['jobs'].on"
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
@@ -59,7 +60,7 @@
       :jobs="jobReferrals"
     />
     <foot
-      v-show="sections == undefined || sections['foot'] == undefined || sections['foot'].on"
+      v-show="sections == undefined || sections['foot'] == undefined || !sections['foot'].toggleable || sections['foot'].on"
       :email="footerEmail"
       :footerHtml="footerHtml"
       :accentColor="accentColor"
@@ -102,7 +103,7 @@
         type:String,
       },
       heroBackground:{
-        default:"#000000",
+        default:"#FFFFFF",
         type:String
       },
       sectionBarColorStart:{

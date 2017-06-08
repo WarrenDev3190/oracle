@@ -1,11 +1,14 @@
 <template lang="html">
+
   <div class="nc-design">
       <navigation/>
       <div class="nc-design__sections">
-        <span class="nc-design__sections__title" >Sections</span>
-        <div v-for="(section, index) in selectedLayout[0].sections" :key="index" class="nc_design__sections__section">
-          <input type="checkbox" v-model="section.on" />
-          <label for="checkbox">{{section.title}}</label>
+        <h3 class="nc-design__sections__header" >Sections</h3>
+        <div class="nc-design__section">
+          <div class="nc-design__section__container" v-for="(section, index) in selectedLayout[0].sections" v-if="section.toggleable" :key="index">
+            <input class="nc-design__section__checkbox" type="checkbox" v-model="section.on" />
+            <label class="nc-design__section__title" for="checkbox">{{section.title}}</label>
+          </div>
         </div>
       </div>
       <div class="nc-design__container">
@@ -16,6 +19,7 @@
         </div>
       </div>
   </div>
+
 </template>
 
 <script>

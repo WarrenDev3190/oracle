@@ -10,6 +10,33 @@
     border-width: 2px;
     border-radius: 5px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-left:10px;
+    padding-right:10px;
+    min-width: 400px;
+  }
+
+  &__section{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__container{
+      flex: 1;
+      white-space: nowrap;
+    }
+
+    &__checkbox{
+      font-size:18px;
+      vertical-align: middle;
+    }
+
+    &__title{
+      font-size:16px;
+      font-style: italic;
+      vertical-align: middle;
+    }
+
   }
 
   &__container{

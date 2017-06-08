@@ -5,7 +5,8 @@
     'width':'100%',
     'height':'auto',
     'backgroundColor':backgroundColor,
-    'margin-bottom':'20px'
+    'margin-bottom':'20px',
+    'text-align':'center'
     }"
   >
     <img :style="{

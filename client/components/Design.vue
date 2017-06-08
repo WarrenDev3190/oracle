@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <div class="nc-design">
+  <div class="nc-design nc-container">
       <navigation/>
       <div class="nc-design__sections">
         <h3 class="nc-design__sections__header" >Sections</h3>
@@ -16,6 +16,7 @@
           <component :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" />
         </div>
         <div class="nc-design__container__editor">
+          <component :is="selectedSection + '-editor'" />
         </div>
       </div>
   </div>
@@ -26,15 +27,22 @@
 import { mapGetters } from 'vuex'
 import Navigation from './Navigation.vue'
 import TimeTemplate from './templates/TimeTemplate.vue'
+import DefaultEditor from './templates/sections/DefaultEditor.vue'
 export default {
   components: {
     Navigation,
-    TimeTemplate
+    TimeTemplate,
+    DefaultEditor
   },
   computed: {
     ...mapGetters('layouts', ['selectedLayout'])
   },
   methods: {
+  },
+  data: function() {
+      return {
+        selectedSection: "default"
+      }
   },
   props: {
   }

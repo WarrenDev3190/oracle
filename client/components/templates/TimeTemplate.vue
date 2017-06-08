@@ -7,6 +7,8 @@
   >
     <hero
       v-show="!sections.hero.toggleable || sections.hero.on"
+      @click.native="sectionSelected('hero')"
+      :class="{hoverable: sections.hero.editable}"
       :logo="sections.hero.data.logo"
       :backgroundColor="sections.hero.data.heroBackground"
     />
@@ -25,6 +27,8 @@
     </div>
     <spotlight
       v-show="!sections.spotlight.toggleable || sections.spotlight.on"
+      @click.native="sectionSelected('spotlight')"
+      :class="{hoverable: sections.spotlight.editable}"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :barColorSolid="sectionBarColorStart"
@@ -34,6 +38,8 @@
     />
     <news
       v-show="!sections.news.toggleable || sections.news.on"
+      @click.native="sectionSelected('news')"
+      :class="{hoverable: sections.news.editable}"
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
@@ -43,6 +49,8 @@
     />
     <events
       v-show="!sections.events.toggleable || sections.events.on"
+      @click.native="sectionSelected('events')"
+      :class="{hoverable: sections.events.editable}"
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
@@ -51,6 +59,8 @@
     />
     <new-hires
       v-show="!sections.hires.toggleable || sections.hires.on"
+      @click.native="sectionSelected('hires')"
+      :class="{hoverable: sections.hires.editable}"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
       :barColorSolid="sectionBarColorStart"
@@ -59,6 +69,8 @@
     />
     <jobs
     v-show="!sections.jobs.toggleable || sections.jobs.on"
+      @click.native="sectionSelected('jobs')"
+      :class="{hoverable: sections.jobs.editable}"
       :accentColor="accentColor"
       :barColorStart="sectionBarColorStart"
       :barColorEnd="sectionBarColorEnd"
@@ -68,6 +80,8 @@
     />
     <foot
       v-show="!sections.foot.toggleable || sections.foot.on"
+      @click.native="sectionSelected('foot')"
+      :class="{hoverable: sections.foot.editable}"
       :accentColor="accentColor"
       :email="sections.foot.data.email"
       :footerHtml="sections.foot.data.footerHtml"
@@ -101,6 +115,19 @@
     methods: {
     },
     props: {
+      highlight: {
+        default: function(event){
+          console.log("highlightDisabled")
+          event.target.style.backgroundColor = "lightGrey"
+        },
+        type:Function
+      },
+      sectionSelected: {
+        default: function(sectionKey){
+          console.log(sectionKey)
+        },
+        type:Function
+      },
       accentColor:{
         default:'rgb(0,167,225)',
         type:String

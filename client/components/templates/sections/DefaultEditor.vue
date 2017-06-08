@@ -1,7 +1,7 @@
 <template lang="html">
-
-  <h7 class="nc-title">Click a section to begin editing</h7>
-
+  <div style="width:100%; height:100%; text-align:center; padding-top:50px;">
+    <span style=" font-size:30px; font-weight:bold; vertical-align:">Click a section to begin editing</span>
+  </div>
 </template>
 <script type="text/javascript">
   export default {
@@ -11,7 +11,8 @@
     },
     methods: {
     },
-    data: {
+    data: function(){
+      return {}
     },
     props: {
     }

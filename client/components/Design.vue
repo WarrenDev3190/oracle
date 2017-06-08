@@ -13,7 +13,7 @@
       </div>
       <div class="nc-design__container">
         <div class="nc-design__container__template">
-          <component :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" />
+          <component :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" :sectionSelected="sectionSelected"/>
         </div>
         <div class="nc-design__container__editor">
           <component :is="selectedSection + '-editor'" />
@@ -38,6 +38,9 @@ export default {
     ...mapGetters('layouts', ['selectedLayout'])
   },
   methods: {
+    sectionSelected(sectionKey){
+      this.selectedSection = sectionKey
+    }
   },
   data: function() {
       return {

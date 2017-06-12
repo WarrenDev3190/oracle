@@ -19,6 +19,7 @@
           'text-decoration':'none'
         }"
         :href="'mailto:' + email"
+        target="_blank"
       >
         {{email}}
       </a>

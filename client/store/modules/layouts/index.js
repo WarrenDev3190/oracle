@@ -39,6 +39,13 @@ const state = {
         sectionBarColorEnd: "#00edbf",
         sectionBarColorSolid: "#0081eb",
         sections: {
+          default: {
+            title: "Default",
+            on: false,
+            editable: false,
+            toggleable: false,
+            data: {}
+          },
           hero: {
             title: "Header",
             on: true,

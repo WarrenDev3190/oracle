@@ -65,7 +65,7 @@
       max-width: 650px;
       min-width: 400px;
       height: 600px;
-      overflow: auto;
+      overflow: scroll;
       border-style: solid;
       border-width: 2px;
       border-color: lightgrey;
@@ -84,7 +84,8 @@
     &__editor{
       min-width: 400px;
       height: 600px;
-      overflow: vertical;
+      overflow-x: hidden;
+      overflow-y: scroll;
       border-style: solid;
       border-width: 2px;
       border-color: lightgrey;

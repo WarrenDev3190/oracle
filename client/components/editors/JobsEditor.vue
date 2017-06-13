@@ -1,11 +1,11 @@
 <template lang="html">
 
   <div class="nc-edit">
-    <editor-title :title="'Hires'" />
-    <button class="nc-edit__add-button" type="button" @click="addHire" >+New Hire</button>
-    <div class="nc-edit__group" v-for="(hire, index) in hires">
-      <hire-editor class="nc-edit__group__left" v-model="hires[index]" />
-      <button class="nc-edit__group__right nc-edit__remove-button" type="button" @click="removeHire(index)" >X</button>
+    <editor-title :title="'Jobs'" />
+    <button class="nc-edit__add-button" type="button" @click="addJob" >+New Job</button>
+    <div class="nc-edit__group" v-for="(job, index) in jobs">
+      <job-editor class="nc-edit__group__left" v-model="jobs[index]" :editorId="'JobEditor-' + index" />
+      <button class="nc-edit__group__right nc-edit__remove-button" type="button" @click="removeJob(index)" >X</button>
     </div>
   </div>
 
@@ -13,39 +13,39 @@
 <script type="text/javascript">
   import EditorTitle from './EditorTitle.vue'
   import LineEditor from './LineEditor.vue'
-  import HireEditor from './HireEditor.vue'
+  import JobEditor from './JobEditor.vue'
   export default {
     components: {
       EditorTitle,
       LineEditor,
-      HireEditor
+      JobEditor
     },
     computed: {
     },
     watch:{
       value(newValue){
         this.titleText = newValue.titleText,
-        this.hires = newValue.hires
+        this.jobs = newValue.jobs
       }
     },
     methods: {
       updateInput: function(value){
         this.$emit('input', {
           titleText: this.titleText,
-          hires: this.hires
+          jobs: this.jobs
         })
       },
-      addHire: function(){
-        this.hires.push({name:"",position:""})
+      addJob: function(){
+        this.jobs.push({title:"",location:"",description:"",link:""})
       },
-      removeHire: function(index){
-        this.hires.splice(index, 1)
+      removeJob: function(index){
+        this.jobs.splice(index, 1)
       }
     },
     data: function(){
       return {
         titleText: this.value.titleText,
-        hires: this.value.hires
+        jobs: this.value.jobs
       }
     },
     props: {
@@ -53,14 +53,14 @@
         default: function(){
           return {
             titleText: "",
-            hires: []
+            jobs: ""
           }
         },
         type:Object
       },
       editorId: {
-        default: "HiresEditor",
-        type: String
+        default: "JobsEditor",
+        type:String
       }
     }
   }

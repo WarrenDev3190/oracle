@@ -3,7 +3,7 @@
   <div class="nc-edit">
     <editor-title :title="'Footer'" />
     <line-editor :title="'Email'" v-model="email" @input="updateInput" />
-    <html-editor :title="'Footer Body'" v-model="footerHtml" @input="updateInput" />
+    <html-editor :editorId="editorId" :title="'Footer Body'" v-model="footerHtml" @input="updateInput" />
   </div>
 
 </template>
@@ -45,7 +45,11 @@
           email: "",
           footerHtml: ""
         },
-        type:Object
+        type: Object
+      },
+      editorId: {
+        default: "FootEditor",
+        type: String
       }
     }
   }

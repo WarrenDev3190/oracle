@@ -46,8 +46,7 @@
         {{job.location}}
       </span>
       <br/>
-      <span>
-        {{job.description}}
+      <span v-html="job.description">
       </span>
     </div>
   </div>

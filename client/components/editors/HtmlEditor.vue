@@ -2,7 +2,7 @@
 
   <div class="nc-edit__component">
     <div class="nc-edit__subtitle">{{title}}</div>
-    <vue-editor class="nc-edit__html-input" :editorToolbar="toolbarOptions" v-model="body" @input="updateInput"/>
+    <vue-editor class="nc-edit__html-input" :id="editorId" :editorToolbar="toolbarOptions" v-model="body" @input="updateInput"/>
   </div>
 
 </template>
@@ -21,6 +21,7 @@
     },
     methods: {
       updateInput: function(){
+        this.body = this.body.replace('<p', '<p style="margin-top:0px;margin-bottom:0px;"')
         this.$emit('input', this.body)
       }
     },
@@ -48,6 +49,10 @@
           ]
         },
         type: Array
+      },
+      editorId: {
+        default: "HtmlEditor",
+        type: String
       }
     }
   }

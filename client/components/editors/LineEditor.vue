@@ -29,11 +29,15 @@
     },
     props: {
       title:{
-        default:"",
+        default: "",
         type:String
       },
       value: {
         default: "",
+        type: String
+      },
+      editorId: {
+        default: "LineEditor",
         type: String
       }
     }

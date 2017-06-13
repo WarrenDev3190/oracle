@@ -43,6 +43,10 @@
           }
         },
         type:Object
+      },
+      editorId: {
+        default: "HireEditor",
+        type: String
       }
     }
   }

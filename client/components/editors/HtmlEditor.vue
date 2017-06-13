@@ -2,7 +2,7 @@
 
   <div class="nc-edit__component">
     <div class="nc-edit__subtitle">{{title}}</div>
-    <vue-editor class="nc-edit__html-input" ref="htmlEdit" :editorToolbar="toolbarOptions" :value="value" @input="updateInput"/>
+    <vue-editor class="nc-edit__html-input" :editorToolbar="toolbarOptions" v-model="body" @input="updateInput"/>
   </div>
 
 </template>
@@ -14,13 +14,20 @@
     },
     computed: {
     },
+    watch: {
+      value(newValue){
+        this.body = newValue
+      }
+    },
     methods: {
-      updateInput: function(value){
-        this.$emit('input', value)
+      updateInput: function(){
+        this.$emit('input', this.body)
       }
     },
     data: function(){
-      return {}
+      return {
+        body: this.value
+      }
     },
     props: {
       title:{
@@ -35,7 +42,7 @@
         default: function(){
           return [
             ['bold', 'italic', 'underline', 'strike'],
-            [{'size': []}, {'color': []}, {'background': []}],
+            [{'color': []}, {'background': []}],
             ['link'],
             ['clean']
           ]

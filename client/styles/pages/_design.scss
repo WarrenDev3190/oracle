@@ -52,6 +52,10 @@
       flex-flow: column;
     }
 
+    &__template a {
+      color: inherit !important;
+    }
+
     &__template, &__editor {
       flex: 1;
       position:relative;

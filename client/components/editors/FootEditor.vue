@@ -2,8 +2,8 @@
 
   <div class="nc-edit">
     <editor-title :title="'Footer'" />
-    <line-editor :title="'Email'" v-model="value.email" />
-    <html-editor :title="'Footer Body'" v-model="value.footerHtml" />
+    <line-editor :title="'Email'" v-model="email" @input="updateInput" />
+    <html-editor :title="'Footer Body'" v-model="footerHtml" @input="updateInput" />
   </div>
 
 </template>
@@ -19,10 +19,25 @@
     },
     computed: {
     },
+    watch:{
+      value(newValue){
+        this.email = newValue.email,
+        this.footerHtml = newValue.footerHtml
+      }
+    },
     methods: {
+      updateInput: function(value){
+        this.$emit('input', {
+          email: this.email,
+          footerHtml: this.footerHtml
+        })
+      }
     },
     data: function(){
-      return {}
+      return {
+        email: this.value.email,
+        footerHtml: this.value.footerHtml
+      }
     },
     props: {
       value: {

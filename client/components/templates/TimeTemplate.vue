@@ -57,7 +57,7 @@
       :barColorSolid="sectionBarColorStart"
       :events="sections.events.data.events"
     />
-    <new-hires
+    <hires
       v-show="!sections.hires.toggleable || sections.hires.on"
       @click.native="sectionSelected('hires')"
       :class="{hoverable: sections.hires.editable}"
@@ -94,7 +94,7 @@
   import Spotlight from './sections/Spotlight.vue'
   import News from './sections/News.vue'
   import Events from './sections/Events.vue'
-  import NewHires from './sections/NewHires.vue'
+  import Hires from './sections/Hires.vue'
   import Jobs from './sections/Jobs.vue'
   import Foot from './sections/Foot.vue'
   export default {
@@ -103,7 +103,7 @@
       Spotlight,
       News,
       Events,
-      NewHires,
+      Hires,
       Jobs,
       Foot
     },

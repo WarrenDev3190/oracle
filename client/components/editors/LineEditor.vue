@@ -2,7 +2,7 @@
 
   <div class="nc-edit__component">
     <div class="nc-edit__subtitle">{{title}}</div>
-    <input class="nc-edit__text-input" ref="textInput" type="text" :value="value" @input="updateInput()" />
+    <input class="nc-edit__text-input" type="text" v-model="text" @input="updateInput()" />
   </div>
 
 </template>
@@ -14,11 +14,18 @@
     },
     methods: {
       updateInput: function(){
-        this.$emit('input', this.$refs.textInput.value)
+        this.$emit('input', this.text)
+      }
+    },
+    watch: {
+      value(newValue){
+        this.text = newValue
       }
     },
     data: function(){
-      return {}
+      return {
+        text: this.value
+      }
     },
     props: {
       title:{

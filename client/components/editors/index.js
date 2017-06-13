@@ -1,5 +1,7 @@
 import FootEditor from './FootEditor.vue'
+import HiresEditor from './HiresEditor.vue'
 
 export default {
-  FootEditor
+  FootEditor,
+  HiresEditor
 }

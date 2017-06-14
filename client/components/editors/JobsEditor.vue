@@ -53,7 +53,7 @@
         default: function(){
           return {
             titleText: "",
-            jobs: ""
+            jobs: []
           }
         },
         type:Object

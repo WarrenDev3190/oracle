@@ -2,6 +2,10 @@
   padding-left:20px;
   padding-right:20px;
 
+  &__fill-height {
+
+  }
+
   &__component{
     margin-bottom:15px;
   }
@@ -63,6 +67,79 @@
 
     &__right {
       flex: 0;
+    }
+
+  }
+
+  &__pills {
+    display: flex;
+
+    &__box {
+      flex: 1;
+      border: 1px solid lightgrey;
+      margin-right: 5px;
+    }
+
+    &__side-button {
+      flex: 0;
+      min-width: 100px;
+    }
+
+    &__pill {
+      font-size: 10px;
+      background-color: $nc-blue;
+      display: inline-block;
+      border-radius: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-left: 2px;
+      margin-right: 1px;
+      margin-top: 2px;
+
+      &__title {
+        display: inline-block;
+        color: white;
+        min-width: 10px;
+        text-align:center;
+      }
+
+      &__title:hover {
+        cursor: pointer;
+      }
+
+      &__button {
+        display: inline-block;
+        font-size: 10px;
+        background-color: transparent;
+        border-style: none;
+        font-family: Helvetica, sans-serif;
+        font-weight: bold;
+        color: white;
+      }
+
+    }
+
+  }
+
+  &__columns {
+    display: flex;
+    align-items: stretch;
+    height:350px;
+
+    &__left {
+      width: 50%;
+      border: 1px solid lightgrey;
+      padding: 5px 5px 5px 5px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    &__right {
+      width: 50%;
+      border: 1px solid lightgrey;
+      padding: 5px 5px 5px 5px;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
 
   }

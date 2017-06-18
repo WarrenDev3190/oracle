@@ -4,7 +4,7 @@
       <div class="nc-edit__subtitle">{{title}}</div>
       <div class="nc-edit__pills nc-edit__component">
         <div class="nc-edit__pills__box">
-          <draggable :list="groups" @end="updateOrder">
+          <draggable class="nc-draggable" :list="groups" :options="{animation: '150'}" @end="updateOrder">
             <div class="nc-edit__pills__pill" v-for="(group, index) in groups" @click="selectGroup(index)">
               <div class="nc-edit__pills__pill__title">{{group.title}}</div>
               <button class="nc-edit__pills__pill__button" type="button" @click="removeGroup(index)">X</button>
@@ -39,7 +39,7 @@
         if(dragObj.oldIndex == this.selectedIndex){
           this.selectGroup(dragObj.newIndex)
         }
-        else if(dragObj.newIndex < this.selectedIndex){
+        else if(dragObj.oldIndex > this.selectedIndex && dragObj.newIndex < this.selectedIndex){
           this.selectGroup(this.selectedIndex + 1)
         }
       },
@@ -65,9 +65,8 @@
         event.stopPropagation();
       },
       addGroup: function(){
-        this.groups.push({title:"New Group"})
+        this.groups.push({title:"New Group", articles:[]})
         this.selectGroup(this.groups.length - 1)
-        this.$emit('newgroup', this.groups.length - 1)
       },
       selectGroup: function(index){
         this.selectedIndex = index

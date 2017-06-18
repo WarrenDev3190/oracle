@@ -11,3 +11,10 @@
 @import 'pages/design';
 @import 'pages/layouts';
 @import 'editors/editor';
+
+.nc-draggable {
+  height: 100%;
+  min-height: 50px;
+  width: 100%;
+  min-width: 50px;
+}

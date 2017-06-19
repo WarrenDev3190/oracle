@@ -7,3 +7,4 @@ import * as firebase from 'firebase'
 export const fb = firebase.initializeApp(FIREBASE)
 export const db = fb.database()
 export const auth = fb.auth()
+export const templatestorage = fb.storage("gs://templateuploads")

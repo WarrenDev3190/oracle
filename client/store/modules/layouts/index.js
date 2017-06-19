@@ -69,7 +69,7 @@ const state = {
                         "velit sapien. In turpis risus, mattis ac justo auctor, luctus pulvinar tellus. Pellentesque " +
                         "interdum, ex sed euismod maximus, orci elit posuere erat, vel pretium mauris justo dignissim " +
                         "nisl. Crassut aliquet purus. Aenean tincidunt mi ut elementum faucibus. " +
-                        "<strong><a href='http://www.google.com' >Link to Google </a></strong>",
+                        "<strong><a target='_blank' href='http://www.google.com' >Link to Google </a></strong>",
               image: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952"
             }
           },

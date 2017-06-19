@@ -117,14 +117,12 @@
     props: {
       highlight: {
         default: function(event){
-          console.log("highlightDisabled")
           event.target.style.backgroundColor = "lightGrey"
         },
         type:Function
       },
       sectionSelected: {
         default: function(sectionKey){
-          console.log(sectionKey)
         },
         type:Function
       },

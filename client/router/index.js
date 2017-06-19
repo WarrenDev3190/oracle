@@ -7,6 +7,7 @@ import Keywords from '../components/Keywords.vue'
 import Stories from '../components/Stories.vue'
 import Layout from '../components/Layout.vue'
 import Design from '../components/Design.vue'
+import Share from '../components/Share.vue'
 import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
@@ -43,6 +44,11 @@ const router = new Router({
       name: 'design',
       path: '/design',
       component: Design
+    },
+    {
+      name: 'share',
+      path: '/share',
+      component: Share
     },
     {
       name: 'not-found',

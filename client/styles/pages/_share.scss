@@ -1,0 +1,149 @@
+.nc-share{
+
+  width:100%;
+
+  &__subtitle {
+    color: lightgrey;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 10px;
+  }
+
+  &__top {
+    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  &__export {
+    min-width: 300px;
+    width: 50%;
+    height: 300px;
+    text-align: center;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+
+    &__file-types {
+        width: 300px;
+        text-align: center;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 10px !important;
+    }
+
+    &__filetype-select {
+      border: 1px solid lightgrey;
+      height: 40px;
+    }
+
+    &__export-button {
+      width: 300px;
+      height: 50px;
+      background-color: $nc-blue;
+      border-style: none;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+  }
+
+  &__send-email {
+    min-width: 300px;
+    width: 50%;
+    height: 300px;
+    text-align: center;
+    border: 1px solid lightgrey;
+
+    &__email-input {
+      height: 30px;
+      width: 150px;
+    }
+
+    &__add-button {
+      height: 25px;
+      width: 40px;
+      background-color: $nc-blue;
+      border-style: none;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    &__send-button {
+      margin-top: 10px;
+      width: 250px;
+      height: 50px;
+      background-color: $nc-blue;
+      border-style: none;
+      color: white;
+      font-weight:bold;
+      font-size: 14px;
+    }
+
+    &__emails {
+      width: 300px;
+      height: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    &__email {
+      width: 270px;
+      height:25px;
+      line-height: 25px;
+      padding-left: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 5px;
+      background-color: lightgrey;
+
+      &__text {
+        display: inline-block;
+        width: 235px;
+        text-align: left;
+        color: white;
+        font-size: 14px;
+      }
+
+      &__remove-button {
+        display: inline-block;
+        width: 20px;
+        background-color: white;
+        color: lightgrey;
+        border-style: none;
+        font-type: Impact;
+        font-weight: bold;
+        font-size: 11px;
+        margin-right: 5px;
+
+      }
+
+    }
+
+  }
+
+  &__preview {
+    width: 100%;
+    margin-top: 20px;
+
+    &__title{
+      width: 200px;
+      border-bottom: 1px solid lightgrey;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+  }
+
+}

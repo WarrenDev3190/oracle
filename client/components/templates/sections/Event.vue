@@ -31,8 +31,7 @@
       >
         {{date}}:
       </span>
-      <span>
-        {{description}}|
+      <span v-html="description">
       </span>
       <a :style="{
         'font-size':'12.8px',
@@ -43,7 +42,7 @@
         :href="linkUrl"
         target="_blank"
       >
-        {{linkText}}
+        |{{linkText}}
       </a>
     </div>
   </div>

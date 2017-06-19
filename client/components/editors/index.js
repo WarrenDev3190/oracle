@@ -4,6 +4,7 @@ import JobsEditor from './JobsEditor.vue'
 import NewsEditor from './NewsEditor.vue'
 import HeroEditor from './HeroEditor.vue'
 import SpotlightEditor from './SpotlightEditor.vue'
+import EventsEditor from './EventsEditor.vue'
 
 export default {
   FootEditor,
@@ -11,5 +12,6 @@ export default {
   JobsEditor,
   NewsEditor,
   HeroEditor,
-  SpotlightEditor
+  SpotlightEditor,
+  EventsEditor
 }

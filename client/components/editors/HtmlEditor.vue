@@ -21,7 +21,6 @@
     },
     methods: {
       updateInput: function(){
-        this.body = this.body.replace('<p', '<p style="margin-top:0px;margin-bottom:0px;"')
         this.$emit('input', this.body)
       }
     },

@@ -12,9 +12,11 @@
     <img :style="{
       'display':'block',
       'margin':'auto',
-      'width':'100%',
-      'height':'auto !important'
+      'width':'600px',
+      'height':'180px'
       }"
+      width="600"
+      height="180"
       :src="logo"
       alt="Logo"
     />

@@ -11,29 +11,55 @@
       'padding-left':'30px',
       'padding-right':'30px',
       'margin-bottom':'20px'
-      }">
+      }"
+    >
       <tr>
         <td :style="{
-          'font-family':'\'Lato\', Helvetica, sans-serif',
-          'font-size':'24px',
-          'line-height':'1.25',
-          'text-align':'left',
-          'width':'1%',
+            'font-family':'\'Lato\', Helvetica, sans-serif',
+            'font-size':'24px',
+            'height':'100px',
+            'text-align':'left',
+            'padding':'0px',
+            'width':'1%'
           }"
-          nowrap
+          valign="middle"
         >
-          {{titleText}}
+          <div>
+            <table>
+              <tr>
+                <td :style="{
+                  'font-family':'\'Lato\', Helvetica, sans-serif',
+                  'font-size':'24px',
+                  'text-align':'left',
+                  'padding':'0px'
+                  }"
+                  nowrap>
+                  {{titleText}}
+                </td>
+              </tr>
+            </table>
+          </div>
         </td>
-        <td>
-          <div :style="{
-            'align-self':'center',
-            'height':'5px',
-            'margin-left':'5px',
-            'background-color': 'barColorSolid',
-            'background-image': 'linear-gradient(to right,' + barColorStart + ' 80%, ' + barColorEnd + ' 90%)'
+        <td :style="{
+            'font-family':'\'Lato\', Helvetica, sans-serif',
+            'font-size':'24px',
+            'padding':'0px',
+            'height':'100px',
+            'text-align':'left'
+          }"
+          valign="middle"
+        >
+          <table :style="{
+              'font-family':'\'Lato\', Helvetica, sans-serif',
+              'font-size':'24px',
+              'height':'.3em',
+              'width':'100%',
+              'text-align':'left',
+              'background-color': barColorSolid,
+              'background-image': 'linear-gradient(to right,' + barColorStart + ' 80%, ' + barColorEnd + ' 90%)'
             }"
           >
-          </div>
+          </table>
         </td>
       </tr>
     </table>

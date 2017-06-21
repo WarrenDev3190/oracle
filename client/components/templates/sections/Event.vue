@@ -10,8 +10,12 @@
   >
     <img :style="{
         'padding-left':'20px',
-        'padding-right':'20px'
+        'padding-right':'20px',
+        'width':'300px',
+        'height':'200px'
       }"
+      width="300"
+      height="200"
       :src="image"
     />
     <div>

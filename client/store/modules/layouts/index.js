@@ -29,8 +29,8 @@ const mutations = {
 const state = {
   layouts: [
     {
-      type: 'time',
-      imageURL: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time-template.png?alt=media&token=74eb4c72-666c-41ef-85e6-510e4d40406c",
+      type: 'Template 1',
+      imageURL: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/template1.jpg?alt=media&token=489403a9-94e6-4283-9334-c3084157d1ec",
       selected: true,
       component:"time-template",
       template: {
@@ -39,20 +39,13 @@ const state = {
         sectionBarColorEnd: "#00edbf",
         sectionBarColorSolid: "#0081eb",
         sections: {
-          default: {
-            title: "Default",
-            on: false,
-            editable: false,
-            toggleable: false,
-            data: {}
-          },
           hero: {
             title: "Header",
             on: true,
             editable: true,
             toggleable: false,
             data:{
-              logo: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_logo.jpg?alt=media&token=c3963be8-2e3b-4827-bca0-a5cb91bbc011',
+              logo: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hero_placeholder.jpg?alt=media&token=c45699a1-d4c0-44b6-a948-3fe9bf8d1483',
               heroBackground: "#FFFFFF"
             }
           },
@@ -70,7 +63,7 @@ const state = {
                         "interdum, ex sed euismod maximus, orci elit posuere erat, vel pretium mauris justo dignissim " +
                         "nisl. Crassut aliquet purus. Aenean tincidunt mi ut elementum faucibus. " +
                         "<strong><a target='_blank' href='http://www.google.com' >Link to Google </a></strong>",
-              image: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952"
+              image: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7"
             }
           },
           news: {
@@ -94,7 +87,7 @@ const state = {
                                     "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
                                     "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
                       "url": "https://www.google.com",
-                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952",
+                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
                       "publishedAt": "1990-01-01T00:00:00Z",
                       "source": "fake-news-source",
                       "index": -1,
@@ -110,7 +103,7 @@ const state = {
                                     "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
                                     "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
                       "url": "https://www.google.com",
-                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952",
+                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
                       "publishedAt": "1990-01-01T00:00:00Z",
                       "source": "fake-news-source",
                       "index": -1,
@@ -131,7 +124,7 @@ const state = {
                                     "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
                                     "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
                       "url": "https://www.google.com",
-                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952",
+                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
                       "publishedAt": "1990-01-01T00:00:00Z",
                       "source": "fake-news-source",
                       "index": -1,
@@ -151,7 +144,7 @@ const state = {
               titleText: "what's happening",
               events: [
                 {
-                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952",
+                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
                   title:"Event Title 1",
                   date:"Monday, January 1st",
                   description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",
@@ -159,7 +152,7 @@ const state = {
                   linkText:"Event Link"
                 },
                 {
-                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952",
+                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
                   title:"Event Title 2",
                   date:"Monday, January 1st",
                   description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",

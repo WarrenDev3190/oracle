@@ -59,14 +59,23 @@ export default {
       this.emails.splice(index, 1)
     },
     exportFile: function(){
-      var emailText = "Subject: " + this.subject + "\n"+
-                      "Mime-version: 1.0\n"+
-                      "Content-type: text/html;\n"+
-                      "Content-transfer-encoding: quoted-printable\n"
-      emailText = emailText + "\n\n" + this.$refs['template'].$el.outerHTML
-      var file = new Blob([emailText], {type: this.fileType});
+      switch(this.fileType){
+        case "EML":
+          this.exportEmlFile()
+          break;
+        default:
+          this.exportEmlFile()
+          break;
+      }
+    },
+    exportEmlFile: function(){
+      var emailText = "Subject: " + this.subject + "\n" +
+                      "X-Unsent: 1\n" +
+                      "Content-type: text/html;\n"
+      emailText = emailText + "\n\n<html><head></head><body>" + this.$refs['template'].$el.outerHTML + "</body>"
+      var file = new Blob([emailText], {type: "eml"});
       var d = new Date()
-      var fileName = "NewsCart Template " + d.toUTCString() + "." + this.fileType
+      var fileName = "NewsCart Template " + d.toUTCString() + ".eml"
       if (window.navigator.msSaveOrOpenBlob)
           window.navigator.msSaveOrOpenBlob(file, fileName);
       else {

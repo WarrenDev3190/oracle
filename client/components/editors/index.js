@@ -1,3 +1,4 @@
+import DefaultEditor from './DefaultEditor.vue'
 import FootEditor from './FootEditor.vue'
 import HiresEditor from './HiresEditor.vue'
 import JobsEditor from './JobsEditor.vue'
@@ -7,6 +8,7 @@ import SpotlightEditor from './SpotlightEditor.vue'
 import EventsEditor from './EventsEditor.vue'
 
 export default {
+  DefaultEditor,
   FootEditor,
   HiresEditor,
   JobsEditor,

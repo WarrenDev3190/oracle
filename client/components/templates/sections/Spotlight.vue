@@ -18,7 +18,14 @@
             'width':'50%'
           }"
         >
-          <img :src="image"/>
+          <img :style="{
+              'width':'300px',
+              'height':'200px'
+            }"
+            width="300"
+            height="200"
+            :src="image"
+          />
         </td>
         <td valign="top">
           <div :style="{

@@ -4,7 +4,8 @@
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
       'line-height':'1',
-      'margin-bottom':'20px'
+      'margin-bottom':'20px',
+      'text-align':'left'
     }"
   >
     <a :style="{

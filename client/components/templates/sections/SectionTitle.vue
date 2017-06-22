@@ -52,13 +52,22 @@
           <table :style="{
               'font-family':'\'Lato\', Helvetica, sans-serif',
               'font-size':'24px',
-              'height':'.3em',
               'width':'100%',
               'text-align':'left',
-              'background-color': barColorSolid,
-              'background-image': 'linear-gradient(to right,' + barColorStart + ' 80%, ' + barColorEnd + ' 90%)'
+
             }"
           >
+            <tr>
+              <td
+              :style="{
+                  'height':'5px',
+                  'background-color': barColorSolid,
+                  'background-image': 'linear-gradient(to right,' + barColorStart + ' 80%, ' + barColorEnd + ' 90%)'
+              }"
+              height="4"
+              >
+              </td>
+            </tr>
           </table>
         </td>
       </tr>

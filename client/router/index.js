@@ -18,37 +18,58 @@ const router = new Router({
     {
       name: 'login',
       path: '/',
-      component: Login
+      component: Login,
+      meta: {
+        order: undefined
+      }
     },
     {
       name: 'topics',
       path: '/topics',
-      component: Topics
+      component: Topics,
+      meta: {
+        order: 0
+      }
     },
     {
       name: 'keywords',
       path: '/keywords',
-      component: Keywords
+      component: Keywords,
+      meta: {
+        order: 1
+      }
     },
     {
       name: 'stories',
       path: '/stories',
-      component: Stories
+      component: Stories,
+      meta: {
+        order: 2
+      }
     },
     {
       name: 'layout',
       path: '/layout',
-      component: Layout
+      component: Layout,
+      meta: {
+        order: 3
+      }
     },
     {
       name: 'design',
       path: '/design',
-      component: Design
+      component: Design,
+      meta: {
+        order: 4
+      }
     },
     {
       name: 'share',
       path: '/share',
-      component: Share
+      component: Share,
+      meta: {
+        order: 5
+      }
     },
     {
       name: 'not-found',

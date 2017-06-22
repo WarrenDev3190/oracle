@@ -7,7 +7,7 @@ const getArticles = require('./libs/getArticles')
 const prepArticlesForApp = require('./libs/prepArticlesForApp')
 const cors = require('cors')({ origin: true })
 /**
- * [handleGetNewsAPI description]
+ * [handleGetNewsAPI]
  * @param  {Object} request  [Express Request Object with firebase 'niceties' 😜]
  * @param  {Object} response [Express Response Object]
  * @return {Promise}         [firebase requires that functions return a Promise]

@@ -124,7 +124,7 @@ export default {
         subject: "NewsCart Newsletter",
         newEmail: "",
         fileType: "EML",
-        fileTypes: ["EML", "OFT"],
+        fileTypes: ["EML"],
         emails: []
       }
   },

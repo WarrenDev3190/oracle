@@ -74,7 +74,10 @@ const router = new Router({
     {
       name: 'not-found',
       path: '*',
-      component: NotFound
+      component: NotFound,
+      meta: {
+        order: undefined
+      }
     }
   ]
 })

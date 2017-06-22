@@ -7,88 +7,100 @@
       <table :style="{
           'width':'600px'
           }"
+          width="600"
+          align="center"
       >
-        <hero
-          v-show="!sections.hero.toggleable || sections.hero.on"
-          @click.native="sectionSelected('hero')"
-          :class="{hoverable: sections.hero.editable}"
-          :logo="sections.hero.data.logo"
-          :backgroundColor="sections.hero.data.heroBackground"
-        />
-        <div
-          :style="{
-            'text-align':'center',
-            'font':'Arial,Helvetica,sans-serif',
-            'font-size':'14px',
-            'font-weight':'bolder',
-            'margin-bottom':'20px'
-          }"
+        <tr>
+          <td
+            :style="{
+              'width':'600px'
+            }"
+            align="center"
+            width="600"
           >
-          <span>
-            {{currentDate}}
-          </span>
-        </div>
-        <spotlight
-          v-show="!sections.spotlight.toggleable || sections.spotlight.on"
-          @click.native="sectionSelected('spotlight')"
-          :class="{hoverable: sections.spotlight.editable}"
-          :barColorStart="sectionBarColorStart"
-          :barColorEnd="sectionBarColorEnd"
-          :barColorSolid="sectionBarColorStart"
-          :bodyHtml="sections.spotlight.data.bodyHtml"
-          :image="sections.spotlight.data.image"
-          :titleText="sections.spotlight.titleText"
-        />
-        <news
-          v-show="!sections.news.toggleable || sections.news.on"
-          @click.native="sectionSelected('news')"
-          :class="{hoverable: sections.news.editable}"
-          :accentColor="accentColor"
-          :barColorStart="sectionBarColorStart"
-          :barColorEnd="sectionBarColorEnd"
-          :barColorSolid="sectionBarColorStart"
-          :newsGroups="sections.news.data.newsGroups"
-          :titleText="sections.news.data.titleText"
-        />
-        <events
-          v-show="!sections.events.toggleable || sections.events.on"
-          @click.native="sectionSelected('events')"
-          :class="{hoverable: sections.events.editable}"
-          :accentColor="accentColor"
-          :barColorStart="sectionBarColorStart"
-          :barColorEnd="sectionBarColorEnd"
-          :barColorSolid="sectionBarColorStart"
-          :events="sections.events.data.events"
-        />
-        <hires
-          v-show="!sections.hires.toggleable || sections.hires.on"
-          @click.native="sectionSelected('hires')"
-          :class="{hoverable: sections.hires.editable}"
-          :barColorStart="sectionBarColorStart"
-          :barColorEnd="sectionBarColorEnd"
-          :barColorSolid="sectionBarColorStart"
-          :titleText="sections.hires.data.titleText"
-          :newHires="sections.hires.data.hires"
-        />
-        <jobs
-        v-show="!sections.jobs.toggleable || sections.jobs.on"
-          @click.native="sectionSelected('jobs')"
-          :class="{hoverable: sections.jobs.editable}"
-          :accentColor="accentColor"
-          :barColorStart="sectionBarColorStart"
-          :barColorEnd="sectionBarColorEnd"
-          :barColorSolid="sectionBarColorStart"
-          :titleText="sections.jobs.data.titleText"
-          :jobs="sections.jobs.data.jobs"
-        />
-        <foot
-          v-show="!sections.foot.toggleable || sections.foot.on"
-          @click.native="sectionSelected('foot')"
-          :class="{hoverable: sections.foot.editable}"
-          :accentColor="accentColor"
-          :email="sections.foot.data.email"
-          :footerHtml="sections.foot.data.footerHtml"
-        />
+            <hero
+              v-show="!sections.hero.toggleable || sections.hero.on"
+              @click.native="sectionSelected('hero')"
+              :class="{hoverable: sections.hero.editable}"
+              :logo="sections.hero.data.logo"
+              :backgroundColor="sections.hero.data.heroBackground"
+            />
+            <div
+              :style="{
+                'text-align':'center',
+                'font':'Arial,Helvetica,sans-serif',
+                'font-size':'14px',
+                'font-weight':'bolder',
+                'margin-bottom':'20px'
+              }"
+              >
+              <span>
+                {{currentDate}}
+              </span>
+            </div>
+            <spotlight
+              v-show="!sections.spotlight.toggleable || sections.spotlight.on"
+              @click.native="sectionSelected('spotlight')"
+              :class="{hoverable: sections.spotlight.editable}"
+              :barColorStart="sectionBarColorStart"
+              :barColorEnd="sectionBarColorEnd"
+              :barColorSolid="sectionBarColorStart"
+              :bodyHtml="sections.spotlight.data.bodyHtml"
+              :image="sections.spotlight.data.image"
+              :titleText="sections.spotlight.titleText"
+            />
+            <news
+              v-show="!sections.news.toggleable || sections.news.on"
+              @click.native="sectionSelected('news')"
+              :class="{hoverable: sections.news.editable}"
+              :accentColor="accentColor"
+              :barColorStart="sectionBarColorStart"
+              :barColorEnd="sectionBarColorEnd"
+              :barColorSolid="sectionBarColorStart"
+              :newsGroups="sections.news.data.newsGroups"
+              :titleText="sections.news.data.titleText"
+            />
+            <events
+              v-show="!sections.events.toggleable || sections.events.on"
+              @click.native="sectionSelected('events')"
+              :class="{hoverable: sections.events.editable}"
+              :accentColor="accentColor"
+              :barColorStart="sectionBarColorStart"
+              :barColorEnd="sectionBarColorEnd"
+              :barColorSolid="sectionBarColorStart"
+              :events="sections.events.data.events"
+            />
+            <hires
+              v-show="!sections.hires.toggleable || sections.hires.on"
+              @click.native="sectionSelected('hires')"
+              :class="{hoverable: sections.hires.editable}"
+              :barColorStart="sectionBarColorStart"
+              :barColorEnd="sectionBarColorEnd"
+              :barColorSolid="sectionBarColorStart"
+              :titleText="sections.hires.data.titleText"
+              :newHires="sections.hires.data.hires"
+            />
+            <jobs
+            v-show="!sections.jobs.toggleable || sections.jobs.on"
+              @click.native="sectionSelected('jobs')"
+              :class="{hoverable: sections.jobs.editable}"
+              :accentColor="accentColor"
+              :barColorStart="sectionBarColorStart"
+              :barColorEnd="sectionBarColorEnd"
+              :barColorSolid="sectionBarColorStart"
+              :titleText="sections.jobs.data.titleText"
+              :jobs="sections.jobs.data.jobs"
+            />
+            <foot
+              v-show="!sections.foot.toggleable || sections.foot.on"
+              @click.native="sectionSelected('foot')"
+              :class="{hoverable: sections.foot.editable}"
+              :accentColor="accentColor"
+              :email="sections.foot.data.email"
+              :footerHtml="sections.foot.data.footerHtml"
+            />
+          </td>
+        </tr>
       </table>
   </div>
 </template>

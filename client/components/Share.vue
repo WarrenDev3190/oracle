@@ -17,7 +17,7 @@
           <input class="nc-share__send-email__email-input" type="text" v-model="newEmail" />
           <button class="nc-share__send-email__add-button" type="button" @click="addEmail">Add</button>
           <br />
-          <button class="nc-share__send-email__send-button" type="button">Send to Recipients</button>
+          <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send to Recipients</button>
           <div class="nc-share__send-email__emails">
             <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
               <div class="nc-share__send-email__email__text">{{email}}</div>
@@ -38,6 +38,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import cloudFunctions from '../services/cloudFunctions'
 import Navigation from './Navigation.vue'
 import TimeTemplate from './templates/TimeTemplate.vue'
 export default {
@@ -49,6 +50,9 @@ export default {
     ...mapGetters('layouts', ['selectedLayout'])
   },
   methods: {
+    resetSendButton: function(){
+      this.$refs["sendButton"].innerHTML = "Send to Recipients"
+    },
     addEmail: function(){
       if(this.newEmail != ""){
         this.emails.push(this.newEmail)
@@ -57,6 +61,29 @@ export default {
     },
     removeEmail: function(index){
       this.emails.splice(index, 1)
+    },
+    sendEmails: function(){
+      this.$refs["sendButton"].disabled = true
+      this.$refs["sendButton"].innerHTML = "Sending..."
+      var emailText = encodeURIComponent("<html><head></head><body>" + this.$refs['template'].$el.outerHTML + "</body></html>")
+      var emailB64 = window.btoa(emailText)
+      cloudFunctions.post("/sendTemplate", {
+        "from": "info@newscart.co",
+        "subject": "NewsCart Newsletter",
+        "recipients": this.emails,
+        "content": emailB64
+      }).then(success => {
+          this.$refs["sendButton"].disabled = false
+          this.$refs["sendButton"].innerHTML = "Sent"
+          setTimeout(this.resetSendButton, 5000)
+        }
+      ).catch(err => {
+          this.$refs["sendButton"].disabled = false
+          this.$refs["sendButton"].innerHTML = "Bombed"
+          setTimeout(this.resetSendButton, 5000)
+        }
+      )
+
     },
     exportFile: function(){
       switch(this.fileType){
@@ -72,7 +99,7 @@ export default {
       var emailText = "Subject: " + this.subject + "\n" +
                       "X-Unsent: 1\n" +
                       "Content-type: text/html;\n"
-      emailText = emailText + "\n\n<html><head></head><body>" + this.$refs['template'].$el.outerHTML + "</body>"
+      emailText = emailText + "\n\n<html><head></head><body>" + this.$refs['template'].$el.outerHTML + "</body></html>"
       var file = new Blob([emailText], {type: "eml"});
       var d = new Date()
       var fileName = "NewsCart Template " + d.toUTCString() + ".eml"

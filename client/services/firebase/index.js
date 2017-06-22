@@ -3,6 +3,8 @@
 // firebase
 import Promise from 'bluebird'
 import { auth, db } from '../../constants/fb'
+import store from '../../store'
+import router from '../../router'
 
 const firebaseService = {
   login (email, password) {
@@ -22,17 +24,16 @@ const firebaseService = {
   /**
    * [listenForAuthStateChanged fires firebase auth listener
    * docs found here: https://firebase.google.com/docs/reference/js/firebase.auth.Auth#onAuthStateChanged]
-   * @return {Promise} [a Promise returning either a user or null ]
    */
   listenForAuthStateChanged () {
-    return Promise((resolve, reject) => {
-      auth.onAuthStateChanged()
-      .then(user => {
-        if (user) {
-          return resolve(user)
-        }
-        return resolve()
-      })
+    auth.onAuthStateChanged(function (user) {
+      if (user) {
+        store.commit('user/RECEIVE_USER', user)
+        firebaseService.getUserProperties(user.uid)
+        .then(properties => store.commit('user/RECEIVE_USER_PROPERTIES', properties))
+        .then(() => router.push({ path: '/topics' }))
+        .catch(loginError => store.commit('user/LOGIN_ERROR', loginError))
+      }
     })
   },
   getUserProperties (userId) {

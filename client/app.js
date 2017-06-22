@@ -7,6 +7,7 @@ import { sync } from 'vuex-router-sync'
 import App from './components/App'
 import router from './router'
 import store from './store'
+import firebaseService from './services/firebase'
 import './styles/main.scss'
 
 Vue.use(VueMaterial)
@@ -26,5 +27,7 @@ const app = new Vue({
   store,
   ...App
 })
+
+firebaseService.listenForAuthStateChanged()
 
 export { app, router, store }

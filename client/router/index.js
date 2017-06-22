@@ -70,6 +70,7 @@ const router = new Router({
       meta: {
         order: 5
       }
+
     },
     {
       name: 'not-found',
@@ -84,10 +85,34 @@ const router = new Router({
 
 // mount beforeEach method
 router.beforeEach((to, from, next) => {
-  if (to.path !== '/') {
-    return store.state.user.user ? next() : next({ path: '/' })
+  if (to.path !== '/' && !store.state.user.user) {
+    return next({ path: '/' })
   }
-  next()
+  else if (to.path == '/next'){
+    var found = router.options.routes.filter(function(route){
+      return route.meta.order == from.meta.order + 1
+    })
+    if(found.length > 0){
+      return next({path: found[0].path})
+    }
+    else{
+      return next(false)
+    }
+  }
+  else if (to.path == '/previous'){
+    var found = router.options.routes.filter(function(route){
+      return route.meta.order == from.meta.order - 1
+    })
+    if(found.length > 0){
+      return next({path: found[0].path})
+    }
+    else{
+      return next(false)
+    }
+  }
+  else{
+    return next()
+  }
 })
 
 export default router

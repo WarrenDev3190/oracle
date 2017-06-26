@@ -7,7 +7,10 @@
       <nav class="nc-nav__inner-nav nc-flex">
         <li v-for="page in pages"
             class="nc-nav-item"
-            :class="{'nc-nav-item--active': (page === currentPage)}"><router-link :to="page">{{page | capitalize}}</router-link></li>
+            :class="{'nc-nav-item--active': (page === currentPage)}"
+        >
+          <router-link :to="page">{{pageTitle(page)}}</router-link>
+        </li>
       </nav>
     </ul>
   </nav>
@@ -20,18 +23,33 @@
         return this.$router.currentRoute.name
       }
     },
+    methods: {
+      pageTitle(page) {
+        if(page == 'next'){
+          return '>'
+        }
+        else if(page == 'previous'){
+          return '<'
+        }
+        else{
+          return page.charAt(0).toUpperCase() + page.slice(1)
+        }
+      }
+    },
     filters: {
       capitalize
     },
     data() {
       return {
         pages: [
+          'previous',
           'topics',
           'keywords',
           'stories',
           'layout',
           'design',
-          'share'
+          'share',
+          'next'
         ]
       }
     }

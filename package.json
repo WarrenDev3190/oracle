@@ -35,11 +35,10 @@
     "vue-intercom": "^1.0.6",
     "vue-material": "^0.7.1",
     "vue-router": "^2.0.0",
-    "vuedraggable": "^2.11.0",
+    "vuedraggable": "^2.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^4.0.0",
-    "vue2-editor": "^2.0.0",
-    "vuedraggable": "^2.0"
+    "vue2-editor": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

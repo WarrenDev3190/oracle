@@ -68,7 +68,9 @@ const mutations = {
     state.loginError = null
   },
   [RECEIVE_USER_PROPERTIES]: (state, userProperties) => {
-    state.properties = userProperties
+    if (Object.hasOwnProperty(userProperties, 'keywords')) { state.properties = userProperties } else {
+      state.properties = Object.assign({}, userProperties, { keywords: [] })
+    }
   },
   [LOGOUT]: (state) => {
     state.user = null

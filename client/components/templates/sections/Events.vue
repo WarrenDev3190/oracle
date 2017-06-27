@@ -10,6 +10,7 @@
       :barColorEnd="barColorEnd"
       :barColorSolid="barColorSolid"
       :titleText="titleText"
+      :image="'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/events.png?alt=media&token=e2710454-f213-4e4e-8e22-de309aea0f3e'"
     />
     <table :style="{
         'width':'100%',

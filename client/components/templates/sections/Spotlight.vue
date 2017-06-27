@@ -6,6 +6,7 @@
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
       :titleText="titleText"
+      :image="'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/Spotlight.png?alt=media&token=0413d94d-4e8b-43ce-8480-74c9c693badb'"
       />
 
     <table :style="{

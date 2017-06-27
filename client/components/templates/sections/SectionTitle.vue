@@ -18,6 +18,16 @@
             'font-family':'\'Lato\', Helvetica, sans-serif',
             'font-size':'24px',
             'height':'100px',
+            'text-align':'center',
+            'padding':'0px'
+            }"
+        >
+          <img :src="image" />
+        </td>
+        <!-- <td :style="{
+            'font-family':'\'Lato\', Helvetica, sans-serif',
+            'font-size':'24px',
+            'height':'100px',
             'text-align':'left',
             'padding':'0px',
             'width':'1%'
@@ -69,7 +79,7 @@
               </td>
             </tr>
           </table>
-        </td>
+        </td> -->
       </tr>
     </table>
   </div>
@@ -98,6 +108,10 @@
       },
       titleText:{
         default:'section title',
+        type:String
+      },
+      image:{
+        default:'',
         type:String
       }
     }

@@ -3,7 +3,7 @@
     <navigation/>
     <main class="nc-container">
       <header class="nc-header">
-        <h3>Keywords</h3>
+        <h3>Now, input any keywords you'd like to follow.</h3>
       </header>
       <div class="nc-inner-container">
         <md-chips @change="handleKeywordsChange" v-model="userDefinedKeywords" md-input-placeholder="Add a Keyword">

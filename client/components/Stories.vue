@@ -2,7 +2,9 @@
   <div>
     <navigation/>
     <section class="nc-container">
-      <h3>Stories</h3>
+      <header class="nc-header">
+        <h3>Select the stories you'd like to share.</h3>
+      </header>
       <md-progress md-indeterminate v-if="allArticles.length <= 0"></md-progress>
       <div class="nc-articles__container">
         <div class="nc-articles__controls" v-if="allArticles.length > 0">

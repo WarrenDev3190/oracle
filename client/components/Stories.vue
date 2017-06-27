@@ -30,8 +30,6 @@
     created() {
       cloudFunctions.get('/getNews')
       .then(articles => {
-        console.log("ARTICLES")
-        console.log(articles)
         return this.$store.commit('articles/RECEIVE_ARTICLES', articles)
       })
     },

@@ -9,7 +9,7 @@ const logger = require('../../logger')
 module.exports = function getArticles() {
   return getSources()
   .then(function getSourcesHandler(sources) {
-      return Promise.all([Promise.map(sources, getArticlesBySource),getCherryArticles("Time Inc")])
+      return Promise.all([getCherryArticles("Time Inc"),Promise.map(sources, getArticlesBySource)])
   })
   .then(function handleAllArticles(allArticles) {
       return R.flatten(allArticles)

@@ -1,8 +1,6 @@
 <template lang="html">
 
-  <div class="nc-edit__component">
-    <h3 class="nc-edit__title">{{title}}</h3>
-  </div>
+  <h3 class="nc-edit__title">{{title}}</h3>
 
 </template>
 <script type="text/javascript">

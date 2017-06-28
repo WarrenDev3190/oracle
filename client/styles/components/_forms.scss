@@ -1,0 +1,26 @@
+.md-input-container {
+  padding: .75em 1.25em;
+  min-height: 0;
+  margin: 0;
+  font-weight: bold;
+  background: white;
+  border: 1px solid gray;
+
+  &.md-has-value label {
+    font-size: 14px;
+    top: -26px;
+  }
+
+  &.md-has-select {
+    @include input-shadow;
+
+    border: 0;
+  }
+}
+
+.md-theme-default.md-select {
+  &::after {
+    color: rgba(0,0,0,0.9) !important;
+    transform: translateY(-50%) scaleY(1) scaleX(1.5);
+  }
+}

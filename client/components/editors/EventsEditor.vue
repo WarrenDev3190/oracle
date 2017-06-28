@@ -2,7 +2,11 @@
 
   <div class="nc-edit">
     <editor-title :title="'Events'" />
-    <button class="nc-edit__add-button" type="button" @click="addEvent" >+New Event</button>
+
+    <div class="nc-edit__group">
+      <button class="nc-edit__add-button" type="button" @click="addEvent" >+New Event</button>
+    </div>
+
     <div class="nc-edit__group" v-for="(event, index) in events">
       <event-editor class="nc-edit__group__left" v-model="events[index]" :editorId="'EventEditor-' + index" />
       <button class="nc-edit__group__right nc-edit__remove-button" type="button" @click="removeEvent(index)" >X</button>

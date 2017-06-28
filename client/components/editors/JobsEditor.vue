@@ -2,7 +2,9 @@
 
   <div class="nc-edit">
     <editor-title :title="'Jobs'" />
-    <button class="nc-edit__add-button" type="button" @click="addJob" >+New Job</button>
+    <div class="nc-edit__group">
+      <button class="nc-edit__add-button" type="button" @click="addJob" >+New Job</button>
+    </div>
     <div class="nc-edit__group" v-for="(job, index) in jobs">
       <job-editor class="nc-edit__group__left" v-model="jobs[index]" :editorId="'JobEditor-' + index" />
       <button class="nc-edit__group__right nc-edit__remove-button" type="button" @click="removeJob(index)" >X</button>

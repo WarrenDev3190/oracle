@@ -5,24 +5,30 @@
       <div class="nc-share__top">
         <div class="nc-share__export">
           <div class="nc-share__subtitle">Export to EML or OFT File</div>
-          <md-input-container class="nc-share__export__file-types">
-           <md-select class="nc-share__export__filetype-select" name="fileType" v-model="fileType">
-              <md-option :value="type" :key="i" v-for="(type,i) in fileTypes">{{type}}</md-option>
-           </md-select>
-         </md-input-container>
-         <button class="nc-share__export__export-button" type="button" @click="exportFile">Export</button>
+
+          <div class="nc-share__content-wrapper">
+            <md-input-container class="nc-share__export__file-types">
+             <md-select class="nc-share__export__filetype-select" name="fileType" v-model="fileType">
+                <md-option :value="type" :key="i" v-for="(type,i) in fileTypes">{{type}}</md-option>
+             </md-select>
+           </md-input-container>
+           <button class="nc-share__export__export-button" type="button" @click="exportFile">Export</button>
+         </div>
+
         </div>
         <div class="nc-share__send-email">
           <div class="nc-share__subtitle">Email to Contacts</div>
-          <input class="nc-share__send-email__email-input" type="text" v-model="newEmail" />
-          <button class="nc-share__send-email__add-button" type="button" @click="addEmail">Add</button>
-          <br />
-          <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send to Recipients</button>
-          <div class="nc-share__send-email__emails">
-            <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
-              <div class="nc-share__send-email__email__text">{{email}}</div>
-              <button class="nc-share__send-email__email__remove-button" type="button" @click="removeEmail(index)">X</button>
+          <div class="nc-share__content-wrapper">
+            <input class="nc-share__send-email__email-input md-input-container" type="text" v-model="newEmail" placeholder="Enter Email Addresses" />
+            <button class="nc-share__send-email__add-button" type="button" @click="addEmail">Add</button>
+            <br />
+            <div class="nc-share__send-email__emails">
+              <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
+                <div class="nc-share__send-email__email__text">{{email}}</div>
+                <button class="nc-share__send-email__email__remove-button" type="button" @click="removeEmail(index)">X</button>
+              </div>
             </div>
+            <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send to Recipients</button>
           </div>
         </div>
       </div>

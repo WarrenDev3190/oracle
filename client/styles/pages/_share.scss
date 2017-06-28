@@ -1,19 +1,30 @@
+$btn-padding: .75em 1.25em;
+
 .nc-share{
 
   width:100%;
 
   &__subtitle {
-    color: lightgrey;
+    color: black;
     font-size: 20px;
     text-align: center;
-    margin-bottom: 50px;
-    margin-top: 10px;
+
+    margin: 0 auto 3em;
   }
 
   &__top {
+    @include input-shadow;
+
+    background: white;
     display: flex;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: 6em 50px 0;
+    padding: 3em 0;
+  }
+
+  &__content-wrapper {
+    margin: 0 auto;
+    max-width: 360px;
+    position: relative;
   }
 
   &__export {
@@ -21,71 +32,63 @@
     width: 50%;
     height: 300px;
     text-align: center;
-    border-top: 1px solid lightgrey;
-    border-bottom: 1px solid lightgrey;
-    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    padding: 0 1.5em;
+
 
     &__file-types {
-        width: 300px;
         text-align: center;
         margin-left: auto !important;
         margin-right: auto !important;
         margin-bottom: 10px !important;
     }
 
-    &__filetype-select {
-      border: 1px solid lightgrey;
-      height: 40px;
-    }
-
     &__export-button {
-      width: 300px;
-      height: 50px;
+      width: 100%;
       background-color: $nc-blue;
       border-style: none;
       color: white;
       font-size: 14px;
       font-weight: bold;
+      padding: $btn-padding;
     }
 
   }
 
   &__send-email {
-    min-width: 300px;
     width: 50%;
-    height: 300px;
-    text-align: center;
-    border: 1px solid lightgrey;
+    padding: 0 1.5em;
 
     &__email-input {
-      height: 30px;
-      width: 150px;
+      border: 1px solid gray;
+      width: 78%;
+      display: inline-block;
     }
 
     &__add-button {
-      height: 25px;
-      width: 40px;
+      width: 20%;
       background-color: $nc-blue;
+      display: inline-block;
       border-style: none;
       color: white;
       font-size: 12px;
       font-weight: bold;
+      padding: $btn-padding;
     }
 
     &__send-button {
       margin-top: 10px;
-      width: 250px;
-      height: 50px;
       background-color: $nc-blue;
       border-style: none;
       color: white;
       font-weight:bold;
       font-size: 14px;
+      padding: $btn-padding;
+      width: 100%;
+
     }
 
     &__emails {
-      width: 300px;
-      height: 100px;
       margin-left: auto;
       margin-right: auto;
       margin-top: 10px;
@@ -94,18 +97,11 @@
     }
 
     &__email {
-      width: 270px;
-      height:25px;
-      line-height: 25px;
-      padding-left: 5px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 5px;
-      background-color: lightgrey;
+      background-color: black;
+      padding: 1em;
 
       &__text {
         display: inline-block;
-        width: 235px;
         text-align: left;
         color: white;
         font-size: 14px;
@@ -113,37 +109,43 @@
 
       &__remove-button {
         display: inline-block;
-        width: 20px;
         background-color: white;
-        color: lightgrey;
+        color: black;
         border-style: none;
         font-type: Impact;
         font-weight: bold;
         font-size: 11px;
         margin-right: 5px;
+        float: right;
+        position: relative;
 
+        &::after {
+          position: absolute;
+          top: 0;
+          left: -8px;
+          content: "";
+          border-top: 9px solid transparent;
+          border-bottom: 9px solid transparent;
+          border-right: 8px solid white;
+        }
       }
-
     }
-
   }
 
   &__preview {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 40px;
 
     &__title{
       width: 200px;
       border-bottom: 1px solid lightgrey;
       padding-bottom: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       text-align: center;
       margin-left: auto;
       margin-right: auto;
       font-size: 30px;
       font-weight: bold;
     }
-
   }
-
 }

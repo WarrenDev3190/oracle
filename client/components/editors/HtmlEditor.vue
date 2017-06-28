@@ -1,8 +1,7 @@
 <template lang="html">
 
   <div class="nc-edit__component">
-    <div class="nc-edit__subtitle">{{title}}</div>
-    <vue-editor class="nc-edit__html-input" :id="editorId" :editorToolbar="toolbarOptions" v-model="body" @input="updateInput"/>
+    <vue-editor :placeholder="title" class="nc-edit__html-input" :id="editorId" :editorToolbar="toolbarOptions" v-model="body" @input="updateInput"/>
   </div>
 
 </template>

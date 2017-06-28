@@ -1,17 +1,29 @@
 .nc-edit{
-  padding-left:20px;
-  padding-right:20px;
 
-  &__component{ margin-bottom:15px; }
+  &__title {
+    text-align: center;
+    padding-bottom: 1em;
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__component{
+    margin-bottom:15px;
+    padding-left:20px;
+    padding-right:20px;
+  }
 
   &__subtitle{
     font-size: 14px;
     font-style: italic;
+    margin-bottom: .25em;
   }
 
   &__text-input{
+    color: black;
+    padding: .75em 1em;
     width:100%;
-    height:40px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
   }
 
   &__html-input{
@@ -48,14 +60,20 @@
   &__group {
     border-top: 1px solid $nc-gray-border;
     display: flex;
-    padding-top: 15px;
+    // padding-top: 15px;
+
+    padding: 15px 10px 0;
 
     &__left {
       flex: 1;
-      padding-right: 10px;
+      // padding-right: 10px;
     }
 
     &__right { flex: 0; }
+
+    .nc-edit__add-button {
+      margin-left: 20px;
+    }
 
   }
 
@@ -188,5 +206,15 @@
       top: 0px;
       width: 100%;
     }
+  }
+}
+
+.quillWrapper {
+  .ql-toolbar {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .ql-container {
+    border-radius: 0 0 5px 5px;
   }
 }

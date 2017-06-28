@@ -28,7 +28,7 @@
             />
             <div
               :style="{
-                'text-align':'left',
+                'text-align':'center',
                 'font':'Arial,Helvetica,sans-serif',
                 'font-size':'14px',
                 'font-weight':'bolder',

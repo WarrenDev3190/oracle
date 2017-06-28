@@ -8,7 +8,7 @@
         'font-family':'Arial,Helvetica,sans-serif',
         'font-size':'11px',
         'font-weight':'bold',
-        'text-align':'left',
+        'text-align':'center',
         'margin-bottom':'20px'
       }"
     >

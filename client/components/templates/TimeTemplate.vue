@@ -5,7 +5,8 @@
     align="center"
   >
       <table :style="{
-          'width':'600px'
+          'width':'600px',
+          'backgroundColor':'#fff'
           }"
           width="600"
           align="center"

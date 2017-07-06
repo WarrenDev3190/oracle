@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div class="nc-edit">
-    <editor-title :title="'Header'" />
+    <editor-title :title="'Spotlight'" />
     <image-editor :title="'Image'" v-model="image" @input="updateInput" />
     <html-editor :title="'Text'" v-model="bodyHtml" @input="updateInput" />
   </div>

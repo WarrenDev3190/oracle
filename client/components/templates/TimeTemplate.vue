@@ -48,7 +48,7 @@
               :barColorSolid="sectionBarColorStart"
               :bodyHtml="sections.spotlight.data.bodyHtml"
               :image="sections.spotlight.data.image"
-              :titleText="sections.spotlight.titleText"
+              :titleText="sections.spotlight.data.titleText"
             />
             <news
               v-show="!sections.news.toggleable || sections.news.on"

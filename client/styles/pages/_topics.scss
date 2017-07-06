@@ -10,10 +10,8 @@
   background-size: cover;
   color: $nc-white;
   font-size: 14px;
-  width: calc(33% - 20px);
-  height: 200px;
-  line-height: 200px;
-  vertical-align: middle;
+  width: calc(50% - 20px);
+  padding: $nc-md $nc-sm;
   text-align: center;
   font-weight: bold;
   margin: 10px;
@@ -22,8 +20,6 @@
     cursor: pointer;
   }
   &--selected {
-    border-color: $nc-blue;
-    border-width: 2px;
-    border-style: solid;
+    background: $nc-green;
   }
 }

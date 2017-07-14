@@ -2,7 +2,7 @@ import R from 'ramda'
 
 /**
  * [capitalize description]
- * @type {[type]}
+ * @type {String}
  */
 export const capitalize = R.compose(
   R.join(''),

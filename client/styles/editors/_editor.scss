@@ -45,6 +45,11 @@
     width: 100px;
   }
 
+  &__add-button:hover {
+    background-color: $nc-blue-hover;
+    color: $nc-white;
+  }
+
   &__remove-button {
     background-color: red;
     border-radius: 5px;
@@ -55,6 +60,10 @@
     font-weight: bold;
     height: 20px;
     width: 50px;
+  }
+
+  &__remove-button:hover {
+    background-color: #fa5858;
   }
 
   &__group {
@@ -123,8 +132,16 @@
         color: $nc-white;
       }
 
+      &__button:hover {
+        color: $nc-error-red;
+      }
+
     }
 
+
+    &__pill:hover {
+      background-color: $nc-blue-hover;
+    }
   }
 
   &__columns {
@@ -206,6 +223,13 @@
       top: 0px;
       width: 100%;
     }
+    &__file:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__file-drop:hover {
+    background-color: #f9f9f9;
   }
 }
 

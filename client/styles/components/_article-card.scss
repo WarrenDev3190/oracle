@@ -92,3 +92,19 @@
     }
 
 }
+
+.nc-article-card-mini:hover {
+  border: solid 3px $nc-blue;
+}
+
+.nc-recommended-flag {
+  position: absolute;
+  width: 15%;
+  margin: $nc-sm;
+}
+
+.nc-recommended-flag-mini {
+  position: absolute;
+  width: 15%;
+
+}

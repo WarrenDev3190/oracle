@@ -1,4 +1,4 @@
-import { reduceByKey } from '../../../utils'
+import { reduceByKey, apFormat } from '../../../utils'
 
 const state = {
   articles: []
@@ -29,19 +29,18 @@ const getters = {
 const mutations = {
   [RECEIVE_ARTICLES]: (state, articles) => {
     state.articles = articles.data
-    //Add a filter date, which is to say a date without a time, for grouping articles easily later
-    for(var i=0, l=state.articles.length; i<l; i++){
+    // Add a filter date, which is to say a date without a time, for grouping articles easily later
+    for (var i = 0, l = state.articles.length; i < l; i++) {
       var article = state.articles[i]
-      if(article.publishedAt == null){
-        article["filterDate"] = "No Date Given"
-      }
-      else{
+      article['title'] = apFormat(article['title'])
+      if (article.publishedAt == null) {
+        article['filterDate'] = 'No Date Given'
+      } else {
         var prefixD = article.publishedAt.substring(0, article.publishedAt.indexOf('T'))
-        if(prefixD.trim() == ""){
-          article["filterDate"] = "No Date Given"
-        }
-        else{
-          article["filterDate"] = prefixD + "T00:00:00Z"
+        if (prefixD.trim() === '') {
+          article['filterDate'] = 'No Date Given'
+        } else {
+          article['filterDate'] = prefixD + 'T00:00:00Z'
         }
       }
     }

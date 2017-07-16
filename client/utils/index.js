@@ -9,11 +9,7 @@ export const capitalize = R.compose(
   R.juxt([R.compose(R.toUpper, R.head), R.tail])
 )
 
-<<<<<<< HEAD
 export const apFormat = (title) => {
-=======
-export const apFormat = function (title) {
->>>>>>> recommended-flag
   const apFormatExclusions = [
     'a',
     'for',

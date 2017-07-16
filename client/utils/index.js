@@ -9,6 +9,44 @@ export const capitalize = R.compose(
   R.juxt([R.compose(R.toUpper, R.head), R.tail])
 )
 
+export const apFormat = function (title) {
+  const apFormatExclusions = [
+    'a',
+    'for',
+    'so',
+    'an',
+    'in',
+    'the',
+    'and',
+    'nor',
+    'to',
+    'at',
+    'of',
+    'up',
+    'but',
+    'on',
+    'yet',
+    'by',
+    'or']
+  const characterExclusions = ['"', "'", "'", '-', '"', '"']
+  const words = title.split(' ').map(title => title.trim()).map(function (title) {
+    if (apFormatExclusions.indexOf(title) === -1) {
+      return title.charAt(0).toUpperCase() + title.slice(1)
+    } else {
+      return title
+    }
+  })
+    // handles quoted first words
+  if (characterExclusions.indexOf(words[0][0]) === -1) {
+    words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1)
+  } else {
+    words[0] = words[0].slice(0, 1) + words[0].charAt(1).toUpperCase() + words[0].slice(2)
+  }
+  words[words.length - 1] = words[words.length - 1].charAt(0).toUpperCase() + words[words.length - 1].slice(1)
+
+  return words.join(' ')
+}
+
 /**
  * [idToTitle description]
  * @type {[type]}

@@ -13,9 +13,9 @@
 <script>
 export default {
   props: ['article'],
-  methods: {
+  computed: {
     isRecommended: function(article) {
-      return article.hasOwnProperty("recommended") && article.recommended;
+      return this.article.hasOwnProperty("recommended") && this.article.recommended;
     }
   }
 }

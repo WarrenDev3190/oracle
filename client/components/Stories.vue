@@ -55,16 +55,19 @@
             var dateA = new Date(a)
             var dateB = new Date(b)
             if(a == "all"){
-              return false
+              return -1
             }
             else if(dateA == null || isNaN(dateA)){
-              return false
+              return 1
             }
             else if(dateB == null || isNaN(dateB)){
-              return true
+              return -1
+            }
+            else if(dateA.getTime() < dateB.getTime()){
+              return 1
             }
             else {
-              return dateA < dateB
+              return -1
             }
           }
         ).map(function(dateS){

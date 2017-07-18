@@ -17,10 +17,10 @@
     <news-story
       v-for="article in articles"
       :key="article.index"
-      :title="article.title"
+      :title="article.titleAlt"
       :subtitle="articleSubtitle(article)"
-      :link="article.url"
-      :blurb="article.description"
+      :link="article.urlAlt"
+      :blurb="article.descriptionAlt"
       :accentColor="accentColor"
     />
   </div>

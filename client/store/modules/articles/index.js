@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { reduceByKey, apFormat } from '../../../utils'
 
 const state = {
@@ -33,22 +34,24 @@ const mutations = {
     for (var i = 0, l = state.articles.length; i < l; i++) {
       var article = state.articles[i]
       // Format article titles
-      article['title'] = apFormat(article['title'])
+      article.title = apFormat(article.title)
       if (article.publishedAt == null) {
-        article['filterDate'] = 'No Date Given'
+        Vue.set(article, "filterDate", 'No Date Given')
       } else {
         var prefixD = article.publishedAt.substring(0, article.publishedAt.indexOf('T'))
         if (prefixD.trim() === '') {
-          article['filterDate'] = 'No Date Given'
+          Vue.set(article, "filterDate", 'No Date Given')
         } else {
-          article['filterDate'] = prefixD + 'T00:00:00Z'
+          Vue.set(article, "filterDate", prefixD + 'T00:00:00Z')
         }
       }
       //Set alts to be used for editing in this case
-      article['titleAlt'] = article['title']
-      article['urlAlt'] = article['url']
-      article['descriptionAlt'] = article['description']
+      //article.titleAlt = article.title
+      Vue.set(article, "titleAlt", article.title)
+      Vue.set(article, "urlAlt", article.url)
+      Vue.set(article, "descriptionAlt", article.description)
     }
+    state.articles
   },
   [TOGGLE_ARTICLE_SELECT]: (state, index) => {
     state.articles[index].selected = !state.articles[index].selected

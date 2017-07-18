@@ -44,6 +44,10 @@ const mutations = {
           article['filterDate'] = prefixD + 'T00:00:00Z'
         }
       }
+      //Set alts to be used for editing in this case
+      article['titleAlt'] = article['title']
+      article['urlAlt'] = article['url']
+      article['descriptionAlt'] = article['description']
     }
   },
   [TOGGLE_ARTICLE_SELECT]: (state, index) => {

@@ -3,7 +3,7 @@
   <div class="nc-edit">
     <editor-title :title="'News'" />
     <news-groups-editor v-model="this.newsGroups" :title="'News Groups (select a group to edit)'" @groupselected="groupSelected" />
-    <articles-editor v-if="selectedGroup != null" class="nc-edit__fill-height" v-model="this.newsGroups[selectedGroup].articles" :title="newsGroups[selectedGroup].title" />
+    <articles-editor v-if="selectedGroup != null" class="nc-edit__fill-height" v-model="newsGroups[selectedGroup].articles" :title="newsGroups[selectedGroup].title" />
   </div>
 
 </template>

@@ -2,10 +2,24 @@
 
   <div class="nc-share nc-container">
       <navigation/>
-      <div class="nc-share__top">
-        <div class="nc-share__export">
-          <div class="nc-share__subtitle">Export to EML or OFT File</div>
+      <div class="nc-share__left">
+        <div class="nc-share__preview">
+          <div class="nc-share__preview__title">Preview</div>
+          <component class="nc-share__preview__template-border" ref="template" :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" />
+        </div>
+      </div>
 
+
+      <div class="nc-share__right">
+        <div class="nc-share__share-method-wrapper">
+          <md-input-container class="nc-share__share-method-wrapper__share-method">
+            <md-select class="nc-share__export__filetype-select" name="shareMethod" v-model="shareMethod" placeholder="Select sharing method">
+              <md-option :value="type" :key="i" v-for="(type,i) in shareMethods">{{type}}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+        <div class="nc-share__export" :hidden="isHiddenExport">
+          <div class="nc-share__subtitle">Export to EML or OFT File</div>
           <div class="nc-share__content-wrapper">
             <md-input-container class="nc-share__export__file-types">
              <md-select class="nc-share__export__filetype-select" name="fileType" v-model="fileType">
@@ -16,7 +30,7 @@
          </div>
 
         </div>
-        <div class="nc-share__send-email">
+        <div class="nc-share__send-email" :hidden="isHiddenEmail">
           <div class="nc-share__subtitle">Email to Contacts</div>
           <div class="nc-share__content-wrapper">
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="fromEmail" placeholder="From Email" />
@@ -34,12 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="nc-share__bottom">
-        <div class="nc-share__preview">
-          <div class="nc-share__preview__title">Preview</div>
-          <component ref="template" :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" />
-        </div>
-      </div>
+
   </div>
 
 </template>
@@ -55,7 +64,21 @@ export default {
     TimeTemplate
   },
   computed: {
-    ...mapGetters('layouts', ['selectedLayout'])
+    ...mapGetters('layouts', ['selectedLayout']),
+    isHiddenExport: function() {
+      if (this.shareMethod === "Export"){
+        return false;
+      }else{
+        return true;
+      }
+    },
+    isHiddenEmail: function() {
+      if (this.shareMethod === "Email") {
+        return false
+      }else{
+        return true;
+      }
+    }
   },
   methods: {
     resetSendButton: function(){
@@ -63,7 +86,10 @@ export default {
     },
     addEmail: function(){
       if(this.newEmail != ""){
-        this.newEmail.split(',').map(email => email.trim()).map(email => this.emails.push(email))
+        this.newEmail.split(',')
+        .map(email => email.trim())
+        .filter(email => email != "")
+        .map(email => this.emails.unshift(email));
         this.newEmail = ""
       }
     },
@@ -133,6 +159,8 @@ export default {
         newEmail: "",
         fileType: "EML",
         fileTypes: ["EML"],
+        shareMethod: "",
+        shareMethods: ["Export", "Email"],
         fromEmail: '',
         newsletterSubject: '',
         emails: []

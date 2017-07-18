@@ -8,7 +8,7 @@ $btn-padding: .75em 1.25em;
     color: black;
     font-size: 20px;
     text-align: center;
-    margin: 2.5em auto 2.5em;
+    margin: 0 auto 2.5em;
   }
   &__left {
       width: 55%;
@@ -46,6 +46,7 @@ $btn-padding: .75em 1.25em;
       margin-right: auto !important;
       // margin-bottom: 50px !important;
       margin-top: 65px;
+      margin-bottom: 2.5em;
     }
   }
 

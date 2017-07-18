@@ -19,26 +19,19 @@
           </md-input-container>
         </div>
         <div class="nc-share__export" :hidden="isHiddenExport">
-          <div class="nc-share__subtitle">Export to EML or OFT File</div>
           <div class="nc-share__content-wrapper">
-            <md-input-container class="nc-share__export__file-types">
-             <md-select class="nc-share__export__filetype-select" name="fileType" v-model="fileType">
-                <md-option :value="type" :key="i" v-for="(type,i) in fileTypes">{{type}}</md-option>
-             </md-select>
-           </md-input-container>
            <button class="nc-share__export__export-button" type="button" @click="exportFile">Export</button>
          </div>
 
         </div>
         <div class="nc-share__send-email" :hidden="isHiddenEmail">
-          <div class="nc-share__subtitle">Email to Contacts</div>
           <div class="nc-share__content-wrapper">
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="fromEmail" placeholder="From Email" />
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="newsletterSubject" placeholder="Subject" />
             <input class="nc-share__send-email__email-input md-input-container" type="text" v-model="newEmail" placeholder="Email Recipients" />
             <button class="nc-share__send-email__add-button" type="button" @click="addEmail">Add</button>
             <br />
-            <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send to Recipients</button>
+            <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send</button>
             <div class="nc-share__send-email__emails">
               <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
                 <div class="nc-share__send-email__email__text">{{email}}</div>
@@ -66,7 +59,7 @@ export default {
   computed: {
     ...mapGetters('layouts', ['selectedLayout']),
     isHiddenExport: function() {
-      if (this.shareMethod === "Export"){
+      if (this.shareMethod === "Export to EML"){
         return false;
       }else{
         return true;
@@ -160,7 +153,7 @@ export default {
         fileType: "EML",
         fileTypes: ["EML"],
         shareMethod: "",
-        shareMethods: ["Export", "Email"],
+        shareMethods: ["Export to EML", "Email"],
         fromEmail: '',
         newsletterSubject: '',
         emails: []

@@ -1,7 +1,6 @@
 <template lang="html">
 
   <div class="nc-edit">
-      <div class="nc-edit__subtitle">{{title}}</div>
       <div class="nc-edit__pills nc-edit__component">
         <div class="nc-edit__pills__box">
           <draggable class="nc-draggable" :list="groups" :options="{animation: '150'}" @end="updateOrder">
@@ -11,7 +10,7 @@
             </div>
           </draggable>
         </div>
-        <button class="nc-edit__pills__side-button nc-edit__add-button" type="button" @click="addGroup">+New Group</button>
+        <button class="nc-edit__pills__side-button nc-edit__add-button" type="button" @click="addGroup">+ Add Group</button>
       </div>
       <line-editor v-if="selectedIndex != null" v-model="groups[selectedIndex].title" :title="'Group Title'" />
   </div>

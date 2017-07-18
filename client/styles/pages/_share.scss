@@ -53,15 +53,29 @@ $btn-padding: .75em 1.25em;
       padding: $btn-padding;
     }
 
+    &__export-button:hover {
+      background-color: $nc-blue-hover;
+    }
+
   }
 
   &__send-email {
     width: 50%;
     padding: 0 1.5em;
 
-    &__email-input {
+    &__email-input-full-width{
+      margin-bottom: 10px;
       border: 1px solid gray;
-      width: 78%;
+      border-radius: 5px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    &__email-input {
+      margin-bottom: 10px;
+      border: 1px solid gray;
+      border-radius: 5px;
+      width: 79%;
       display: inline-block;
     }
 
@@ -74,6 +88,11 @@ $btn-padding: .75em 1.25em;
       font-size: 12px;
       font-weight: bold;
       padding: $btn-padding;
+    }
+
+    &__add-button:hover,
+    &__send-button:hover {
+      background-color: $nc-blue-hover;
     }
 
     &__send-button {
@@ -92,13 +111,18 @@ $btn-padding: .75em 1.25em;
       margin-left: auto;
       margin-right: auto;
       margin-top: 10px;
-      overflow-y: auto;
-      overflow-x: hidden;
+      // overflow-y: auto;
+      // overflow-x: hidden;
+      max-height: 400px;
+      overflow: scroll;
+      // box-shadow: $nc-card-shadow;
     }
 
     &__email {
       background-color: black;
       padding: 1em;
+      margin-top: 10px;
+      box-shadow: $nc-card-shadow;
 
       &__text {
         display: inline-block;
@@ -128,6 +152,10 @@ $btn-padding: .75em 1.25em;
           border-bottom: 9px solid transparent;
           border-right: 8px solid white;
         }
+      }
+
+      &__remove-button:hover {
+        color: $nc-error-red;
       }
     }
   }

@@ -28,7 +28,7 @@
     list-style: none;
 
     a {
-      border-left: 1px solid $nc-gray-border;
+
       color: $nc-black !important;
       display: block;
       font-size: 1.15em;
@@ -41,10 +41,6 @@
         color: $nc-blue;
         text-decoration: none !important;
       }
-    }
-
-    &:last-child {
-      a { border-right: 1px solid $nc-gray-border; }
     }
 
     &--active {

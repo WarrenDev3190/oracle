@@ -36,13 +36,14 @@
 
   &__add-button {
     background-color: $nc-blue;
-    border-radius: 30px;
+    border-radius: 2px;
     border-style: none;
     color: $nc-white;
     font-size: 14px;
-    height: 30px;
+    height: 50px;
     margin-bottom: 20px;
     width: 100px;
+
   }
 
   &__add-button:hover {
@@ -90,7 +91,6 @@
     display: flex;
 
     &__box {
-      border: 1px solid $nc-gray-border;
       flex: 1;
       margin-right: 5px;
     }
@@ -101,8 +101,8 @@
     }
 
     &__pill {
-      background-color: $nc-blue;
-      border-radius: 10px;
+      background-color: $nc-dark-gray;
+      border-radius: 2px;
       display: inline-block;
       font-size: 10px;
       margin-left: 2px;
@@ -110,6 +110,8 @@
       margin-top: 2px;
       padding-left: 5px;
       padding-right: 5px;
+      padding-top: 15px;
+      padding-bottom: 15px;
 
       &__title {
         color: $nc-white;
@@ -172,7 +174,6 @@
     display: flex;
     width: 100%;
     height: 200px;
-    border: 1px dashed lightgrey;
 
     &__image-container {
       display: flex;
@@ -192,10 +193,10 @@
     }
 
     &__text {
-      color: $nc-gray-border;
+      color: $nc-dark-gray;
       flex: 1;
       font-size: 20px;
-      font-style: italic;
+      font-weight: 300;
       height: 200px;
       line-height: 200px;
       padding-left: 10px;

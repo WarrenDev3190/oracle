@@ -19,16 +19,18 @@
         <div class="nc-share__send-email">
           <div class="nc-share__subtitle">Email to Contacts</div>
           <div class="nc-share__content-wrapper">
-            <input class="nc-share__send-email__email-input md-input-container" type="text" v-model="newEmail" placeholder="Enter Email Addresses" />
+            <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="fromEmail" placeholder="From Email" />
+            <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="newsletterSubject" placeholder="Subject" />
+            <input class="nc-share__send-email__email-input md-input-container" type="text" v-model="newEmail" placeholder="Email Recipients" />
             <button class="nc-share__send-email__add-button" type="button" @click="addEmail">Add</button>
             <br />
+            <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send to Recipients</button>
             <div class="nc-share__send-email__emails">
               <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
                 <div class="nc-share__send-email__email__text">{{email}}</div>
                 <button class="nc-share__send-email__email__remove-button" type="button" @click="removeEmail(index)">X</button>
               </div>
             </div>
-            <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send to Recipients</button>
           </div>
         </div>
       </div>
@@ -61,7 +63,7 @@ export default {
     },
     addEmail: function(){
       if(this.newEmail != ""){
-        this.emails.push(this.newEmail)
+        this.newEmail.split(',').map(email => email.trim()).map(email => this.emails.push(email))
         this.newEmail = ""
       }
     },
@@ -74,8 +76,8 @@ export default {
       var emailText = encodeURIComponent("<html><head></head><body>" + this.$refs['template'].$el.outerHTML + "</body></html>")
       var emailB64 = window.btoa(emailText)
       cloudFunctions.post("/sendTemplate", {
-        "from": "info@newscart.co",
-        "subject": "NewsCart Newsletter",
+        "from": this.fromEmail,
+        "subject": this.newsletterSubject,
         "recipients": this.emails,
         "content": emailB64
       }).then(success => {
@@ -131,6 +133,8 @@ export default {
         newEmail: "",
         fileType: "EML",
         fileTypes: ["EML"],
+        fromEmail: '',
+        newsletterSubject: '',
         emails: []
       }
   },

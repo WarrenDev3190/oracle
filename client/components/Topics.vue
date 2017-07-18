@@ -3,7 +3,7 @@
     <navigation/>
     <main class="nc-container">
       <header class="nc-header">
-        <h3>Topics</h3>
+        <h3>Select the topics you’d like to follow</h3>
       </header>
       <div class="nc-inner-container nc-flex nc-flex--wrap">
         <div v-if="$store.state.user.properties" v-for="(topic, index) in $store.state.user.properties.topics"

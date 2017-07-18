@@ -1,7 +1,6 @@
 <template lang="html">
 
   <div class="nc-edit__component">
-    <div class="nc-edit__subtitle">{{title}}</div>
       <div class="nc-edit__file-drop">
         <div class="nc-edit__file-drop__image-container">
           <img class="nc-edit__file-drop__image" :src="imageUrl" />

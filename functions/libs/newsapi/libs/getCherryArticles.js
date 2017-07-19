@@ -6,15 +6,20 @@ const admin = require("firebase-admin");
 
 module.exports = function getCherryArticles(company) {
     return new Promise((resolve, reject) => {
-      admin.database().ref(`/${company}`).once('value')
-      .then(snapshot => {
-        var cherryArticles = []
-        snapshot.forEach(function(childSnapshot) {
-          var childData = childSnapshot.val();
-          cherryArticles.push(childData)
-        });
-        resolve(cherryArticles)
-      })
-      .catch(getUserPropertiesError => reject(getUserPropertiesError))
+      if(company != undefined && company != ""){
+        admin.database().ref(`/${company}`).once('value')
+        .then(snapshot => {
+          var cherryArticles = []
+          snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            cherryArticles.push(childData)
+          });
+          resolve(cherryArticles)
+        })
+        .catch(getUserPropertiesError => reject(getUserPropertiesError))
+      }
+      else{
+        resolve([])
+      }
     })
 }

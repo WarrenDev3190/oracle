@@ -15,7 +15,7 @@ const cors = require('cors')({ origin: true })
 module.exports = function handleGetNewsAPI(request, response) {
   cors(request, response, function corsHandler() {
     return new Promise(function getNewsApiPromiseHandler(resolve, reject) {
-      getArticles()
+      getArticles(request.query.company)
       .then(function handleAllArticles(allArticles) {
         let articlesRes = allArticles.map(prepArticlesForApp)
         response.send(articlesRes)

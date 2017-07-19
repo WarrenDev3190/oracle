@@ -40,7 +40,7 @@
   import ArticleCard from './ArticleCard.vue'
   export default {
     beforeMount() {
-      cloudFunctions.get('/getNews')
+      cloudFunctions.get("/getNews?company=" + this.$store.state.user.properties.details.company.name)
       .then(articles => {
         return this.$store.commit('articles/RECEIVE_ARTICLES', articles)
       })

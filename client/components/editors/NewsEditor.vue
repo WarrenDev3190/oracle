@@ -2,12 +2,24 @@
 
   <div class="nc-edit">
     <editor-title :title="'News'" />
-    <news-groups-editor v-model="this.newsGroups" :title="'News Groups (select a group to edit)'" @groupselected="groupSelected" />
-    <articles-editor v-if="selectedGroup != null" class="nc-edit__fill-height" v-model="newsGroups[selectedGroup].articles" :title="newsGroups[selectedGroup].title" />
+    <news-groups-editor 
+      v-model="this.newsGroups" 
+      :title="'News Groups (select a group to edit)'" 
+      @groupselected="groupSelected" 
+    />
+    <articles-editor 
+      v-if="selectedGroup != null" 
+      class="nc-edit__fill-height" 
+      v-model="newsGroups[selectedGroup].articles" 
+      :title="newsGroups[selectedGroup].title" 
+      :filterArticles="usedArticles" 
+      :allArticles="selectedArticles" 
+    />
   </div>
 
 </template>
-<script type="text/javascript">
+ <script type="text/javascript">
+  import { mapGetters } from 'vuex'
   import EditorTitle from './EditorTitle.vue'
   import NewsGroupsEditor from './NewsGroupsEditor.vue'
   import ArticlesEditor from './ArticlesEditor.vue'
@@ -18,6 +30,14 @@
       ArticlesEditor
     },
     computed: {
+      usedArticles: function(){
+        var articles = []
+        for(var i=0; i < this.newsGroups.length; i++){
+          articles = articles.concat(this.newsGroups[i].articles)
+        }
+        return articles
+      },
+      ...mapGetters('articles', ['selectedArticles'])
     },
     watch:{
       value(newValue){

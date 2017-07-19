@@ -18,9 +18,9 @@
         </div>
         <div class="nc-edit__columns__right">
           <div class="nc-edit__subtitle">All Stories</div>
-          <draggable class="nc-draggable" :list="getAllSelectedArticles" :options="{group: 'articles', animation: '150'}"  @add="removePlaceholders">
+          <draggable class="nc-draggable" :list="scopedAllArticles" :options="{group: 'articles', animation: '150'}"  @add="removePlaceholders">
             <article-mini 
-              v-for="(article, index) in getAllSelectedArticles" 
+              v-for="(article, index) in scopedAllArticles" 
               :key="'allarticle-' + index" 
               :article="article" 
             />
@@ -40,12 +40,23 @@
 
 </template>
 <script type="text/javascript">
-  import { mapGetters } from 'vuex'
   import ArticleMini from '../ArticleMini.vue'
   import LineEditor from './LineEditor.vue'
   import HtmlEditor from './HtmlEditor.vue'
   import draggable from 'vuedraggable'
   export default {
+    beforeMount() {
+      this.scopedAllArticles = this.allArticles.filter(
+          function(article){
+            for(var i = 0; i < this.filterArticles.length; i++) {
+              if(this.filterArticles[i].index == article.index){
+                return false
+              }
+            }
+            return true
+          }.bind(this)
+        )
+    },
     components: {
       ArticleMini,
       LineEditor,
@@ -53,27 +64,6 @@
       draggable
     },
     computed: {
-      getAllSelectedArticles: function() {
-        if(this.allSelectedArticles == null) {
-          this.allSelectedArticles = this.selectedArticles.slice()
-        }
-        if(this.selectedArticles == []){
-          this.selectedArticles = this.allSelectedArticles
-        }
-
-        for(var i=0; i < this.selectedArticles.length; i++){
-          var selectedArticle = this.selectedArticles[i]
-          var foundCount = this.articles.reduce(function(count, article){
-            return count + (article.index == selectedArticle.index)
-          }.bind(this), 0)
-          if(foundCount > 0){
-            this.selectedArticles.splice(i, 1)
-          }
-        }
-
-        return this.selectedArticles
-      },
-      ...mapGetters('articles', ['selectedArticles'])
     },
     watch: {
       value(newValue) {
@@ -107,15 +97,15 @@
         this.$emit('input', this.articles)
       },
       removePlaceholders: function(addObj){
-        var allCount = this.allSelectedArticles.reduce(function(count, article) {
-          return count + (article.index == this.selectedArticles[addObj.newIndex].index)
+        var allCount = this.allArticles.reduce(function(count, article) {
+          return count + (this.scopedAllArticles[addObj.newIndex] != undefined && article.index == this.scopedAllArticles[addObj.newIndex].index)
         }.bind(this), 0)
-        var selectedCount = this.selectedArticles.reduce(function(count, article) {
-          return count + (article.index == this.selectedArticles[addObj.newIndex].index)
+        var selectedCount = this.scopedAllArticles.reduce(function(count, article) {
+          return count + (this.scopedAllArticles[addObj.newIndex] != undefined && article.index == this.scopedAllArticles[addObj.newIndex].index)
         }.bind(this), 0)
 
-        if(selectedCount > 1 || allCount < 1 || this.selectedArticles[addObj.newIndex].index < 0){
-          this.selectedArticles.splice(addObj.newIndex, 1)
+        if(selectedCount > 1 || allCount < 1 || this.scopedAllArticles[addObj.newIndex].index < 0){
+          this.scopedAllArticles.splice(addObj.newIndex, 1)
         }
       },
       selectEditArticle: function(article) {
@@ -130,14 +120,26 @@
     data: function(){
       return {
         articles: this.value,
-        allSelectedArticles: null,
-        editArticle: null
+        editArticle: null,
+        scopedAllArticles: []
       }
     },
     props: {
       title:{
         default: "",
         type:String
+      },
+      filterArticles: {
+        default: function(){
+          return []
+        },
+        type: Array
+      },
+      allArticles: {
+        default: function(){
+          return []
+        },
+        type: Array
       },
       value: {
         default: function(){

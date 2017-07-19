@@ -28,7 +28,7 @@
           <div class="nc-share__content-wrapper">
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="fromEmail" placeholder="From Email" />
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="newsletterSubject" placeholder="Subject" />
-            <input class="nc-share__send-email__email-input md-input-container" type="text" v-model="newEmail" placeholder="Email Recipients" />
+            <input class="nc-share__send-email__email-input md-input-container" v-on:keydown.enter="addEmail" type="text" v-model="newEmail" placeholder="Email Recipients" />
             <button class="nc-share__send-email__add-button" type="button" @click="addEmail">Add</button>
             <br />
             <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send</button>

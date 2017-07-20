@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <div>
+  <div name="image_replace" :style="{'text-align':'center'}">
     <link
       href="https://fonts.googleapis.com/css?family=Lato:900i"
       rel="stylesheet"
@@ -14,17 +14,7 @@
       }"
     >
       <tr>
-        <td :style="{
-            'font-family':'\'Lato\', Helvetica, sans-serif',
-            'font-size':'24px',
-            'height':'100px',
-            'text-align':'center',
-            'padding':'0px'
-            }"
-        >
-          <img :src="image" />
-        </td>
-        <!-- <td :style="{
+         <td :style="{
             'font-family':'\'Lato\', Helvetica, sans-serif',
             'font-size':'24px',
             'height':'100px',
@@ -79,7 +69,7 @@
               </td>
             </tr>
           </table>
-        </td> -->
+        </td> 
       </tr>
     </table>
   </div>

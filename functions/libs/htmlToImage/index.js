@@ -11,10 +11,12 @@ const wkhtmltoimage = require('wkhtmltoimage')
 module.exports = function htmlToImage(request, response) {
   cors(request, response, function corsHandler() {
     return new Promise(function htmlToImagePromiseHandler(resolve, reject) {
-        wkhtmltoimage.command = __dirname + "/bin/wkhtmltoimage"
-        console.log(wkhtmltoimage.command)
-        wkhtmltoimage.generate('<h1>Hello world</h1>', {output: "out.png"})
-        response.send()
+        //wkhtmltoimage.command = __dirname + "/bin/wkhtmltoimage"
+        response.set("Content-Type", "image/png")
+        wkhtmltoimage.generate(request.query.html).pipe(response)
+
+        resolve(response)
+        
     })
   })
 }

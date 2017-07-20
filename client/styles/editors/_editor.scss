@@ -26,6 +26,15 @@
     border: 1px solid lightgray;
   }
 
+  &__selected{
+    border: 3px solid $nc-blue;
+  }
+
+  &__bordered{
+    border-radius: 5px;
+    border: 1px solid lightgray;
+  }
+
   &__html-input{
     width:100%;
 

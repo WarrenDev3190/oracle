@@ -10,7 +10,7 @@ const logger = require('../logger')
 const getArticles = require('./libs/getArticles')
 
 logger.trace(chalk.bgCyan('Firing Up'))
-getArticles()
+getArticles("Test")
 .then(function handleGetArticles (articles) {
   logger.trace(chalk.bgGreen('Articles Received'))
   logger.trace(JSON.stringify(articles))

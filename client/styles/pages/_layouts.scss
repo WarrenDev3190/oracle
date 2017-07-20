@@ -1,6 +1,8 @@
 .nc-layout-card {
   padding: .5em;
   margin-bottom: 1.5em;
+  width: 400px;
+  height: auto;
 
   &--selected {
     border: 3px solid #28f392;

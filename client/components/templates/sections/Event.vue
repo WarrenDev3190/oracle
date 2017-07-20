@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div :style="{
-      'width':'300px',
+      'width':'340px',
       'text-align':'center',
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
@@ -11,10 +11,10 @@
     <img :style="{
         'padding-left':'20px',
         'padding-right':'20px',
-        'width':'300px',
+        'width':'340px',
         'height':'200px'
       }"
-      width="300"
+      width="340"
       height="200"
       :src="image"
     />

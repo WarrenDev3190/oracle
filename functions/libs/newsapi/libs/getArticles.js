@@ -6,10 +6,10 @@ const getCherryArticles = require('./getCherryArticles')
 const getArticlesBySource = require('./getArticlesBySource')
 const logger = require('../../logger')
 
-module.exports = function getArticles() {
+module.exports = function getArticles(company) {
   return getSources()
   .then(function getSourcesHandler(sources) {
-      return Promise.all([getCherryArticles("Time Inc"),Promise.map(sources, getArticlesBySource)])
+      return Promise.all([getCherryArticles(company),Promise.map(sources, getArticlesBySource)])
   })
   .then(function handleAllArticles(allArticles) {
       return R.flatten(allArticles)

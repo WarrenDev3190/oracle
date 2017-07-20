@@ -44,13 +44,9 @@ export default {
     },
     getSelectedSection(){
       if(this.selectedSection == null){
-        console.log("NULL")
-        console.log(Object.keys(this.selectedLayout[0].template.sections))
         return Object.keys(this.selectedLayout[0].template.sections)[0]
       }
       else{
-        console.log("SECTION")
-        console.log(this.selectedSection)
         return this.selectedSection
       }
     }

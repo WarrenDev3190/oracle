@@ -28,8 +28,7 @@
       {{subtitle}}
     </span>
     <br/>
-    <span>
-      {{blurb}}
+    <span v-html="blurb">
     </span>
 
   </div>

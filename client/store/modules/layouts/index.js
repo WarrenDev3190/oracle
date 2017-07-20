@@ -29,8 +29,8 @@ const mutations = {
 const state = {
   layouts: [
     {
-      type: 'Template 1',
-      imageURL: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/template1.jpg?alt=media&token=489403a9-94e6-4283-9334-c3084157d1ec",
+      type: 'Dynamic Template',
+      imageURL: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/Dynamic%20Template.png?alt=media&token=e8d4f318-28f9-42ec-b5d6-f72852163a7d",
       selected: true,
       component:"time-template",
       template: {
@@ -45,7 +45,7 @@ const state = {
             editable: true,
             toggleable: false,
             data:{
-              logo: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hero_placeholder.jpg?alt=media&token=c45699a1-d4c0-44b6-a948-3fe9bf8d1483',
+              logo: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/600%20x%20180%20(1).png?alt=media&token=3c4b364b-a782-4345-8b67-45416e3b459d',
               heroBackground: "#FFFFFF"
             }
           },
@@ -63,7 +63,7 @@ const state = {
                         "interdum, ex sed euismod maximus, orci elit posuere erat, vel pretium mauris justo dignissim " +
                         "nisl. Crassut aliquet purus. Aenean tincidunt mi ut elementum faucibus. " +
                         "<strong><a target='_blank' href='http://www.google.com' >Link to Google </a></strong>",
-              image: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7"
+              image: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/300%20x%20200.png?alt=media&token=c3bd2155-1d60-4745-b7dc-152b516066d0"
             }
           },
           news: {
@@ -80,14 +80,22 @@ const state = {
                     {
                       "author": "Fake Author",
                       "title": "Placeholder Article 1",
+                      "titleAlt": "Placeholder Article 1",
                       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci " +
                                     "efficitur bibendum dapibus. Morbi imperdiet interdum arcu et euismod. Maecenas " +
                                     "a felis dolor. Vivamus dictum magna in dolor tristique, sit amet faucibus ante " +
                                     "volutpat. Aliquam maximus id ex eu viverra. Vivamus volutpat, mauris sit amet " +
                                     "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
                                     "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
+                      "descriptionAlt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci " +
+                                    "efficitur bibendum dapibus. Morbi imperdiet interdum arcu et euismod. Maecenas " +
+                                    "a felis dolor. Vivamus dictum magna in dolor tristique, sit amet faucibus ante " +
+                                    "volutpat. Aliquam maximus id ex eu viverra. Vivamus volutpat, mauris sit amet " +
+                                    "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
+                                    "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
                       "url": "https://www.google.com",
-                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
+                      "urlAlt": "https://www.google.com",
+                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/300%20x%20200.png?alt=media&token=c3bd2155-1d60-4745-b7dc-152b516066d0",
                       "publishedAt": "1990-01-01T00:00:00Z",
                       "source": "fake-news-source",
                       "index": -1,
@@ -96,14 +104,22 @@ const state = {
                     {
                       "author": "Fake Author",
                       "title": "Placeholder Article 2",
+                      "titleAlt": "Placeholder Article 2",
                       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci " +
                                     "efficitur bibendum dapibus. Morbi imperdiet interdum arcu et euismod. Maecenas " +
                                     "a felis dolor. Vivamus dictum magna in dolor tristique, sit amet faucibus ante " +
                                     "volutpat. Aliquam maximus id ex eu viverra. Vivamus volutpat, mauris sit amet " +
                                     "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
                                     "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
+                      "descriptionAlt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci " +
+                                    "efficitur bibendum dapibus. Morbi imperdiet interdum arcu et euismod. Maecenas " +
+                                    "a felis dolor. Vivamus dictum magna in dolor tristique, sit amet faucibus ante " +
+                                    "volutpat. Aliquam maximus id ex eu viverra. Vivamus volutpat, mauris sit amet " +
+                                    "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
+                                    "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
                       "url": "https://www.google.com",
-                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
+                      "urlAlt": "https://www.google.com",
+                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/300%20x%20200.png?alt=media&token=c3bd2155-1d60-4745-b7dc-152b516066d0",
                       "publishedAt": "1990-01-01T00:00:00Z",
                       "source": "fake-news-source",
                       "index": -1,
@@ -116,15 +132,23 @@ const state = {
                   articles: [
                     {
                       "author": "Fake Author",
-                      "title": "Placeholder Article 2",
+                      "title": "Placeholder Article 1",
+                      "titleAlt": "Placeholder Article 1",
                       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci " +
                                     "efficitur bibendum dapibus. Morbi imperdiet interdum arcu et euismod. Maecenas " +
                                     "a felis dolor. Vivamus dictum magna in dolor tristique, sit amet faucibus ante " +
                                     "volutpat. Aliquam maximus id ex eu viverra. Vivamus volutpat, mauris sit amet " +
                                     "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
                                     "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
+                      "descriptionAlt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci " +
+                                    "efficitur bibendum dapibus. Morbi imperdiet interdum arcu et euismod. Maecenas " +
+                                    "a felis dolor. Vivamus dictum magna in dolor tristique, sit amet faucibus ante " +
+                                    "volutpat. Aliquam maximus id ex eu viverra. Vivamus volutpat, mauris sit amet " +
+                                    "tincidunt semper, enim leo vestibulum mauris, nec iaculis velit justo non risus. " +
+                                    "Suspendisse viverra nisi quam. Vestibulum iaculis est vitae mauris tincidunt euismod.",
                       "url": "https://www.google.com",
-                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
+                      "urlAlt": "https://www.google.com",
+                      "urlToImage": "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/300%20x%20200.png?alt=media&token=c3bd2155-1d60-4745-b7dc-152b516066d0",
                       "publishedAt": "1990-01-01T00:00:00Z",
                       "source": "fake-news-source",
                       "index": -1,
@@ -144,7 +168,7 @@ const state = {
               titleText: "what's happening",
               events: [
                 {
-                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
+                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/300%20x%20200.png?alt=media&token=c3bd2155-1d60-4745-b7dc-152b516066d0",
                   title:"Event Title 1",
                   date:"Monday, January 1st",
                   description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",
@@ -152,7 +176,7 @@ const state = {
                   linkText:"Event Link"
                 },
                 {
-                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/placeholder.jpg?alt=media&token=07a9d840-3f5b-4a31-b47c-c0cc46f788a7",
+                  image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/300%20x%20200.png?alt=media&token=c3bd2155-1d60-4745-b7dc-152b516066d0",
                   title:"Event Title 2",
                   date:"Monday, January 1st",
                   description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",

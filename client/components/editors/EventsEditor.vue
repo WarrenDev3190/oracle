@@ -41,7 +41,7 @@
       },
       addEvent: function(){
         this.events.push({
-          image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/time_placeholder.jpeg?alt=media&token=8a7587e8-225c-466a-ab5d-29620567d952",
+          image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/300%20x%20200.png?alt=media&token=c3bd2155-1d60-4745-b7dc-152b516066d0",
           title:"New Event",
           date:"Monday, January 1st",
           description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",

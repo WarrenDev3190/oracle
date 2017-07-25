@@ -134,6 +134,7 @@ export default {
         }
         var img = document.createElement("IMG")
         img.src = "https://newscart-imageconvert-micro.herokuapp.com/htmlToPng?html=" + encodedHtml
+        console.log(img.src)
         replaceEls[i].appendChild(img)
       }
       return "<html><head></head><body>" + template.outerHTML + "</body></html>"

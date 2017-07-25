@@ -125,7 +125,6 @@ export default {
       }
     },
     preprocessTemplateHtml: function(){
-      console.log(cloudFunctions.defaults.baseURL)
       var template = this.$refs['template'].$el.cloneNode(true)
       var replaceEls = template.querySelectorAll('[name=image_replace]')
       for(var i=0; i < replaceEls.length; i++){
@@ -134,7 +133,7 @@ export default {
           replaceEls[i].removeChild(replaceEls[i].firstChild)
         }
         var img = document.createElement("IMG")
-        img.src = cloudFunctions.defaults.baseURL + "/htmlToImage?html=" + encodedHtml
+        img.src = "https://newscart-imageconvert-micro.herokuapp.com/htmlToPng?html=" + encodedHtml
         replaceEls[i].appendChild(img)
       }
       return "<html><head></head><body>" + template.outerHTML + "</body></html>"

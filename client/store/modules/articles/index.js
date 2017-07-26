@@ -36,20 +36,20 @@ const mutations = {
       // Format article titles
       article.title = apFormat(article.title)
       if (article.publishedAt == null) {
-        Vue.set(article, "filterDate", 'No Date Given')
+        Vue.set(article, 'filterDate', 'No Date Given')
       } else {
         var prefixD = article.publishedAt.substring(0, article.publishedAt.indexOf('T'))
         if (prefixD.trim() === '') {
-          Vue.set(article, "filterDate", 'No Date Given')
+          Vue.set(article, 'filterDate', 'No Date Given')
         } else {
-          Vue.set(article, "filterDate", prefixD + 'T00:00:00Z')
+          Vue.set(article, 'filterDate', prefixD + 'T00:00:00Z')
         }
       }
-      //Set alts to be used for editing in this case
-      //article.titleAlt = article.title
-      Vue.set(article, "titleAlt", article.title)
-      Vue.set(article, "urlAlt", article.url)
-      Vue.set(article, "descriptionAlt", article.description)
+      // Set alts to be used for editing in this case
+      // article.titleAlt = article.title
+      Vue.set(article, 'titleAlt', article.title)
+      Vue.set(article, 'urlAlt', article.url)
+      Vue.set(article, 'descriptionAlt', article.description)
     }
     state.articles
   },

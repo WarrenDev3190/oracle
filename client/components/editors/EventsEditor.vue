@@ -3,6 +3,8 @@
   <div class="nc-edit">
     <editor-title :title="'Events'" />
 
+    <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
+
     <div class="nc-edit__group">
       <button class="nc-edit__add-button" type="button" @click="addEvent" >+New Event</button>
     </div>

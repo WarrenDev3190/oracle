@@ -92,7 +92,7 @@ export default {
     sendEmails: function(){
       this.$refs["sendButton"].disabled = true
       this.$refs["sendButton"].innerHTML = "Sending..."
-      var emailText = encodeURIComponent("<html><head></head><body>" + this.$refs['template'].$el.outerHTML + "</body></html>")
+      var emailText = encodeURIComponent(this.preprocessTemplateHtml())
       var emailB64 = window.btoa(emailText)
       cloudFunctions.post("/sendTemplate", {
         "from": this.fromEmail,
@@ -126,7 +126,7 @@ export default {
       var emailText = "Subject: " + this.subject + "\n" +
                       "X-Unsent: 1\n" +
                       "Content-type: text/html;\n"
-      emailText = emailText + "\n\n<html><head></head><body>" + this.$refs['template'].$el.outerHTML + "</body></html>"
+      emailText = emailText + "\n\n" + this.preprocessTemplateHtml()
       var file = new Blob([emailText], {type: "eml"});
       var d = new Date()
       var fileName = "NewsCart Template " + d.toUTCString() + ".eml"
@@ -144,6 +144,21 @@ export default {
               window.URL.revokeObjectURL(url);
           }, 0);
       }
+    },
+    preprocessTemplateHtml: function(){
+      var template = this.$refs['template'].$el.cloneNode(true)
+      var replaceEls = template.querySelectorAll('[name=image_replace]')
+      for(var i=0; i < replaceEls.length; i++){
+        var encodedHtml = encodeURI(replaceEls[i].innerHTML)
+        while(replaceEls[i].firstChild){
+          replaceEls[i].removeChild(replaceEls[i].firstChild)
+        }
+        var img = document.createElement("IMG")
+        img.src = "https://newscart-imageconvert-micro.herokuapp.com/htmlToPng?html=" + encodedHtml
+        console.log(img.src)
+        replaceEls[i].appendChild(img)
+      }
+      return "<html><head></head><body>" + template.outerHTML + "</body></html>"
     }
   },
   data: function() {

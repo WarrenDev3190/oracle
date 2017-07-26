@@ -2,6 +2,7 @@
 
   <div class="nc-edit">
     <editor-title :title="'News'" />
+    <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
     <news-groups-editor 
       v-model="this.newsGroups" 
       :title="'News Groups (select a group to edit)'" 
@@ -22,12 +23,14 @@
   import { mapGetters } from 'vuex'
   import EditorTitle from './EditorTitle.vue'
   import NewsGroupsEditor from './NewsGroupsEditor.vue'
+  import LineEditor from './LineEditor.vue'
   import ArticlesEditor from './ArticlesEditor.vue'
   export default {
     components: {
       EditorTitle,
       NewsGroupsEditor,
-      ArticlesEditor
+      ArticlesEditor,
+      LineEditor
     },
     computed: {
       usedArticles: function(){

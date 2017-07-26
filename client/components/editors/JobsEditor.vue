@@ -2,6 +2,7 @@
 
   <div class="nc-edit">
     <editor-title :title="'Jobs'" />
+    <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
     <div class="nc-edit__group">
       <button class="nc-edit__add-button" type="button" @click="addJob" >+New Job</button>
     </div>

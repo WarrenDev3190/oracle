@@ -12,9 +12,7 @@
     <section-title
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
-      :barColorSolid="barColorSolid"
       :titleText="titleText"
-      :image="'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hires.png?alt=media&token=18690157-4cb9-4116-803a-71182ec8ad51'"
     />
     <div
       v-for="(hire, index) in newHires"

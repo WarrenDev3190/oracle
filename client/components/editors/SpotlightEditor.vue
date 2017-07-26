@@ -2,6 +2,7 @@
 
   <div class="nc-edit">
     <editor-title :title="'Spotlight'" />
+    <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
     <image-editor :title="'Image'" v-model="image" @input="updateInput" />
     <html-editor :title="'Text'" v-model="bodyHtml" @input="updateInput" />
   </div>
@@ -11,11 +12,13 @@
   import EditorTitle from './EditorTitle.vue'
   import ImageEditor from './ImageEditor.vue'
   import HtmlEditor from './HtmlEditor.vue'
+  import LineEditor from './LineEditor.vue'
   export default {
     components: {
       EditorTitle,
       ImageEditor,
-      HtmlEditor
+      HtmlEditor,
+      LineEditor
     },
     computed: {
     },

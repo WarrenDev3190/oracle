@@ -70,6 +70,7 @@
               :barColorEnd="sectionBarColorEnd"
               :barColorSolid="sectionBarColorStart"
               :events="sections.events.data.events"
+              :titleText="sections.events.data.titleText"
             />
             <hires
               v-show="!sections.hires.toggleable || sections.hires.on"
@@ -144,7 +145,7 @@
         type:Function
       },
       accentColor:{
-        default:'rgb(0,167,225)',
+        default:'#00A7FF',
         type:String
       },
       sectionBarColorStart:{

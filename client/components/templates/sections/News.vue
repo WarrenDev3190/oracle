@@ -8,9 +8,7 @@
     <section-title
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
-      :barColorSolid="barColorSolid"
       :titleText="titleText"
-      :image="'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/news.png?alt=media&token=36f5416d-9a10-46b9-ad78-f0ec5a34e667'"
     />
     <news-group
       v-for="(group, index) in newsGroups"

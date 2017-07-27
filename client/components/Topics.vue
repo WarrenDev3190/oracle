@@ -9,7 +9,8 @@
         <div v-if="$store.state.user.properties" v-for="(topic, index) in $store.state.user.properties.topics"
              class="nc-topic-card"
              :class="{'nc-topic-card--selected': topic.selected}"
-             @click="handleTopicClick(index)">
+             @click="handleTopicClick(index)"
+             :style="{ 'backgroundImage' : `url(/static/imgs/nc-topic-images/${makeUrl(topic.name)}.png)`  }">
           {{topic.name}}
         </div>
       </div>
@@ -23,6 +24,9 @@
       Navigation
     },
     methods: {
+      makeUrl(topic){
+        return topic.split(' ').map( topic => topic.toLowerCase()).join('-');
+      },
       handleTopicClick(topicIndex) {
         this.$store.commit('user/UPDATE_SELECTED_TOPICS', topicIndex)
       },

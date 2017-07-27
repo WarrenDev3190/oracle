@@ -5,7 +5,9 @@
 }
 
 .nc-topic-card {
-  background-color: $nc-gray;
+  height: 62px;
+  // background-color: $nc-gray;
+  // background-image: url(../../static/imgs/nc-topic-images/digital-advertising.png);
   background-repeat: no-repeat;
   background-size: cover;
   color: $nc-white;

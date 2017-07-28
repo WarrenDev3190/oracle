@@ -5,12 +5,12 @@
 }
 
 .nc-topic-card {
-  height: 62px;
+  // height: 62px;
   // background-color: $nc-gray;
-  // background-image: url(../../static/imgs/nc-topic-images/digital-advertising.png);
+  // background-image: url('/imgs/nc-topic-images/digital-advertising.png');
   background-repeat: no-repeat;
   background-size: cover;
-  color: $nc-white;
+  // color: $nc-white;
   font-size: 14px;
   width: calc(50% - 20px);
   padding: $nc-md $nc-sm;
@@ -22,6 +22,6 @@
     cursor: pointer;
   }
   &--selected {
-    background: $nc-green;
+    border: 1px solid $nc-green;
   }
 }

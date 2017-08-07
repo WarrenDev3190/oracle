@@ -1,7 +1,7 @@
 $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
 
 .nc-design{
-  padding: 0 20px;
+  padding: 0;
   width: 100%;
 
   &__sections{
@@ -26,9 +26,10 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
     &__title{
       @include input-shadow;
 
-      background: $nc-gray-bg;
-      border: 3px solid $nc-gray-bg;
-      color: $nc-gray;
+      background-color: $nc-white;
+      border: 3px solid $nc-white;
+      box-shadow: 0 -1px 1px 0 rgba(0,0,0,.05), 0 1px 2px 0 rgba(0,0,0,.2);
+      color: #bdbdbd;
       display: flex;
       font-weight: 700;
       justify-content: center;
@@ -38,12 +39,14 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
 
     &__checkbox {
       display: none;
+      border-radius: 3px;
 
       &:checked {
         & + label {
-          color: $nc-black;
+          color: $nc-white;
           border-color: $nc-blue;
-          background-color: $nc-white;
+          background-color: $nc-blue;
+          border-radius: 3px;
         }
       }
     }
@@ -67,8 +70,8 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
     &__editor {
       flex: 1;
       position:relative;
-      border: 1px solid $nc-gray-border;
-      box-shadow: 5px .5px 1px 1px rgba (0,0,0,.25);
+      border:0 solid $nc-gray-border;
+      // box-shadow: 5px .5px 1px 1px rgba (0,0,0,.25);
 
 
       @media screen and (max-width: 850px) { width: 100%; }
@@ -81,7 +84,7 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
       margin-right: 10px;
       max-width: 650px;
       min-width: 400px;
-      overflow: scroll;
+      overflow: auto;
       padding-bottom: 2px;
       padding-top: 2px;
 
@@ -96,12 +99,14 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
       background: $nc-white;
       box-shadow: $nc-card-shadow;
       flex-grow: 1;
-      height: 600px;
+      height: auto;
       min-width: 400px;
       overflow-x: hidden;
       overflow-y: scroll;
       padding-bottom: 2px;
       padding-top: 2px;
+      max-width: 500px;
+      box-shadow: 0 -1px 1px 0 rgba(0,0,0,.05), 0 1px 2px 0 rgba(0,0,0,.2);
 
       @media screen and (max-width: 850px) {
         order: 1;

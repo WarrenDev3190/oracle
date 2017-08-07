@@ -1,5 +1,5 @@
 .nc-nav {
-  background: $nc-white;
+  background: $nc-blue;
   box-shadow: 0 0 4px rgba(0,0,0,.25);
   width: 100%;
 
@@ -29,10 +29,10 @@
 
     a {
 
-      color: $nc-black !important;
+      color: $nc-white !important;
       display: block;
       font-size: 1.15em;
-      font-weight: 700;
+      font-weight: 500;
       line-height: 1;
       padding: 1.5em 1.75em;
       text-transform: uppercase;
@@ -44,7 +44,7 @@
     }
 
     &--active {
-      a { color: $nc-blue !important; }
+      a { color: #28f392 !important; }
     }
   }
 }

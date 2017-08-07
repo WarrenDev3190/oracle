@@ -3,8 +3,10 @@
   <div :style="{
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
-      'line-height':'1',
+      'line-height':'1.5',
       'margin-bottom':'20px',
+      'margin-left':'30px',
+      'margin-right':'30px',
       'text-align':'left'
     }"
   >

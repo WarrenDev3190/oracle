@@ -5,7 +5,7 @@
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
       'text-align':'left',
-      'line-height':'1.0',
+      'line-height':'1.5',
       'margin-bottom':'20px'
     }"
   >
@@ -16,7 +16,9 @@
     />
     <div v-for="(job, index) in jobs"
       :style="{
-          'margin-bottom':'20px'
+          'margin-bottom':'20px',
+          'margin-left':'30px',
+          'margin-right':'30px'
       }"
       :key="index"
     >

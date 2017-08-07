@@ -2,15 +2,18 @@
   <div>
     <navigation/>
     <main class="nc-container">
-      <header class="nc-header">
+      <!-- <header class="nc-header">
         <h3>Select the topics you’d like to follow</h3>
-      </header>
+      </header> -->
       <div class="nc-inner-container nc-flex nc-flex--wrap">
         <div v-if="$store.state.user.properties" v-for="(topic, index) in $store.state.user.properties.topics"
              class="nc-topic-card"
              :class="{'nc-topic-card--selected': topic.selected}"
+            v-bind:style="{ backgroundImage : `url(/imgs/nc-topic-images/${makeUrl(topic.name)}.png`  }"
              @click="handleTopicClick(index)">
-          {{topic.name}}
+          <div class="nc-topic-card__topic-title">
+            {{topic.name}}
+          </div>
         </div>
       </div>
     </main>
@@ -23,6 +26,9 @@
       Navigation
     },
     methods: {
+      makeUrl(topic){
+        return topic.split(' ').map( topic => topic.toLowerCase()).join('-');
+      },
       handleTopicClick(topicIndex) {
         this.$store.commit('user/UPDATE_SELECTED_TOPICS', topicIndex)
       },

@@ -4,9 +4,11 @@
       'width':'100%',
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
-      'text-align':'center',
-      'padding-top':'20px',
-      'line-height':'1.0'
+      'text-align':'left',
+      'padding':'20px 30px',
+      'line-height':'1.0',
+      'color':'#fff',
+      'background-color':' #003f5c'
     }"
   >
     <span :style="{

@@ -15,21 +15,24 @@
     >
       <tr>
         <td :style="{
-            'width':'50%'
+            'width':'23%'
           }"
         >
           <img :style="{
-              'width':'300px',
-              'height':'200px'
+              'width':'131px',
+              'height':'131px',
+              'margin-left': '30px'
             }"
-            width="300"
-            height="200"
+            width="131"
+            height="131"
             :src="image"
           />
         </td>
         <td valign="top">
           <div :style="{
-              'line-height':'1.0'
+              'line-height':'1.5',
+              'margin-left':'30px',
+              'margin-right':'30px'
             }"
             v-html="bodyHtml"
           >

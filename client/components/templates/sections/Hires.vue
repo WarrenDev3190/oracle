@@ -5,8 +5,8 @@
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
       'text-align':'left',
-      'line-height':'1.0',
-      'margin-bottom':'20px'
+      'margin-bottom':'20px',
+      'line-height':'1.5'
     }"
   >
     <section-title
@@ -19,6 +19,10 @@
     <div
       v-for="(hire, index) in newHires"
       :key="index"
+      :style="{
+        'margin-left':'30px',
+        'margin-right':'30px'
+        }"
     >
       <span :style="{
           'font-size':'9pt',

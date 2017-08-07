@@ -1,7 +1,8 @@
 <template lang="html">
 
-  <div class="nc-share nc-container">
-      <navigation/>
+  <div>
+    <navigation/>
+    <div class="nc-share nc-container">
       <div class="nc-share__left">
         <div class="nc-share__preview">
           <div class="nc-share__preview__title">Preview</div>
@@ -28,8 +29,10 @@
           <div class="nc-share__content-wrapper">
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="fromEmail" placeholder="From Email" />
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="newsletterSubject" placeholder="Subject" />
-            <input class="nc-share__send-email__email-input md-input-container" v-on:keydown.enter="addEmail" type="text" v-model="newEmail" placeholder="Email Recipients" />
-            <button class="nc-share__send-email__add-button" type="button" @click="addEmail">Add</button>
+            <div class="nc-share__send-email__email-input__container ">
+              <input class="nc-share__send-email__email-input__email-input-field nc-share__send-email__add-email md-input-container" v-on:keydown.enter="addEmail" type="text" v-model="newEmail" placeholder="Email Recipients"
+              /><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn" type="button" @click="addEmail">Add</button>
+            </div>
             <br />
             <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send</button>
             <div class="nc-share__send-email__emails">
@@ -41,7 +44,7 @@
           </div>
         </div>
       </div>
-
+    </div>
   </div>
 
 </template>

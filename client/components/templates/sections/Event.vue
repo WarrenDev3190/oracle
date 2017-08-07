@@ -1,18 +1,16 @@
 <template lang="html">
 
   <div :style="{
-      'width':'340px',
-      'text-align':'center',
+      'width':'245px',
+      'text-align':'left',
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
-      'line-height':'1.0'
+      'line-height':'1.5'
     }"
   >
     <img :style="{
-        'padding-left':'20px',
-        'padding-right':'20px',
-        'width':'340px',
-        'height':'200px'
+        'width':'245px',
+        'height':'150px'
       }"
       width="340"
       height="200"
@@ -30,7 +28,7 @@
       <br/>
       <span :style="{
           'font-weight':'bold',
-          'font-size':'12.8px'
+          'font-size':'12.8px',
         }"
       >
         {{date}}:

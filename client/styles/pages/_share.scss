@@ -92,12 +92,28 @@ $btn-padding: .75em 1.25em;
       display: inline-block;
     }
 
+
     &__email-input {
       margin-bottom: 15px;
       border: 1px solid gray;
       border-radius: 5px;
       width: 79%;
       display: inline-block;
+
+      &__container {
+        margin-bottom: 15px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        width: 100%;
+        display: inline-block;
+      }
+
+      &__email-input-field {
+        border: 0;
+        width: 80%;
+        display: inline-block;
+      }
+
     }
 
     &__add-button {
@@ -195,9 +211,9 @@ $btn-padding: .75em 1.25em;
     }
 
     &__template-border {
-      border: 1px solid $nc-gray-border;
+      // border: 1px solid $nc-gray-border;
       padding: 15px 0 15px;
-      box-shadow: $nc-card-shadow;
+      box-shadow: 0 -1px 1px 0 rgba(0,0,0,.05), 0 1px 2px 0 rgba(0,0,0,.2);
     }
   }
 }

@@ -14,7 +14,9 @@
     />
     <table :style="{
         'width':'100%',
-        'border-collapse':'true'
+        'border-collapse':'true',
+        'margin-left':'30px',
+        'margin-right':'30px'
       }"
     >
       <tr v-for="n in Math.ceil(events.length / 2, 10)">

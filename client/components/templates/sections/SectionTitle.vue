@@ -8,8 +8,8 @@
     >
     <table :style="{
       'width':'100%',
-      'padding-left':'30px',
-      'padding-right':'30px',
+      /*'padding-left':'30px',
+      'padding-right':'30px',*/
       'margin-bottom':'20px'
       }"
     >

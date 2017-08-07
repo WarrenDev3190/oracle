@@ -16,6 +16,7 @@
             <component :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" :sectionSelected="sectionSelected"/>
           </div>
           <div class="nc-design__container__editor">
+            <component :is="selectedLayout[0].component + '-editor'" v-model="selectedLayout[0].template" />
             <component :is="getSelectedSection() + '-editor'" v-model="selectedLayout[0].template.sections[getSelectedSection()].data" />
           </div>
         </div>

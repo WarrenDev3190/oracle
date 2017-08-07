@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "projectoracle-b9c0e"
+    "default": "projectoracle-b9c0e",
+    "dev": "projectoracle-dev"
   }
 }

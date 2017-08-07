@@ -34,10 +34,9 @@ const state = {
       selected: true,
       component:"time-template",
       template: {
-        accentColor: "rgb(0,167,225)",
+        accentColor: "#00A7FF",
         sectionBarColorStart: "#0081eb",
         sectionBarColorEnd: "#00edbf",
-        sectionBarColorSolid: "#0081eb",
         sections: {
           hero: {
             title: "Header",

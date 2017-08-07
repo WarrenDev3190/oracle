@@ -7,6 +7,8 @@ import HeroEditor from './HeroEditor.vue'
 import SpotlightEditor from './SpotlightEditor.vue'
 import EventsEditor from './EventsEditor.vue'
 
+import TimeTemplateEditor from './TimeTemplateEditor.vue'
+
 export default {
   DefaultEditor,
   FootEditor,
@@ -15,5 +17,6 @@ export default {
   NewsEditor,
   HeroEditor,
   SpotlightEditor,
-  EventsEditor
+  EventsEditor,
+  TimeTemplateEditor
 }

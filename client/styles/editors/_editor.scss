@@ -1,5 +1,83 @@
 .nc-edit{
 
+  &__template {
+    display: flex;
+    align-items: stretch;
+
+    &__column {
+      position: relative;
+      flex: 1
+    }
+
+    &__button {
+      position: relative;
+      @include input-shadow;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+      text-align:center;
+      margin-left: 5px;
+      margin-right: 5px;
+      font-size: 15px;
+      color: $nc-gray; 
+    }
+
+    &__save {
+      background-color: $nc-green;
+      color: white;
+    }
+
+    &__popover {
+      position: absolute;
+      width: 100%;
+      display: block;
+      text-align:left;
+      background-color: transparent;
+      z-index: 999;
+      color: $nc-black;
+
+      &__triangle {
+        height: 20px;
+      }
+
+      &__body {
+        @include input-shadow;
+        width: 100%;
+        border: 1px solid $nc-gray;
+        background-color: white;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 10px;
+      }
+
+      &__new-section {
+        margin-bottom: 15px;
+      }
+
+      &__text {
+        vertical-align: top;
+      }
+
+      &__save-button {
+        width: 100%;
+        height: 30px;
+        background-color: $nc-green;
+        border-style: none;
+        color: white;
+        margin-top: 5px;
+      }
+
+      &__text-input {
+        width: 100%;
+        height: 30px;
+      }
+
+    }
+
+  }
+
   &__title {
     text-align: center;
     padding-bottom: 1em;

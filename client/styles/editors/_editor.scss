@@ -321,32 +321,40 @@
     background-color: #f9f9f9;
   }
 
-  &__color-box {
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    display: inline-block;
-    padding: 0px;
-    margin: 0px;
-    transform: translateY(5px)
+  &__color-picker {
+    width: 100%;
   }
 
-  &__color-title {
-    height: 22px;
-    line-height: 22px;
+  &__color {
     display: inline-block;
-    vertical-align: middle;
-    padding: 0px;
-    margin: 0px;
-    font-style: italic;
-    font-size: 12px;
-  }
+    width: 70px;
+    height: 100px;
+    text-align: center;
+    margin-right: 8px;
+    margin-left: 8px;
 
-  &__picker-popup {
-    position:absolute;
-    z-index:999999;
-    left: 0px;
-    right: 0px;
+    &__selected {
+      border: 3px solid $nc-blue !important;
+    }
+
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      font-size: 12px;
+    }
+
+    &__swatch {
+      width: 50px;
+      height: 50px;
+      border: 1px solid $nc-gray;
+      padding: 0px;
+      margin: 0px;
+      margin: auto;
+      border-radius: 50%;
+    }
+
   }
 
   &__inline {

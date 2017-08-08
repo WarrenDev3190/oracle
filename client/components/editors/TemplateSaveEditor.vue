@@ -20,7 +20,6 @@
  <script type="text/javascript">
   import { mapGetters } from 'vuex'
   import EditorTitle from './EditorTitle.vue'
-  import ColorEditor from './ColorEditor.vue'
   import ClickOutside from 'vue-click-outside'
   import { db } from '../../constants/fb'
   export default {
@@ -31,7 +30,6 @@
       ClickOutside
     },
     components: {
-      ColorEditor
     },
     computed: {
       ... mapGetters('layouts', ['selectedLayout'])

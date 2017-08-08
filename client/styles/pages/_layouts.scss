@@ -1,7 +1,7 @@
 .nc-layout-card {
   padding: .5em;
   margin-bottom: 1.5em;
-  width: 400px;
+  width: 250px;
   height: auto;
 
   &--selected {
@@ -20,4 +20,8 @@
     display: block;
     margin-bottom: 2em;
   }
+}
+
+.nc-layout-card-mini {
+  width: 200px;
 }

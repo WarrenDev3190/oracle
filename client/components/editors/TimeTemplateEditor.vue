@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div class="nc-edit">
-    <editor-title :title="title" />
+    <editor-title :title="selectedLayout[0].template.name" />
       <div class="nc-edit__template">
       <div class="nc-edit__template__column nc-edit__template__button" >Colors Settings</div>
       
@@ -10,9 +10,9 @@
         <div v-if="showSaveDialog" class="nc-edit__template__popover">
           <div class="nc-edit__template__popover__triangle"></div>
           <div class="nc-edit__template__popover__body">
-            <button v-if="false" class="nc-edit__template__popover__save-button nc-edit__template__popover__new-section">Save Current Template</button>
+            <button v-if="selectedLayout[0].template_key != null" class="nc-edit__template__popover__save-button nc-edit__template__popover__new-section">Save Current Template</button>
             <div class="nc-edit__template__popover__text">Save Template as...</div>
-            <input type="text" class="nc-edit__template__popover__text-input"/>
+            <input ref="saveTitle" type="text" class="nc-edit__template__popover__text-input" :value="selectedLayout[0].template.name" />
             <button class="nc-edit__template__popover__save-button" @click="saveNewTemplate">Save As New Template</button>
           </div>
         </div>
@@ -69,10 +69,13 @@
         this.showSaveDialog = false
       },
       saveNewTemplate: function() {
-        db.ref(`users/${this.$store.state.user.user.uid}/templates/${this.selectedLayout[0].type}`).push(this.selectedLayout[0].template)
+        this.selectedLayout[0].template.name = this.$refs["saveTitle"].value
+        this.selectedLayout[0].template_key = db.ref(`users/${this.$store.state.user.user.uid}/templates/${this.selectedLayout[0].type}`).push(this.selectedLayout[0].template).key
+        this.hideDialog()
       },
       saveCurrentTemplate: function() {
-        
+        db.ref(`users/${this.$store.state.user.user.uid}/templates/${this.selectedLayout[0].type}/${this.selectedLayout[0].template_key}`).push(this.selectedLayout[0].template)
+        this.hideDialog()
       }
     },
     data: function(){
@@ -95,10 +98,6 @@
             }
         },
         type: Object
-      },
-      title: {
-        default: "TimeTemplate",
-        type: String
       },
       editorId: {
         default: "TimeTemplateEditor",

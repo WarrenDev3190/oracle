@@ -10,7 +10,7 @@
         <div v-if="showSaveDialog" class="nc-edit__template__popover">
           <div class="nc-edit__template__popover__triangle"></div>
           <div class="nc-edit__template__popover__body">
-            <button v-if="selectedLayout[0].template_key != null" class="nc-edit__template__popover__save-button nc-edit__template__popover__new-section">Save Current Template</button>
+            <button v-if="selectedLayout[0].template_key != null" @click="saveCurrentTemplate" class="nc-edit__template__popover__save-button nc-edit__template__popover__new-section">Save Current Template</button>
             <div class="nc-edit__template__popover__text">Save Template as...</div>
             <input ref="saveTitle" type="text" class="nc-edit__template__popover__text-input" :value="selectedLayout[0].template.name" />
             <button class="nc-edit__template__popover__save-button" @click="saveNewTemplate">Save As New Template</button>
@@ -74,7 +74,7 @@
         this.hideDialog()
       },
       saveCurrentTemplate: function() {
-        db.ref(`users/${this.$store.state.user.user.uid}/templates/${this.selectedLayout[0].type}/${this.selectedLayout[0].template_key}`).push(this.selectedLayout[0].template)
+        db.ref(`users/${this.$store.state.user.user.uid}/templates/${this.selectedLayout[0].type}/${this.selectedLayout[0].template_key}`).update(this.selectedLayout[0].template)
         this.hideDialog()
       }
     },

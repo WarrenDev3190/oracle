@@ -29,7 +29,7 @@ const mutations = {
 }
 
 const defaultTemplates = {
-  'Dynamic Template' : {
+  'time-template' : {
     name: "Dynamic Template",
     accentColor: "#00A7FF",
     sectionBarColorStart: "#0081eb",
@@ -287,12 +287,13 @@ const state = {
   defaultTemplates: defaultTemplates,
   layouts: [
     {
-      type: 'Dynamic Template',
+      type: 'time-template',
+      name: 'Dynamic Template',
       imageURL: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/Dynamic%20Template.png?alt=media&token=e8d4f318-28f9-42ec-b5d6-f72852163a7d",
       selected: true,
       component:"time-template",
       template_key: null,
-      template: jQuery.extend(true, {}, defaultTemplates['Dynamic Template'])
+      template: jQuery.extend(true, {}, defaultTemplates['time-template'])
     }
   ]
 }

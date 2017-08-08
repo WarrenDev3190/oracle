@@ -5,18 +5,8 @@
       <div class="nc-edit__template">
       <div class="nc-edit__template__column nc-edit__template__button" >Colors Settings</div>
       
-      <div ref="saveDialog" class="nc-edit__template__column">
-        <div class="nc-edit__template__button nc-edit__template__save" @click="toggleDialog" v-click-outside="hideDialog">Save</div>
-        <div v-if="showSaveDialog" class="nc-edit__template__popover">
-          <div class="nc-edit__template__popover__triangle"></div>
-          <div class="nc-edit__template__popover__body">
-            <button v-if="selectedLayout[0].template_key != null" @click="saveCurrentTemplate" class="nc-edit__template__popover__save-button nc-edit__template__popover__new-section">Save Current Template</button>
-            <div class="nc-edit__template__popover__text">Save Template as...</div>
-            <input ref="saveTitle" type="text" class="nc-edit__template__popover__text-input" :value="selectedLayout[0].template.name" />
-            <button class="nc-edit__template__popover__save-button" @click="saveNewTemplate">Save As New Template</button>
-          </div>
-        </div>
-      </div>
+      <template-save-editor class="nc-edit__template__column" />
+
     </div>
     
     <color-editor :title="'Primary Color'" v-model="sectionBarColorStart" @input="updateInput"/>
@@ -30,6 +20,7 @@
   import EditorTitle from './EditorTitle.vue'
   import ColorEditor from './ColorEditor.vue'
   import ClickOutside from 'vue-click-outside'
+  import TemplateSaveEditor from './TemplateSaveEditor.vue'
   import { db } from '../../constants/fb'
   export default {
     mounted() {
@@ -40,7 +31,8 @@
     },
     components: {
       EditorTitle,
-      ColorEditor
+      ColorEditor,
+      TemplateSaveEditor
     },
     computed: {
       ... mapGetters('layouts', ['selectedLayout'])

@@ -5,18 +5,18 @@
           <header class="nc-header">
               <h3>Layout</h3>
           </header>
-          <div class="nc-inner-container nc-flex">
+          <div class="nc-inner-container nc-flex--wrap">
             <div class="nc-layout-card" @click="handleLayoutClick(index)" v-for="(layout, index) in possibleLayouts">
               <figure>
                 <img :src="layout.imageURL" :class="{'nc-layout-card--selected': layout.selected}"/>
-                <caption>{{layout.type}}</caption>
+                <caption>{{layout.name}}</caption>
               </figure>
             </div>
           </div>
           <header class="nc-header">
               <h3>Saved Templates</h3>
           </header>
-          <div class="nc-flex">
+          <div class="nc-inner-container nc-flex--wrap">
             <div class="nc-layout-card nc-layout-card-mini" @click="clearSavedTemplate()">
               <figure>
                 <img src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/NoTemplate.png?alt=media&token=e4d69abc-adc8-425f-b128-13ea497b4dea" :class="{'nc-layout-card--selected': selectedLayout[0].template_key == null}"/>

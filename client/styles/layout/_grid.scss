@@ -6,8 +6,7 @@
 }
 
 .nc-inner-container {
-  max-width: 100%;
-  overflow: hidden;
+  max-width: 100%; 
 }
 
 .nc-fullscreen {
@@ -16,8 +15,13 @@
 }
 
 .nc-flex {
+  /**
+  Fix this so the display: flex is not duplicated
+  **/
   display: flex;
+
   &--wrap {
+    display: flex;
     flex-wrap: wrap;
   }
   &--center-children {

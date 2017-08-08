@@ -1,14 +1,16 @@
 <template lang="html">
 
   <div :style="{
-      'margin-bottom':'20px'
+      'margin-bottom':'20px',
+      'margin-left':'30px',
+      'margin-right':'30px'
     }"
   >
     <div :style="{
         'font-family':'Arial,Helvetica,sans-serif',
         'font-size':'11px',
         'font-weight':'bold',
-        'text-align':'center',
+        'text-align':'left',
         'margin-bottom':'20px'
       }"
     >

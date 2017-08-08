@@ -14,41 +14,45 @@
       :barColorEnd="barColorEnd"
       :titleText="titleText"
     />
-    <div v-for="(job, index) in jobs"
-      :style="{
-          'margin-bottom':'20px',
-          'margin-left':'30px',
-          'margin-right':'30px'
+    <div :style="{
+      'margin-left':'30px',
+      'margin-right':'30px'
       }"
-      :key="index"
     >
-      <span :style="{
-          'font-weight':'bold',
-          'font-size':'12.8px'
+      <div v-for="(job, index) in jobs"
+        :style="{
+            'margin-bottom':'20px'
         }"
+        :key="index"
       >
-        <a
-          :href="job.link"
-          target="_blank"
-          :style="{
-            'color':accentColor,
-            'text-decoration':'none'
+        <span :style="{
+            'font-weight':'bold',
+            'font-size':'12.8px'
           }"
         >
-          {{job.title}}
-        </a>
-        &nbsp;-&nbsp;
-      </span>
-      <span :style="{
-          'font-weight':'bold',
-          'font-size':'12.8px'
-        }"
-      >
-        {{job.location}}
-      </span>
-      <br/>
-      <span v-html="job.description">
-      </span>
+          <a
+            :href="job.link"
+            target="_blank"
+            :style="{
+              'color':accentColor,
+              'text-decoration':'none'
+            }"
+          >
+            {{job.title}}
+          </a>
+          &nbsp;-&nbsp;
+        </span>
+        <span :style="{
+            'font-weight':'bold',
+            'font-size':'12.8px'
+          }"
+        >
+          {{job.location}}
+        </span>
+        <br/>
+        <span v-html="job.description">
+        </span>
+      </div>
     </div>
   </div>
 

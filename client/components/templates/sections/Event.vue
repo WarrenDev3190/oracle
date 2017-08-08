@@ -12,8 +12,8 @@
         'width':'245px',
         'height':'150px'
       }"
-      width="340"
-      height="200"
+      width="245"
+      height="150"
       :src="image"
     />
     <div>

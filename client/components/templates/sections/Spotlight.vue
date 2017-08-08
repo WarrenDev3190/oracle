@@ -14,30 +14,33 @@
       }"
     >
       <tr>
-        <td :style="{
-            'width':'23%'
+        <div :style="{
+          'margin-left':'30px',
+          'margin-right':'30px'
           }"
         >
-          <img :style="{
-              'width':'131px',
-              'height':'131px',
-              'margin-left': '30px'
+          <td :style="{
+              'width':'28%'
             }"
-            width="131"
-            height="131"
-            :src="image"
-          />
-        </td>
-        <td valign="top">
-          <div :style="{
-              'line-height':'1.5',
-              'margin-left':'30px',
-              'margin-right':'30px'
-            }"
-            v-html="bodyHtml"
           >
-          </div>
-        </td>
+            <img :style="{
+                'width':'131px',
+                'height':'131px'
+              }"
+              width="131"
+              height="131"
+              :src="image"
+            />
+          </td>
+          <td valign="top">
+            <div :style="{
+                'line-height':'1.5'
+              }"
+              v-html="bodyHtml"
+            >
+            </div>
+          </td>
+        </div>
       </tr>
     </table>
 

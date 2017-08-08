@@ -14,28 +14,30 @@
       :barColorEnd="barColorEnd"
       :titleText="titleText"
     />
-    <div
-      v-for="(hire, index) in newHires"
-      :key="index"
-      :style="{
+    <div :style="{
         'margin-left':'30px',
         'margin-right':'30px'
-        }"
+      }"
     >
-      <span :style="{
-          'font-size':'9pt',
-          'font-weight':'bold'
-        }"
+      <div
+        v-for="(hire, index) in newHires"
+        :key="index"
       >
-        {{hire.name}}
-      </span>
-      ,&nbsp;
-      <span :style="{
-          'font-size':'9pt'
-        }"
-      >
-        {{hire.position}}
-      </span>
+        <span :style="{
+            'font-size':'9pt',
+            'font-weight':'bold'
+          }"
+        >
+          {{hire.name}}
+        </span>
+        ,&nbsp;
+        <span :style="{
+            'font-size':'9pt'
+          }"
+        >
+          {{hire.position}}
+        </span>
+      </div>
     </div>
   </div>
 

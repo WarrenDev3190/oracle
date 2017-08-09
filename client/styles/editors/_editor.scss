@@ -28,16 +28,75 @@
     }
 
     &__popover {
-      position: absolute;
-      width: 100%;
-      display: block;
-      text-align:left;
-      background-color: transparent;
-      z-index: 999;
-      color: $nc-black;
 
-      &__triangle {
-        height: 20px;
+      &__left {
+        position: absolute;
+        width: 100%;
+        display: block;
+        text-align:left;
+        background-color: transparent;
+        z-index: 999;
+        color: $nc-black;
+        margin-top: 20px;
+
+        &:after,
+        &:before {
+          top: -37px;   
+          left: 10%;
+          border: solid transparent;
+          content: '';
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+
+        &:after {
+          border-bottom-color: #fff;
+          border-width: 20px;
+          margin-left: -20px;
+        }
+        
+        &:before {
+          border-bottom-color: grey;
+          border-width: 19px;
+          margin-left: -19px;
+        }
+      }
+
+      &__right {
+        position: absolute;
+        width: 100%;
+        display: block;
+        text-align:left;
+        background-color: transparent;
+        margin-top: 20px;
+        z-index: 999;
+        color: $nc-black;
+
+        &:after,
+        &:before {
+          top: -37px;   
+          right: 10%;
+          border: solid transparent;
+          content: '';
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+
+        &:after {
+          border-bottom-color: #fff;
+          border-width: 20px;
+          margin-right: -20px;
+        }
+        
+        &:before {
+          border-bottom-color: grey;
+          border-width: 19px;
+          margin-right: -19px;
+        }
       }
 
       &__body {

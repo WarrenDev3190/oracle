@@ -3,8 +3,7 @@
   <div class="nc-edit">
       <div ref="saveDialog">
         <div class="nc-edit__template__button nc-edit__template__save" @click="toggleDialog" v-click-outside="hideDialog">Save</div>
-        <div v-if="showSaveDialog" class="nc-edit__template__popover">
-          <div class="nc-edit__template__popover__triangle"></div>
+        <div v-if="showSaveDialog" class="nc-edit__template__popover__right">
           <div class="nc-edit__template__popover__body">
             <button v-if="selectedLayout[0].template_key != null" @click="saveCurrentTemplate" class="nc-edit__template__popover__save-button nc-edit__template__popover__new-section">Save Current Template</button>
             <div class="nc-edit__template__popover__text">Save Template as...</div>

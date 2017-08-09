@@ -3,8 +3,7 @@
   <div class="nc-edit__component">
     <div ref="colorsDialog">
       <div class="nc-edit__template__column nc-edit__template__button" @click="toggleDialog" v-click-outside="hideDialog">Colors Settings</div>
-      <div v-if="showColorsDialog" class="nc-edit__template__popover">
-        <div class="nc-edit__template__popover__triangle"></div>
+      <div v-if="showColorsDialog" class="nc-edit__template__popover__left">
         <div class="nc-edit__template__popover__body nc-flex--wrap">
           <div class="nc-edit__color" v-for="(color, index) in colors" @click="selectColor(color)" >
             <div class="nc-edit__color__title">{{color.title}}</div>

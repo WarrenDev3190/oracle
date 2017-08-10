@@ -38,7 +38,7 @@
             <div class="nc-share__send-email__emails">
               <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
                 <div class="nc-share__send-email__email__text">{{email}}</div>
-                <button class="nc-share__send-email__email__remove-button" type="button" @click="removeEmail(index)">X</button>
+                <button class="nc-share__send-email__email__remove-button hoverable" type="button" @click="removeEmail(index)">X</button>
               </div>
             </div>
           </div>

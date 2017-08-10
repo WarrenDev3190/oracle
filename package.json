@@ -27,6 +27,7 @@
     "bluebird": "^3.5.0",
     "config": "^1.26.1",
     "firebase": "^4.0.0",
+    "jquery": "^3.2.1",
     "promise-polyfill": "^6.0.2",
     "ramda": "^0.23.0",
     "vee-validate": "^2.0.0-rc.3",
@@ -40,8 +41,7 @@
     "vue2-editor": "^2.0.0",
     "vuedraggable": "^2.0",
     "vuex": "^2.0.0",
-    "vuex-router-sync": "^4.0.0",
-    "jquery": "^3.2.1"
+    "vuex-router-sync": "^4.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

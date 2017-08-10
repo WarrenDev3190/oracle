@@ -6,6 +6,12 @@
     }"
   >
     <section-title
+      :style="{
+        'margin-left':'30px',
+        'margin-right':'30px',
+        'overflow-x':'hidden',
+        'max-width':'540px'
+      }"
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
       :titleText="titleText"
@@ -16,13 +22,10 @@
       }"
     >
       <tr v-for="n in Math.ceil(events.length / 2, 10)">
-        <div :style="{
-          'margin-left':'30px',
-          'margin-right':'30px'}"
-        >
           <td v-if="events[(n-1)*2]"
             :style="{
-              'padding-bottom':'20px'
+              'padding-bottom':'20px',
+              'padding-left':'30px'
             }"
           >
             <event
@@ -35,25 +38,25 @@
               :linkUrl="events[(n-1)*2].linkUrl"
               :linkText="events[(n-1)*2].linkText"
             />
-          </td>
-          <td v-if="events[(n-1)*2+1]"
-            :style="{
-              'padding-bottom':'20px'
-            }"
-          >
-            <event
-              :style="{'margin-left':'20px'}"
-              :accentColor="accentColor"
-              :key="(n-1)*2+1"
-              :image="events[(n-1)*2+1].image"
-              :title="events[(n-1)*2+1].title"
-              :date="events[(n-1)*2+1].date"
-              :description="events[(n-1)*2+1].description"
-              :linkUrl="events[(n-1)*2+1].linkUrl"
-              :linkText="events[(n-1)*2+1].linkText"
-            />
-          </td>
-        </div>
+        </td>
+        <td v-if="events[(n-1)*2+1]"
+          :style="{
+            'padding-bottom':'20px',
+            'padding-right':'30px'
+          }"
+        >
+          <event
+            :style="{'margin-left':'20px'}"
+            :accentColor="accentColor"
+            :key="(n-1)*2+1"
+            :image="events[(n-1)*2+1].image"
+            :title="events[(n-1)*2+1].title"
+            :date="events[(n-1)*2+1].date"
+            :description="events[(n-1)*2+1].description"
+            :linkUrl="events[(n-1)*2+1].linkUrl"
+            :linkText="events[(n-1)*2+1].linkText"
+          />
+        </td>
       </tr>
     </table>
   </div>

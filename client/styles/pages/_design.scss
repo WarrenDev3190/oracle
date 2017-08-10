@@ -80,7 +80,7 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
     &__template{
       background: $nc-white;
       box-shadow: $nc-card-shadow;
-      height: 600px;
+      height: 700px;
       margin-right: 10px;
       max-width: 650px;
       min-width: 400px;
@@ -96,10 +96,14 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
     }
 
     &__editor{
+      position: sticky;
+      top: 20px;
       background: $nc-white;
       box-shadow: $nc-card-shadow;
       flex-grow: 1;
       height: auto;
+      max-height: 550px;
+      overflow: scroll;
       min-width: 400px;
       overflow-x: hidden;
       overflow-y: scroll;
@@ -115,7 +119,7 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
       &__template{
         text-align: center;
       }
-      
+
     }
   }
 }

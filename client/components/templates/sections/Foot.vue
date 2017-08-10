@@ -5,30 +5,37 @@
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
       'text-align':'left',
-      'padding':'20px 30px',
+      'padding-top':'20px',
+      'padding-bottom':'20px',
       'line-height':'1.0',
       'color':'#fff',
       'background-color':' #003f5c'
     }"
   >
-    <span :style="{
-        'font-weight':'bold'
+    <div :style="{
+        'padding-left':'30px',
+        'padding-right':'30px'
       }"
     >
-      Questions? Email:&nbsp;
-      <a :style="{
-          'color':accentColor,
-          'text-decoration':'none'
+      <span :style="{
+          'font-weight':'bold'
         }"
-        :href="'mailto:' + email"
-        target="_blank"
       >
-        {{email}}
-      </a>
-    </span>
-    <br/>
-    <br/>
-    <div v-html="footerHtml">
+        Questions? Email:&nbsp;
+        <a :style="{
+            'color':accentColor,
+            'text-decoration':'none'
+          }"
+          :href="'mailto:' + email"
+          target="_blank"
+        >
+          {{email}}
+        </a>
+      </span>
+      <br/>
+      <br/>
+      <div v-html="footerHtml">
+      </div>
     </div>
   </div>
 

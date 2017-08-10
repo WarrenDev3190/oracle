@@ -10,6 +10,12 @@
     }"
   >
     <section-title
+      :style="{
+        'margin-left':'30px',
+        'margin-right':'30px',
+        'overflow-x':'hidden',
+        'max-width':'540px'
+      }"
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
       :titleText="titleText"

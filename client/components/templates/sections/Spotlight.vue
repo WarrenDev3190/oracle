@@ -3,6 +3,12 @@
   <div class="nc-spotlight">
 
     <section-title
+      :style="{
+          'margin-left':'30px',
+          'margin-right':'30px',
+          'overflow-x':'hidden',
+          'max-width':'540px'
+        }"
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
       :titleText="titleText"
@@ -14,13 +20,15 @@
       }"
     >
       <tr>
-        <div :style="{
-          'margin-left':'30px',
-          'margin-right':'30px'
+        <!-- <div :style="{
+          'padding-left':'30px',
+          'padding-right':'30px'
           }"
-        >
+        > -->
           <td :style="{
-              'width':'28%'
+              'width':'30%',
+              'padding-left':'30px',
+
             }"
           >
             <img :style="{
@@ -34,13 +42,14 @@
           </td>
           <td valign="top">
             <div :style="{
+              'padding-right':'30px',
                 'line-height':'1.5'
               }"
               v-html="bodyHtml"
             >
             </div>
           </td>
-        </div>
+        <!-- </div> -->
       </tr>
     </table>
 

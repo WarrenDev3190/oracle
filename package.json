@@ -40,7 +40,8 @@
     "vue2-editor": "^2.0.0",
     "vuedraggable": "^2.0",
     "vuex": "^2.0.0",
-    "vuex-router-sync": "^4.0.0"
+    "vuex-router-sync": "^4.0.0",
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

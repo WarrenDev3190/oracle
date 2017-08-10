@@ -31,10 +31,10 @@
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="newsletterSubject" placeholder="Subject" />
             <div class="nc-share__send-email__email-input__container ">
               <input class="nc-share__send-email__email-input__email-input-field nc-share__send-email__add-email md-input-container" v-on:keydown.enter="addEmail" type="text" v-model="newEmail" placeholder="Email Recipients"
-              /><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn" type="button" @click="addEmail">Add</button>
+              /><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn hoverable" type="button" @click="addEmail">Add</button>
             </div>
             <br />
-            <button ref="sendButton" class="nc-share__send-email__send-button" type="button" @click="sendEmails()">Send</button>
+            <button ref="sendButton" :disabled="this.emails.length === 0" class="nc-share__send-email__send-button hoverable" type="button" @click="sendEmails()">Send</button>
             <div class="nc-share__send-email__emails">
               <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
                 <div class="nc-share__send-email__email__text">{{email}}</div>
@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     resetSendButton: function(){
-      this.$refs["sendButton"].innerHTML = "Send to Recipients"
+      this.$refs["sendButton"].innerHTML = "Send"
     },
     addEmail: function(){
       if(this.newEmail != ""){
@@ -104,7 +104,7 @@ export default {
         "content": emailB64
       }).then(success => {
           this.$refs["sendButton"].disabled = false
-          this.$refs["sendButton"].innerHTML = "Sent"
+          this.$refs["sendButton"].innerHTML = "Sent!"
           setTimeout(this.resetSendButton, 5000)
         }
       ).catch(err => {

@@ -34,7 +34,7 @@
               /><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn hoverable" type="button" @click="addEmail">Add</button>
             </div>
             <br />
-            <button ref="sendButton" :disabled="this.emails.length === 0" class="nc-share__send-email__send-button hoverable" type="button" @click="sendEmails()">Send</button>
+            <button ref="sendButton" :disabled="!isDisabled" class="nc-share__send-email__send-button hoverable" type="button" @click="sendEmails()">Send</button>
             <div class="nc-share__send-email__emails">
               <div class="nc-share__send-email__email" v-for="(email, index) in emails" :key="index">
                 <div class="nc-share__send-email__email__text">{{email}}</div>
@@ -74,6 +74,11 @@ export default {
       }else{
         return true;
       }
+    },
+    isDisabled: function() {
+      return this.emails.length != 0
+      && this.fromEmail.trim() != ''
+      && this.newsletterSubject != ''
     }
   },
   methods: {

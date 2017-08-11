@@ -7,7 +7,7 @@
           <div class="nc-design__section">
             <div class="nc-design__section__container" v-for="(section, index) in selectedLayout[0].template.sections" v-if="section.toggleable" :key="index">
               <input class="nc-design__section__checkbox" :id="section.title" type="checkbox" v-model="section.on" />
-              <label class="nc-design__section__title" :for="section.title">{{section.title}}</label>
+              <label class="nc-design__section__title hoverable" :for="section.title">{{section.title}}</label>
             </div>
           </div>
         </div>

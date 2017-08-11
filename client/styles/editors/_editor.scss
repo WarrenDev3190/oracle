@@ -3,6 +3,9 @@
   &__template {
     display: flex;
     align-items: stretch;
+    padding-left: 20px;
+    padding-right: 40px;
+
 
     &__column {
       position: relative;
@@ -19,12 +22,23 @@
       margin-left: 5px;
       margin-right: 5px;
       font-size: 15px;
-      color: $nc-gray; 
+      color: $nc-gray;
+      box-shadow: 0 -1px 1px 0 rgba(0,0,0,.05), 2px 1px 2px 0 rgba(0,0,0,.2);
+
+    }
+
+    &__color-picker:hover {
+      background-color: lighten($nc-gray-border, 10%);
     }
 
     &__save {
       background-color: $nc-green;
       color: white;
+    }
+
+    &__save:hover {
+      background-color: $nc-green-hover;
+      box-shadow: 0 -1px 1px 0 rgba(40,243,146,.05), 2px 1px 2px 0 rgba(40,243,146,.2);
     }
 
     &__popover {
@@ -41,7 +55,7 @@
 
         &:after,
         &:before {
-          top: -37px;   
+          top: -37px;
           left: 10%;
           border: solid transparent;
           content: '';
@@ -56,7 +70,7 @@
           border-width: 20px;
           margin-left: -20px;
         }
-        
+
         &:before {
           border-bottom-color: grey;
           border-width: 19px;
@@ -76,7 +90,7 @@
 
         &:after,
         &:before {
-          top: -37px;   
+          top: -37px;
           right: 10%;
           border: solid transparent;
           content: '';
@@ -91,7 +105,7 @@
           border-width: 20px;
           margin-right: -20px;
         }
-        
+
         &:before {
           border-bottom-color: grey;
           border-width: 19px;

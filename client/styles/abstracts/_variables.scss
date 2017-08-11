@@ -15,6 +15,9 @@ $nc-dark-gray: #252525;
 // Brand Green
 // @type HEX
 $nc-green: #28f392;
+// Brand Green Hover
+//@type HEX
+$nc-green-hover: lighten($nc-green, 10);
 // Brand Green Glow
 // @type rgba
 $nc-green: rgba(40, 243, 146, 1.0);

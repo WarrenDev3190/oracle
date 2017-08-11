@@ -2,7 +2,7 @@
 
   <div class="nc-edit__component">
     <div ref="colorsDialog">
-      <div class="nc-edit__template__column nc-edit__template__button" @click="toggleDialog" v-click-outside="hideDialog">Colors Settings</div>
+      <div class="nc-edit__template__column nc-edit__template__button nc-edit__template__color-picker hoverable" @click="toggleDialog" v-click-outside="hideDialog">Color Settings</div>
       <div v-if="showColorsDialog" class="nc-edit__template__popover__left">
         <div class="nc-edit__template__popover__body nc-flex--wrap">
           <div class="nc-edit__color" v-for="(color, index) in colors" @click="selectColor(color)" >
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-</template> 
+</template>
 <script type="text/javascript">
   import { Chrome } from 'vue-color'
   import ClickOutside from 'vue-click-outside'
@@ -51,7 +51,7 @@
     },
     watch: {
       value(newValue){
-        
+
       }
     },
     data: function(){

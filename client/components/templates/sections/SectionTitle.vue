@@ -6,8 +6,6 @@
 <script type="text/javascript">
   export default {
     mounted: function(){
-      console.log("MOUNTED")
-      console.log(this.$refs["rootEl"].offsetWidth)
       this.width = this.$refs["rootEl"].offsetWidth
     },
     components: {

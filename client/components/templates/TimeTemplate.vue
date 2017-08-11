@@ -20,7 +20,7 @@
             width="600"
           >
             <hero
-              v-show="!sections.hero.toggleable || sections.hero.on"
+              v-if="!sections.hero.toggleable || sections.hero.on"
               @click.native="sectionSelected('hero')"
               :class="{hoverable: sections.hero.editable}"
               :logo="sections.hero.data.logo"
@@ -41,7 +41,7 @@
               </span>
             </div>
             <spotlight
-              v-show="!sections.spotlight.toggleable || sections.spotlight.on"
+              v-if="!sections.spotlight.toggleable || sections.spotlight.on"
               @click.native="sectionSelected('spotlight')"
               :class="{hoverable: sections.spotlight.editable}"
               :barColorStart="sectionBarColorStart"
@@ -52,7 +52,7 @@
               :titleText="sections.spotlight.data.titleText"
             />
             <news
-              v-show="!sections.news.toggleable || sections.news.on"
+              v-if="!sections.news.toggleable || sections.news.on"
               @click.native="sectionSelected('news')"
               :class="{hoverable: sections.news.editable}"
               :accentColor="accentColor"
@@ -63,7 +63,7 @@
               :titleText="sections.news.data.titleText"
             />
             <events
-              v-show="!sections.events.toggleable || sections.events.on"
+              v-if="!sections.events.toggleable || sections.events.on"
               @click.native="sectionSelected('events')"
               :class="{hoverable: sections.events.editable}"
               :accentColor="accentColor"
@@ -74,7 +74,7 @@
               :titleText="sections.events.data.titleText"
             />
             <hires
-              v-show="!sections.hires.toggleable || sections.hires.on"
+              v-if="!sections.hires.toggleable || sections.hires.on"
               @click.native="sectionSelected('hires')"
               :class="{hoverable: sections.hires.editable}"
               :barColorStart="sectionBarColorStart"
@@ -84,7 +84,7 @@
               :newHires="sections.hires.data.hires"
             />
             <jobs
-            v-show="!sections.jobs.toggleable || sections.jobs.on"
+              v-if="!sections.jobs.toggleable || sections.jobs.on"
               @click.native="sectionSelected('jobs')"
               :class="{hoverable: sections.jobs.editable}"
               :accentColor="accentColor"
@@ -95,7 +95,7 @@
               :jobs="sections.jobs.data.jobs"
             />
             <foot
-              v-show="!sections.foot.toggleable || sections.foot.on"
+              v-if="!sections.foot.toggleable || sections.foot.on"
               @click.native="sectionSelected('foot')"
               :class="{hoverable: sections.foot.editable}"
               :accentColor="accentColor"

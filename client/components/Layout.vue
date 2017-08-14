@@ -66,12 +66,10 @@ export default {
       }.bind(this))
     },
     clearSavedTemplate: function(){
-      this.selectedLayout[0].template = jQuery.extend(true, {}, this.$store.state.layouts.defaultTemplates[this.selectedLayout[0].type])
-      this.selectedLayout[0].template_key = null
+      this.$store.commit('layouts/RECEIVE_TEMPLATE', {template: jQuery.extend(true, {}, this.$store.state.layouts.defaultTemplates[this.selectedLayout[0].type]), key: null})
     },
     selectSavedTemplate: function(template, key){
-      this.selectedLayout[0].template = jQuery.extend(true, {}, template)
-      this.selectedLayout[0].template_key = key
+      this.$store.commit('layouts/RECEIVE_TEMPLATE',{template: jQuery.extend(true, {}, template), key: key})
     }
   }
 }

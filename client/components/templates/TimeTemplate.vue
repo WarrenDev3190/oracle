@@ -40,6 +40,7 @@
                 {{currentDate}}
               </span>
             </div>
+            <div v-if="checkSpotlightImage">
             <spotlight
               v-if="!sections.spotlight.toggleable || sections.spotlight.on"
               @click.native="sectionSelected('spotlight')"
@@ -50,7 +51,20 @@
               :bodyHtml="sections.spotlight.data.bodyHtml"
               :image="sections.spotlight.data.image"
               :titleText="sections.spotlight.data.titleText"
-            />
+            /></div>
+            <div v-else>
+              <spotlightNoImg
+                v-if="!sections.spotlight.toggleable || sections.spotlight.on"
+                @click.native="sectionSelected('spotlight')"
+                :class="{hoverable: sections.spotlight.editable}"
+                :barColorStart="sectionBarColorStart"
+                :barColorEnd="sectionBarColorEnd"
+                :barColorSolid="sectionBarColorStart"
+                :bodyHtml="sections.spotlight.data.bodyHtml"
+                :image="sections.spotlight.data.image"
+                :titleText="sections.spotlight.data.titleText"
+              />
+            </div>
             <news
               v-if="!sections.news.toggleable || sections.news.on"
               @click.native="sectionSelected('news')"
@@ -116,19 +130,24 @@
   import Hires from './sections/Hires.vue'
   import Jobs from './sections/Jobs.vue'
   import Foot from './sections/Foot.vue'
+  import SpotlightNoImg from './sections/SpotlightNoImg.vue'
   export default {
     components: {
       Hero,
       Spotlight,
+      SpotlightNoImg,
       News,
       Events,
       Hires,
       Jobs,
-      Foot
+      Foot,
     },
     computed: {
       currentDate: function(){
         return currentDateString()
+      },
+      checkSpotlightImage: function(){
+        return this.$store.state.layouts.spotlightImage;
       }
     },
     methods: {

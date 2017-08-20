@@ -65,10 +65,17 @@
 <script type="text/javascript">
   import SectionTitle from "./SectionTitle.vue"
   import Event from "./Event.vue"
+  import EventNoImg from "./EventNoImg.vue"
   export default {
     components: {
       SectionTitle,
-      Event
+      Event,
+      EventNoImg
+    },
+    data: function(){
+      return{
+        eventImage: true
+      }
     },
     computed: {
     },

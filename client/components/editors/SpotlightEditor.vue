@@ -3,6 +3,7 @@
   <div class="nc-edit">
     <editor-title :title="'Spotlight'" />
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
+    <button type="button" name="button" @click="toggleSpotlightImage">TOGGLEIMAGE</button>
     <image-editor :title="'Image'" v-model="image" @input="updateInput" />
     <html-editor :title="'Text'" v-model="bodyHtml" @input="updateInput" />
   </div>
@@ -36,6 +37,9 @@
           image: this.image,
           bodyHtml: this.bodyHtml
         })
+      },
+      toggleSpotlightImage: function () {
+        this.$store.commit('layouts/TOGGLE_SPOTLIGHT_IMAGE')
       }
     },
     data: function(){

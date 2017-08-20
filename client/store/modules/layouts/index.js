@@ -4,6 +4,7 @@ import jQuery from 'jquery'
 
 const TOGGLE_SELECTED_TEMPLATE = 'TOGGLE_SELECTED_TEMPLATE'
 const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE'
+const TOGGLE_SPOTLIGHT_IMAGE = 'TOGGLE_SPOTLIGHT_IMAGE'
 
 const getters = {
   possibleLayouts (state) {
@@ -15,6 +16,9 @@ const getters = {
 }
 
 const mutations = {
+  [TOGGLE_SPOTLIGHT_IMAGE]: (state) => {
+    state.spotlightImage = !state.spotlightImage
+  },
   [TOGGLE_SELECTED_TEMPLATE]: (state, index) => {
     state.layouts = state.layouts.map(function (layout, i) {
       if (layout.selected) {
@@ -34,43 +38,42 @@ const mutations = {
     var selectedLayout = state.layouts.filter(l => l.selected)[0]
     var template = payload.template
     var key = payload.key
-    switch(selectedLayout.type) {
-      case "time-template":
-        console.log("time template")
+    switch (selectedLayout.type) {
+      case 'time-template':
+        console.log('time template')
         // Fill in missing news groups and articles with empty arrays
-        if(template.sections.news.data.newsGroups == undefined){
-          console.log("No news groups!!")
-          Vue.set(template.sections.news.data, "newsGroups", [])
-        }
-        else{
+        if (template.sections.news.data.newsGroups == undefined) {
+          console.log('No news groups!!')
+          Vue.set(template.sections.news.data, 'newsGroups', [])
+        } else {
           for (var i = 0, l = template.sections.news.data.newsGroups.length; i < l; i++) {
-            if(template.sections.news.data.newsGroups[i].articles == undefined){
-              Vue.set(template.sections.news.data.newsGroups[i], "articles", [])
+            if (template.sections.news.data.newsGroups[i].articles == undefined) {
+              Vue.set(template.sections.news.data.newsGroups[i], 'articles', [])
             }
           }
         }
 
-        //Fill in missing jobs with empty arrays
-        if(template.sections.jobs.data.jobs == undefined){
-          Vue.set(template.sections.jobs.data, "jobs", [])
+        // Fill in missing jobs with empty arrays
+        if (template.sections.jobs.data.jobs == undefined) {
+          Vue.set(template.sections.jobs.data, 'jobs', [])
         }
 
-        //Fill in missing events with empty arrays
-        if(template.sections.events.data.events == undefined){
-          Vue.set(template.sections.events.data, "events", [])
+        // Fill in missing events with empty arrays
+        if (template.sections.events.data.events == undefined) {
+          Vue.set(template.sections.events.data, 'events', [])
         }
 
-        //Fill in  missing hires with empty arrays
-        if(template.sections.hires.data.hires == undefined){
-          Vue.set(template.sections.hires.data, "hires", [])
+        // Fill in  missing hires with empty arrays
+        if (template.sections.hires.data.hires == undefined) {
+          Vue.set(template.sections.hires.data, 'hires', [])
         }
 
-        break;
+        break
       default:
-        break;
+        break
     }
-    Vue.set(selectedLayout, "template", template)
-    Vue.set(selectedLayout, "template_key", key)
+    Vue.set(selectedLayout, 'template', template)
+    Vue.set(selectedLayout, 'template_key', key)
     selectedLayout.template_key = key
     console.log(selectedLayout)
   }
@@ -343,7 +346,11 @@ const state = {
       template_key: null,
       template: jQuery.extend(true, {}, defaultTemplates['time-template'])
     }
-  ]
+  ],
+  heroImage: true,
+  spotlightImage: false,
+  eventImage: true
+
 }
 
 export default {

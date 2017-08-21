@@ -3,8 +3,8 @@
   <div class="nc-edit">
     <editor-title :title="'Events'" />
     <div class="nc-design__section__container">
-      <input class="nc-design__section__checkbox" id="spotlightImageToggle" type="checkbox" v-model="selectedLayout()[0].template.sections.events.imageOn"/>
-      <label class="nc-design__section__title hoverable" for="spotlightImageToggle">
+      <input class="nc-design__section__checkbox" id="eventImageToggle" type="checkbox" v-model="selectedLayout()[0].template.sections.events.imageOn"/>
+      <label class="nc-design__section__title hoverable" for="eventImageToggle">
         <span v-if="checkEventsImage">Images On</span>
         <span v-else>Images Off</span>
       </label>

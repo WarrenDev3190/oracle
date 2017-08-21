@@ -28,16 +28,29 @@
               'padding-left':'30px'
             }"
           >
-            <event
-              :accentColor="accentColor"
-              :key="(n-1)*2"
-              :image="events[(n-1)*2].image"
-              :title="events[(n-1)*2].title"
-              :date="events[(n-1)*2].date"
-              :description="events[(n-1)*2].description"
-              :linkUrl="events[(n-1)*2].linkUrl"
-              :linkText="events[(n-1)*2].linkText"
-            />
+            <div v-if="selectedLayout()[0].template.sections.events.imageOn">
+              <event
+                :accentColor="accentColor"
+                :key="(n-1)*2"
+                :image="events[(n-1)*2].image"
+                :title="events[(n-1)*2].title"
+                :date="events[(n-1)*2].date"
+                :description="events[(n-1)*2].description"
+                :linkUrl="events[(n-1)*2].linkUrl"
+                :linkText="events[(n-1)*2].linkText"
+              />
+            </div>
+            <div v-else>
+              <EventNoImg
+                :accentColor="accentColor"
+                :key="(n-1)*2"
+                :title="events[(n-1)*2].title"
+                :date="events[(n-1)*2].date"
+                :description="events[(n-1)*2].description"
+                :linkUrl="events[(n-1)*2].linkUrl"
+                :linkText="events[(n-1)*2].linkText"
+              />
+            </div>
         </td>
         <td v-if="events[(n-1)*2+1]"
           :style="{
@@ -45,17 +58,31 @@
             'padding-right':'30px'
           }"
         >
-          <event
-            :style="{'margin-left':'20px'}"
-            :accentColor="accentColor"
-            :key="(n-1)*2+1"
-            :image="events[(n-1)*2+1].image"
-            :title="events[(n-1)*2+1].title"
-            :date="events[(n-1)*2+1].date"
-            :description="events[(n-1)*2+1].description"
-            :linkUrl="events[(n-1)*2+1].linkUrl"
-            :linkText="events[(n-1)*2+1].linkText"
-          />
+          <div v-if="selectedLayout()[0].template.sections.events.imageOn">
+            <event
+              :style="{'margin-left':'20px'}"
+              :accentColor="accentColor"
+              :key="(n-1)*2+1"
+              :image="events[(n-1)*2+1].image"
+              :title="events[(n-1)*2+1].title"
+              :date="events[(n-1)*2+1].date"
+              :description="events[(n-1)*2+1].description"
+              :linkUrl="events[(n-1)*2+1].linkUrl"
+              :linkText="events[(n-1)*2+1].linkText"
+            />
+          </div>
+          <div v-else>
+            <EventNoImg
+              :style="{'margin-left':'20px'}"
+              :accentColor="accentColor"
+              :key="(n-1)*2+1"
+              :title="events[(n-1)*2+1].title"
+              :date="events[(n-1)*2+1].date"
+              :description="events[(n-1)*2+1].description"
+              :linkUrl="events[(n-1)*2+1].linkUrl"
+              :linkText="events[(n-1)*2+1].linkText"
+            />
+          </div>
         </td>
       </tr>
     </table>
@@ -63,6 +90,7 @@
 
 </template>
 <script type="text/javascript">
+  import {mapGetters} from 'vuex'
   import SectionTitle from "./SectionTitle.vue"
   import Event from "./Event.vue"
   import EventNoImg from "./EventNoImg.vue"
@@ -72,14 +100,14 @@
       Event,
       EventNoImg
     },
-    data: function(){
-      return{
-        eventImage: true
-      }
-    },
     computed: {
     },
     methods: {
+    },
+    data: function() {
+      return {
+        ...mapGetters('layouts',['selectedLayout'])
+      }
     },
     props: {
       barColorStart:{

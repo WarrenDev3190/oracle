@@ -40,7 +40,7 @@
                 {{currentDate}}
               </span>
             </div>
-            <div v-if="checkSpotlightImage">
+            <div v-if="selectedLayout()[0].template.sections.spotlight.imageOn">
             <spotlight
               v-if="!sections.spotlight.toggleable || sections.spotlight.on"
               @click.native="sectionSelected('spotlight')"
@@ -123,6 +123,7 @@
 </template>
 <script type="text/javascript">
   import { currentDateString } from '../../utils'
+  import { mapGetters } from 'vuex';
   import Hero from './sections/Hero.vue'
   import Spotlight from './sections/Spotlight.vue'
   import News from './sections/News.vue'
@@ -146,11 +147,16 @@
       currentDate: function(){
         return currentDateString()
       },
-      checkSpotlightImage: function(){
-        return this.$store.state.layouts.spotlightImage;
-      }
+      // checkSpotlightImage: function(){
+      //    return selectedLayout()[0].template.sections.spotlight.imageOn
+      // }
     },
     methods: {
+    },
+    data: function(){
+      return {
+        ...mapGetters('layouts',['selectedLayout'])
+      }
     },
     props: {
       highlight: {

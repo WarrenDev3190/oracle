@@ -333,6 +333,7 @@
   &__file-drop {
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 200px;
 
@@ -340,35 +341,32 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 150px;
+      width: 100%;
       height: 150px;
       margin-top: 25px;
       margin-bottom: 25px;
-      margin-left: 10px;
-      background-color: lightgrey;
     }
 
     &__image {
       height: auto !important;
-      width: 150px !important;
+      width: 80px !important;
     }
 
     &__text {
       color: $nc-dark-gray;
-      flex: 1;
-      font-size: 20px;
+      font-size: 10px;
       font-weight: 300;
-      height: 200px;
-      line-height: 200px;
+      height: 50px;
+      line-height: 50px;
       padding-left: 10px;
       padding-right: 10px;
-      text-align: left;
+      text-align: center;
     }
 
     &__text span {
       display: inline-block;
       line-height: normal;
-      vertical-align: middle;
+      vertical-align: top;
     }
 
     &__error {

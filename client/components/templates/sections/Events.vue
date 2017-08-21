@@ -16,7 +16,74 @@
       :barColorEnd="barColorEnd"
       :titleText="titleText"
     />
-    <table :style="{
+
+  <!-- Structure for one event -->
+  <table
+    v-if="events.length == 1"
+    :style="{
+        'font-family':'Arial,Helvetica,sans-serif',
+        'font-size':'11px'
+    }"
+    >
+      <tr>
+          <td :style="{
+              'width':'280px',
+              'margin-right':'5px',
+              'padding-left':'30px'
+            }"
+          >
+            <img :style="{
+                'width':'245px',
+                'height':'150px'
+              }"
+              width="245"
+              height="150"
+              :src="events[0].image"
+            />
+          </td>
+          <td valign="top">
+            <div :style="{
+              'padding-right':'30px',
+              'line-height':'1.5'
+              }"
+            >
+              <span :style="{
+                  'font-weight':'bold',
+                }"
+              >
+                {{events[0].title}}
+              </span>
+              <br/>
+              <br/>
+              <span :style="{
+                  'font-weight':'bold',
+                  'font-size':'12.8px',
+                }"
+              >
+                {{events[0].date}}:
+              </span>
+              <span v-html="events[0].description">
+              </span>
+              <a :style="{
+                'font-size':'12.8px',
+                'font-weight':'bold',
+                'text-decoration':'none',
+                'color':accentColor + ' !important'
+                }"
+                :href="events[0].linkUrl"
+                target="_blank"
+              >
+                |{{events[0].linkText}}
+              </a>
+            </div>
+          </td>
+      </tr>
+    </table>
+
+    <!-- Structure for multiple events -->
+    <table 
+      v-if="events.length > 1"
+      :style="{
         'width':'100%',
         'border-collapse':'true'
       }"

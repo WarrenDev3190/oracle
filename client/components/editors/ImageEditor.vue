@@ -3,11 +3,11 @@
   <div class="nc-edit__component">
       <div class="nc-edit__file-drop">
         <div class="nc-edit__file-drop__image-container">
-          <img class="nc-edit__file-drop__image" :src="imageUrl" />
+          <img class="nc-edit__file-drop__image" src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/camera1600.png?alt=media&token=83dc93a1-989f-43ad-9e32-873bc0a41989" />
         </div>
         <div class="nc-edit__file-drop__text">
           <span v-if="!isSaving">{{message}}</span>
-          <span v-if="isSaving">*Uploading. Please wait....</span>
+          <span v-if="isSaving">Uploading. Please wait....</span>
           <br/>
           <span class="nc-edit__file-drop__error" v-if="isFailed">Upload failed. Try again.</span>
         </div>
@@ -79,7 +79,7 @@
         type:String
       },
       message:{
-        default: "*Drag a file to upload or click to select a file.",
+        default: "Drag a file to upload or click to select a file.",
         type:String
       },
       value: {

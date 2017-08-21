@@ -17,7 +17,7 @@ const getters = {
 
 const mutations = {
   [TOGGLE_SPOTLIGHT_IMAGE]: (state) => {
-    state.spotlightImage = !state.spotlightImage
+    state.spotlight.imageOn = !state.spotlight.imageOn
   },
   [TOGGLE_SELECTED_TEMPLATE]: (state, index) => {
     state.layouts = state.layouts.map(function (layout, i) {
@@ -99,6 +99,7 @@ const defaultTemplates = {
       spotlight: {
         title: 'Spotlight',
         on: true,
+        imageOn: true,
         editable: true,
         toggleable: true,
         data: {
@@ -209,6 +210,7 @@ const defaultTemplates = {
       events: {
         title: 'Events',
         on: true,
+        imageOn: true,
         editable: true,
         toggleable: true,
         data: {
@@ -346,10 +348,7 @@ const state = {
       template_key: null,
       template: jQuery.extend(true, {}, defaultTemplates['time-template'])
     }
-  ],
-  heroImage: true,
-  spotlightImage: false,
-  eventImage: true
+  ]
 
 }
 

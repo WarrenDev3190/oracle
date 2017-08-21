@@ -2,6 +2,13 @@
 
   <div class="nc-edit">
     <editor-title :title="'Events'" />
+    <div class="nc-design__section__container">
+      <input class="nc-design__section__checkbox" id="spotlightImageToggle" type="checkbox" v-model="selectedLayout()[0].template.sections.events.imageOn"/>
+      <label class="nc-design__section__title hoverable" for="spotlightImageToggle">
+        <span v-if="checkEventsImage">Images On</span>
+        <span v-else>Images Off</span>
+      </label>
+    </div>
 
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
 
@@ -17,6 +24,7 @@
 
 </template>
 <script type="text/javascript">
+  import {mapGetters} from 'vuex'
   import EditorTitle from './EditorTitle.vue'
   import LineEditor from './LineEditor.vue'
   import EventEditor from './EventEditor.vue'
@@ -27,6 +35,9 @@
       EventEditor
     },
     computed: {
+      checkEventsImage: function () {
+       return this.selectedLayout()[0].template.sections.events.imageOn
+      }
     },
     watch:{
       value(newValue){
@@ -57,6 +68,7 @@
     },
     data: function(){
       return {
+        ...mapGetters('layouts', ['selectedLayout']),
         titleText: this.value.titleText,
         events: this.value.events
       }

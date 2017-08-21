@@ -90,7 +90,7 @@ const defaultTemplates = {
         title: 'Header',
         on: true,
         editable: true,
-        toggleable: false,
+        toggleable: true,
         data: {
           logo: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/600%20x%20180%20(1).png?alt=media&token=3c4b364b-a782-4345-8b67-45416e3b459d',
           heroBackground: '#FFFFFF'

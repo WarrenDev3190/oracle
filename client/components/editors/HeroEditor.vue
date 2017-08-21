@@ -2,6 +2,7 @@
 
   <div class="nc-edit">
     <editor-title :title="'Header'" />
+
     <image-editor :title="'Header Image'" v-model="logo" @input="updateInput" />
   </div>
 

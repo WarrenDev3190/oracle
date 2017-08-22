@@ -315,6 +315,7 @@
                 events: [
                   {
                     image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/nc-cart.png?alt=media&token=7ca57692-21ed-4246-b843-1a8e3515e459",
+                    imageOn: true,
                     title:"Event Title 1",
                     date:"Monday, January 1st",
                     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",
@@ -323,6 +324,7 @@
                   },
                   {
                     image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/nc-cart.png?alt=media&token=7ca57692-21ed-4246-b843-1a8e3515e459",
+                    imageOn: true,
                     title:"Event Title 2",
                     date:"Monday, January 1st",
                     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",

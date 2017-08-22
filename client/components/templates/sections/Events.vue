@@ -25,7 +25,7 @@
         'font-size':'11px'
     }"
     >
-      <tr>
+      <tr v-if="selectedLayout()[0].template.sections.events.data.events[0].imageOn">
           <td :style="{
               'width':'280px',
               'margin-right':'5px',
@@ -43,6 +43,45 @@
           </td>
           <td valign="top">
             <div :style="{
+              'padding-right':'30px',
+              'line-height':'1.5'
+              }"
+            >
+              <span :style="{
+                  'font-weight':'bold',
+                }"
+              >
+                {{events[0].title}}
+              </span>
+              <br/>
+              <br/>
+              <span :style="{
+                  'font-weight':'bold',
+                  'font-size':'12.8px',
+                }"
+              >
+                {{events[0].date}}:
+              </span>
+              <span v-html="events[0].description">
+              </span>
+              <a :style="{
+                'font-size':'12.8px',
+                'font-weight':'bold',
+                'text-decoration':'none',
+                'color':accentColor + ' !important'
+                }"
+                :href="events[0].linkUrl"
+                target="_blank"
+              >
+                |{{events[0].linkText}}
+              </a>
+            </div>
+          </td>
+      </tr>
+      <tr v-else>
+          <td valign="top">
+            <div :style="{
+              'padding-left':'30px',
               'padding-right':'30px',
               'line-height':'1.5'
               }"

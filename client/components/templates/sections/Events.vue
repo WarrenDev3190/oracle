@@ -81,7 +81,7 @@
     </table>
 
     <!-- Structure for multiple events -->
-    <table 
+    <table
       v-if="events.length > 1"
       :style="{
         'width':'100%',
@@ -95,11 +95,12 @@
               'padding-left':'30px'
             }"
           >
-            <div v-if="selectedLayout()[0].template.sections.events.imageOn">
+            <div v-if="selectedLayout()[0].template.sections.events.data.events[(n-1)*2].imageOn">
               <event
                 :accentColor="accentColor"
                 :key="(n-1)*2"
                 :image="events[(n-1)*2].image"
+                :imageOn="events[(n-1)*2].imageOn"
                 :title="events[(n-1)*2].title"
                 :date="events[(n-1)*2].date"
                 :description="events[(n-1)*2].description"
@@ -110,6 +111,7 @@
             <div v-else>
               <EventNoImg
                 :accentColor="accentColor"
+                :imageOn="events[(n-1)*2].imageOn"
                 :key="(n-1)*2"
                 :title="events[(n-1)*2].title"
                 :date="events[(n-1)*2].date"
@@ -125,12 +127,13 @@
             'padding-right':'30px'
           }"
         >
-          <div v-if="selectedLayout()[0].template.sections.events.imageOn">
+          <div v-if="selectedLayout()[0].template.sections.events.data.events[(n-1)*2+1].imageOn">
             <event
               :style="{'margin-left':'20px'}"
               :accentColor="accentColor"
               :key="(n-1)*2+1"
               :image="events[(n-1)*2+1].image"
+              :imageOn="events[(n-1)*2+1].imageOn"
               :title="events[(n-1)*2+1].title"
               :date="events[(n-1)*2+1].date"
               :description="events[(n-1)*2+1].description"
@@ -142,6 +145,7 @@
             <EventNoImg
               :style="{'margin-left':'20px'}"
               :accentColor="accentColor"
+              :imageOn="events[(n-1)*2+1].imageOn"
               :key="(n-1)*2+1"
               :title="events[(n-1)*2+1].title"
               :date="events[(n-1)*2+1].date"
@@ -199,6 +203,7 @@
             {
               image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/nc-cart.png?alt=media&token=7ca57692-21ed-4246-b843-1a8e3515e459",
               title:"Event Title 1",
+              imageOn: true,
               date:"Monday, January 1st",
               description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",
               linkUrl:"http://google.com",
@@ -207,6 +212,7 @@
             {
               image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/nc-cart.png?alt=media&token=7ca57692-21ed-4246-b843-1a8e3515e459",
               title:"Event Title 2",
+              imageOn: true,
               date:"Monday, January 1st",
               description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.",
               linkUrl:"http://google.com",

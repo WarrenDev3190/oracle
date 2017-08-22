@@ -11,6 +11,7 @@
 
 </template>
 <script type="text/javascript">
+  import {mapGetters} from 'vuex'
   import ImageEditor from './ImageEditor.vue'
   import LineEditor from './LineEditor.vue'
   import HtmlEditor from './HtmlEditor.vue'
@@ -25,6 +26,7 @@
     watch:{
       value(newValue){
         this.image = newValue.image,
+        this.imageOn = newValue.imageOn,
         this.title = newValue.title,
         this.date = newValue.date,
         this.linkUrl = newValue.linkUrl,
@@ -37,6 +39,7 @@
         this.description = this.description.replace("<p>","").replace("</p>","")
         this.$emit('input', {
           image: this.image,
+          imageOn: this.imageOn,
           title: this.title,
           date: this.date,
           linkUrl: this.linkUrl,
@@ -47,7 +50,9 @@
     },
     data: function(){
       return {
+        ...mapGetters('layouts', ['selectedLayout']),
         image: this.value.image,
+        imageOn: this.value.imageOn,
         title: this.value.title,
         date: this.value.date,
         linkUrl: this.value.linkUrl,
@@ -64,7 +69,8 @@
             date: "",
             linkUrl: "",
             linkText: "",
-            description: ""
+            description: "",
+            imageOn: true
           }
         },
         type: Object

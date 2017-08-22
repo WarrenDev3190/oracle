@@ -210,7 +210,7 @@ const defaultTemplates = {
       events: {
         title: 'Events',
         on: true,
-        imageOn: true,
+        // imageOn: true,
         editable: true,
         toggleable: true,
         data: {
@@ -218,6 +218,7 @@ const defaultTemplates = {
           events: [
             {
               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/245%20x%20150.png?alt=media&token=9a72f27f-0478-4857-a237-f2585f19a36a',
+              imageOn: true,
               title: 'Event Title 1',
               date: 'Monday, January 1st',
               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.',
@@ -226,6 +227,7 @@ const defaultTemplates = {
             },
             {
               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/245%20x%20150.png?alt=media&token=9a72f27f-0478-4857-a237-f2585f19a36a',
+              imageOn: true,
               title: 'Event Title 2',
               date: 'Monday, January 1st',
               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique orci efficitur bibendum dapibus.',

@@ -4,6 +4,10 @@
     <editor-title :title="'Spotlight'" />
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
     <div class="nc-switch__container">
+      <img class="nc-switch__icon"
+        :hidden="checkSpotlightImage"
+        src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/camera1600.png?alt=media&token=83dc93a1-989f-43ad-9e32-873bc0a41989"
+      />
       <span class="nc-switch__text">off</span>
       <label class="nc-switch" for="spotlightImageToggle">
         <input class="nc-switch__input" id="spotlightImageToggle" type="checkbox" v-model="selectedLayout()[0].template.sections.spotlight.imageOn"/>
@@ -11,7 +15,7 @@
       </label>
       <span class="nc-switch__text">on</span>
     </div>
-    <image-editor :title="'Image'" v-model="image" @input="updateInput" />
+    <image-editor :hidden="!checkSpotlightImage" :title="'Image'" v-model="image" @input="updateInput" />
     <html-editor :title="'Text'" v-model="bodyHtml" @input="updateInput" />
   </div>
 

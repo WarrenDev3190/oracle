@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div class="nc-edit__fill-container">
-    <image-editor :title="'Image'" v-model="image" @input="updateInput" />
+    <image-editor :hidden="!selectedLayout()[0].template.sections.events.data.events[index].imageOn" :title="'Image'" v-model="image" @input="updateInput" />
     <line-editor :title="'Title'" v-model="title" @input="updateInput" />
     <line-editor :title="'Date'" v-model="date" @input="updateInput" />
     <line-editor :title="'URL Link'" v-model="linkUrl" @input="updateInput" />
@@ -22,6 +22,7 @@
       HtmlEditor
     },
     computed: {
+
     },
     watch:{
       value(newValue){
@@ -61,6 +62,7 @@
       }
     },
     props: {
+      index: 0,
       value: {
         default: function(){
           return {

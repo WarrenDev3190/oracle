@@ -3,12 +3,13 @@
   <div class="nc-edit">
     <editor-title :title="'Spotlight'" />
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
-    <div class="nc-design__section__container">
-      <input class="nc-design__section__checkbox" id="spotlightImageToggle" type="checkbox" v-model="selectedLayout()[0].template.sections.spotlight.imageOn"/>
-      <label class="nc-design__section__title hoverable" for="spotlightImageToggle">
-        <span v-if="checkSpotlightImage">Image On</span>
-        <span v-else>Image Off</span>
+    <div class="nc-switch__container">
+      <span class="nc-switch__text">off</span>
+      <label class="nc-switch" for="spotlightImageToggle">
+        <input class="nc-switch__input" id="spotlightImageToggle" type="checkbox" v-model="selectedLayout()[0].template.sections.spotlight.imageOn"/>
+        <span class="nc-switch__slider"></span>
       </label>
+      <span class="nc-switch__text">on</span>
     </div>
     <image-editor :title="'Image'" v-model="image" @input="updateInput" />
     <html-editor :title="'Text'" v-model="bodyHtml" @input="updateInput" />

@@ -222,6 +222,12 @@
     font-weight: bold;
     height: 20px;
     width: 50px;
+    &__event {
+      position: relative;
+      top: 25px;
+      width: 19px;
+      margin-left: 20px;
+    }
   }
 
   &__remove-button:hover {
@@ -244,6 +250,10 @@
 
     .nc-edit__add-button {
       margin-left: 20px;
+    }
+
+    &__event-group {
+      display: unset;
     }
 
   }

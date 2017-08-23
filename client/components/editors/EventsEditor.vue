@@ -10,15 +10,21 @@
     </div>
 
     <div class="nc-edit__group" v-for="(event, index) in events">
-      <div class="nc-design__section__container">
-        <input class="nc-design__section__checkbox" :id="'eventImageToggle-' + index" type="checkbox" v-model="events[index].imageOn"/>
-        <label class="nc-design__section__title hoverable" :for="'eventImageToggle-' + index">
-          <span >Images On</span>
 
-        </label>
-      </div>
-      <event-editor class="nc-edit__group__left" v-model="events[index]" :editorId="'EventEditor-' + index" />
-      <button class="nc-edit__group__right nc-edit__remove-button" type="button" @click="removeEvent(index)" >X</button>
+
+    <div class="nc-edit__group__left">
+        <button class="nc-edit__remove-button__event nc-edit__remove-button" type="button" @click="removeEvent(index)" >X</button>
+        <div class="nc-switch__container">
+          <span class="nc-switch__text">off</span>
+          <label class="nc-switch" :for="'eventImageToggle-' + index">
+            <input class="nc-switch__input" :id="'eventImageToggle-' + index" type="checkbox" v-model="events[index].imageOn"/>
+            <span class="nc-switch__slider"></span>
+          </label>
+          <span class="nc-switch__text">on</span>
+        </div>
+
+      <event-editor v-model="events[index]" :editorId="'EventEditor-' + index" />
+    </div>
     </div>
   </div>
 

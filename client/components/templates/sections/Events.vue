@@ -17,7 +17,7 @@
       :titleText="titleText"
     />
 
-  <!-- Structure for one event -->
+  <!-- Structure for one event with image-->
   <table
     v-if="events.length == 1"
     :style="{
@@ -78,6 +78,7 @@
             </div>
           </td>
       </tr>
+      <!-- Structure for one event without image-->
       <tr v-else>
           <td valign="top">
             <div :style="{

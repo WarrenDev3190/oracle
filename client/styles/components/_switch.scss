@@ -50,11 +50,17 @@
     position: relative;
     bottom: 6px;
   }
+
+  &__icon {
+    height: 26px !important;
+    position: absolute;
+    left: 70%
+  }
 }
 
 
 input:checked + .nc-switch__slider {
-  background-color: $nc-green;
+  background-color: $nc-blue;
 }
 
 input:focus + .nc-switch__slider {

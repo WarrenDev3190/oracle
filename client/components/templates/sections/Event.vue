@@ -28,6 +28,7 @@
       <br/>
       <span :style="{
           'font-size':'11px',
+          'font-weight':'bold'
         }"
       >
         {{date}}:

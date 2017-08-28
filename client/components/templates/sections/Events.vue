@@ -48,7 +48,7 @@
               }"
             >
               <span :style="{
-                  'font-weight':'bold',
+                  'font-weight':'bold'
                 }"
               >
                 {{events[0].title}}
@@ -57,7 +57,7 @@
               <br/>
               <span :style="{
                   'font-weight':'bold',
-                  'font-size':'12.8px',
+                  'font-size':'11px'
                 }"
               >
                 {{events[0].date}}:
@@ -65,15 +65,14 @@
               <span v-html="events[0].description">
               </span>
               <a :style="{
-                'font-size':'12.8px',
-                'font-weight':'bold',
+                'font-size':'11px',
                 'text-decoration':'none',
                 'color':accentColor + ' !important'
                 }"
                 :href="events[0].linkUrl"
                 target="_blank"
               >
-                |{{events[0].linkText}}
+                | {{events[0].linkText}}
               </a>
             </div>
           </td>
@@ -96,8 +95,7 @@
               <br/>
               <br/>
               <span :style="{
-                  'font-weight':'bold',
-                  'font-size':'12.8px',
+                  'font-size':'11px'
                 }"
               >
                 {{events[0].date}}:
@@ -105,7 +103,7 @@
               <span v-html="events[0].description">
               </span>
               <a :style="{
-                'font-size':'12.8px',
+                'font-size':'11px',
                 'font-weight':'bold',
                 'text-decoration':'none',
                 'color':accentColor + ' !important'
@@ -113,7 +111,7 @@
                 :href="events[0].linkUrl"
                 target="_blank"
               >
-                |{{events[0].linkText}}
+                | {{events[0].linkText}}
               </a>
             </div>
           </td>

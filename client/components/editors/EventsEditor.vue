@@ -6,7 +6,7 @@
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
 
     <div class="nc-edit__group">
-      <button class="nc-edit__add-button" type="button" @click="addEvent" >+New Event</button>
+      <button class="nc-edit__add-button" type="button" @click="addEvent" >Add Event</button>
     </div>
 
     <div class="nc-edit__group" v-for="(event, index) in events">

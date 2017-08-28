@@ -27,8 +27,7 @@
       <br/>
       <br/>
       <span :style="{
-          'font-weight':'bold',
-          'font-size':'12.8px',
+          'font-size':'11px',
         }"
       >
         {{date}}:
@@ -36,15 +35,14 @@
       <span v-html="description">
       </span>
       <a :style="{
-        'font-size':'12.8px',
-        'font-weight':'bold',
+        'font-size':'11px',
         'text-decoration':'none',
         'color':accentColor + ' !important'
         }"
         :href="linkUrl"
         target="_blank"
       >
-        |{{linkText}}
+        | {{linkText}}
       </a>
     </div>
   </div>

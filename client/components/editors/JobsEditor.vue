@@ -4,7 +4,7 @@
     <editor-title :title="'Jobs'" />
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
     <div class="nc-edit__group">
-      <button class="nc-edit__add-button" type="button" @click="addJob" >+New Job</button>
+      <button class="nc-edit__add-button" type="button" @click="addJob" >Add Job</button>
     </div>
     <div class="nc-edit__group" v-for="(job, index) in jobs">
       <job-editor class="nc-edit__group__left" v-model="jobs[index]" :editorId="'JobEditor-' + index" />

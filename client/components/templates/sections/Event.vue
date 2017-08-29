@@ -43,7 +43,11 @@
         :href="linkUrl"
         target="_blank"
       >
-        | {{linkText}}
+        <span :style="{'color':accentColor + ' !important'}">
+          <font :color="accentColor">
+           | {{linkText}}
+          </font>
+        </span>
       </a>
     </div>
   </div>

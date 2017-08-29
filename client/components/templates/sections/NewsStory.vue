@@ -17,7 +17,11 @@
       :href="link"
       target="_blank"
     >
-      {{title}}
+      <span :style="{'color':accentColor + ' !important'}">
+        <font :color="accentColor">
+          {{title}}
+        </font>
+      </span>
     </a>
     <br/>
     <span :style="{

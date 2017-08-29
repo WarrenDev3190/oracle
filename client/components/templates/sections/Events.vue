@@ -72,7 +72,11 @@
                 :href="events[0].linkUrl"
                 target="_blank"
               >
-                | {{events[0].linkText}}
+                <span :style="{'color':accentColor + ' !important'}">
+                  <font :color="accentColor">
+                    |{{events[0].linkText}}
+                  </font>
+                </span>
               </a>
             </div>
           </td>
@@ -111,7 +115,11 @@
                 :href="events[0].linkUrl"
                 target="_blank"
               >
-                | {{events[0].linkText}}
+                <span :style="{'color':accentColor + ' !important'}">
+                  <font :color="accentColor">
+                    |{{events[0].linkText}}
+                  </font>
+                </span>
               </a>
             </div>
           </td>

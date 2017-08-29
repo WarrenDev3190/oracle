@@ -33,12 +33,11 @@
                 'font-size':'14px',
                 'font-weight':'bolder',
                 'margin-left':'30px',
-                'text-transform':'uppercase'
+                'text-transform':'uppercase',
+                'font-family':'Arial,Helvetica,sans-serif'
               }"
               >
-              <span>
                 {{currentDate}}
-              </span>
             </div>
             <div v-if="selectedLayout()[0].template.sections.spotlight.imageOn">
             <spotlight

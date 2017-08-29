@@ -44,7 +44,11 @@
               'text-decoration':'none'
             }"
           >
-            {{job.title}}
+            <span :style="{'color':accentColor + ' !important'}">
+              <font :color="accentColor">
+                {{job.title}}
+              </font>
+            </span>
           </a>
           &nbsp;-&nbsp;
         </span>

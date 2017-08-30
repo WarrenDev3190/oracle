@@ -21,20 +21,29 @@
     methods: {
       updateInput: function(){
         var modifiedBody = this.body
-        var aTags = modifiedBody.match(/<a.*<\/a>/g)
+        var aTags = modifiedBody.match(/<a.+?<\/a>/g)
         var accentColor = this.$parent.selectedLayout()[0]['template']['accentColor']
-        aTags.forEach(aTag => {
-          // If it doesn't already have a color, add in the accentColor
-          if(aTag.indexOf('color:') == -1){
-            var newTag = aTag.replace(/<a /,'<a style="color:'+accentColor+' !important;" ')
-            modifiedBody = modifiedBody.replace(aTag,newTag)
-          // Otherwise, just add the important flag if it needs it
-          }else if(aTag.indexOf('!important') == -1){
-            var currentColor = aTag.match(/color:(.*);/)[1]
-            var newTag = aTag.replace(/color:.*;/,"color: "+currentColor+" !important;")
-            modifiedBody = modifiedBody.replace(aTag,newTag)
-          }
-        })
+        if(aTags != null){
+          aTags.forEach(aTag => {
+            // If it doesn't already have a color, add in the accentColor
+            if(aTag.indexOf('"color:') == -1 && aTag.indexOf(' color:') == -1){
+              var newTag = aTag.replace(/<a /,'<a style="color:'+accentColor+' !important;" ')
+              modifiedBody = modifiedBody.replace(aTag,newTag)
+            // Otherwise, just add the important flag if it needs it
+            }else if(aTag.indexOf('!important') == -1){
+              //If color is first in the style list
+              if(aTag.indexOf('style="color:') != -1){
+                var currentColor = aTag.match(/style="color:(.+?);/)[1]
+                var newTag = aTag.replace(/style="color:.+?;/, 'style="color: '+currentColor+' !important;')
+              }
+              else{
+                var currentColor = aTag.match(/\scolor:(.+?);/)[1]
+                var newTag = aTag.replace(/\scolor:.+?;/, " color: "+currentColor+" !important;")
+              }
+              modifiedBody = modifiedBody.replace(aTag,newTag)
+            }
+          })
+        }
         this.$emit('input', modifiedBody)
       }
     },

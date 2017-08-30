@@ -20,7 +20,9 @@
     },
     methods: {
       updateInput: function(){
-        this.$emit('input', this.body)
+        var accentColor = this.$parent.selectedLayout()[0]['template']['accentColor']
+        var modifiedBody = this.body.replace(/<a /,'<a style="color:'+accentColor+' !important;" ')
+        this.$emit('input', modifiedBody)
       }
     },
     data: function(){

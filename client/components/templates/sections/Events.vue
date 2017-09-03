@@ -146,7 +146,6 @@
                 :accentColor="accentColor"
                 :key="(n-1)*2"
                 :image="events[(n-1)*2].image"
-                :imageOn="events[(n-1)*2].imageOn"
                 :title="events[(n-1)*2].title"
                 :date="events[(n-1)*2].date"
                 :description="events[(n-1)*2].description"
@@ -157,7 +156,6 @@
             <div v-else>
               <EventNoImg
                 :accentColor="accentColor"
-                :imageOn="events[(n-1)*2].imageOn"
                 :key="(n-1)*2"
                 :title="events[(n-1)*2].title"
                 :date="events[(n-1)*2].date"
@@ -179,7 +177,6 @@
               :accentColor="accentColor"
               :key="(n-1)*2+1"
               :image="events[(n-1)*2+1].image"
-              :imageOn="events[(n-1)*2+1].imageOn"
               :title="events[(n-1)*2+1].title"
               :date="events[(n-1)*2+1].date"
               :description="events[(n-1)*2+1].description"
@@ -191,7 +188,6 @@
             <EventNoImg
               :style="{'margin-left':'20px'}"
               :accentColor="accentColor"
-              :imageOn="events[(n-1)*2+1].imageOn"
               :key="(n-1)*2+1"
               :title="events[(n-1)*2+1].title"
               :date="events[(n-1)*2+1].date"

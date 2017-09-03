@@ -7,11 +7,13 @@
 </template>
 <script type="text/javascript">
   import { VueEditor } from 'vue2-editor'
+  import { mapGetters } from 'vuex'
   export default {
     components: {
       VueEditor
     },
     computed: {
+      ...mapGetters('layouts', ['selectedLayout'])
     },
     watch: {
       value(newValue){
@@ -22,7 +24,7 @@
       updateInput: function(){
         var modifiedBody = this.body
         var aTags = modifiedBody.match(/<a.+?<\/a>/g)
-        var accentColor = this.$parent.selectedLayout()[0]['template']['accentColor']
+        var accentColor = this.selectedLayout[0]['template']['accentColor']
         if(aTags != null){
           aTags.forEach(aTag => {
             // If it doesn't already have a color, add in the accentColor

@@ -5,7 +5,7 @@
           <header class="nc-header">
               <h3>Layout</h3>
           </header>
-          <div class="nc-inner-container nc-flex--wrap">
+          <div class="nc-inner-container nc-flex--wrap nc-layout-container">
             <div class="nc-layout-card" @click="handleLayoutClick(index)" v-for="(layout, index) in possibleLayouts">
               <figure>
                 <img :src="layout.imageURL" :class="{'nc-layout-card--selected': layout.selected}"/>

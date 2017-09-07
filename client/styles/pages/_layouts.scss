@@ -6,6 +6,7 @@
 
   &--selected {
     border: 3px solid #28f392;
+    border-radius: 3px;
   }
 
   figure {
@@ -19,9 +20,14 @@
   caption {
     display: block;
     margin-bottom: 2em;
+    margin-top: 1em
   }
 }
 
 .nc-layout-card-mini {
   width: 192px;
+}
+
+.nc-layout-container {
+  border-bottom: 1px solid $nc-gray-border;
 }

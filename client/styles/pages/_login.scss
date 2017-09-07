@@ -2,6 +2,19 @@
   &__container {
     max-width: $max-width;
   }
+  &__login-button{
+    margin-top: 30px;
+    box-shadow: none !important;
+  }
+  &__input {
+    padding: 0 !important;
+    margin-bottom: 30px !important;
+    margin-left: 9px!important;
+  }
+  &__input label {
+    top: 0;
+    font-weight: 400;
+  }
 }
 
 .nc-error-message {
@@ -10,4 +23,5 @@
 
 .nc-login__logo .nc-brand {
   width: 300px;
+  margin-bottom: 20px;
 }

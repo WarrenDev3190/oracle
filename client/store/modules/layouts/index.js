@@ -210,7 +210,6 @@ const defaultTemplates = {
       events: {
         title: 'Events',
         on: true,
-        // imageOn: true,
         editable: true,
         toggleable: true,
         data: {

@@ -1,26 +1,35 @@
 <template lang="html">
 
-  <div :style="{
+  <table :style="{
       'width':'100%',
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
       'text-align':'left',
-      'padding-top':'20px',
-      'padding-bottom':'20px',
+      'padding-top':'0px',
+      'padding-bottom':'0px',
+      'padding-left':'0px',
+      'padding-right':'0px',
+      'margin-top':'0px',
+      'margin-left':'0px',
+      'margin-right':'0px',
+      'margin-bottom':'0px',
+      'font-weight':'bold',
       'line-height':'1.0',
       'color':'#fff',
-      'background-color':' #003f5c'
+      'background-color':'#003f5c'
     }"
   >
-    <div :style="{
-        'padding-left':'30px',
-        'padding-right':'30px'
-      }"
-    >
-      <span :style="{
-          'font-weight':'bold'
-        }"
-      >
+    <tr>
+      <td :style="{
+          'padding-bottom':'20px',
+          'padding-top':'20px',
+          'padding-left':'30px',
+          'padding-right':'30px',
+          'margin-top':'0px',
+          'margin-left':'0px',
+          'margin-right':'0px',
+          'margin-bottom':'0px'
+        }">
         Questions? Email:&nbsp;
         <a :style="{
             'color':accentColor,
@@ -29,15 +38,32 @@
           :href="'mailto:' + email"
           target="_blank"
         >
-          {{email}}
+          <span :style="{'color':accentColor + ' !important'}">
+            <font :color="accentColor">
+              {{email}}
+            </font>
+          </span>
         </a>
-      </span>
-      <br/>
-      <br/>
-      <div v-html="footerHtml">
-      </div>
-    </div>
-  </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td
+        :style="{
+          'padding-bottom':'20px',
+          'padding-top':'0px',
+          'padding-left':'30px',
+          'padding-right':'30px',
+          'margin-top':'0px',
+          'margin-left':'0px',
+          'margin-right':'0px',
+          'margin-bottom':'0px'
+        }"
+      >
+        <div v-html="footerHtml"></div>
+      </td>
+    </tr>
+  </table>
 
 </template>
 <script type="text/javascript">

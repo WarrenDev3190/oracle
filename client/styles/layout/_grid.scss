@@ -4,10 +4,17 @@
   width: $nc-default-width;
   margin: auto;
   margin-top: 40px;
+  &__design {
+    display: block;
+    max-width: 100%;
+    width: $nc-default-width;
+    margin: auto;
+    margin-top: 0;
+  }
 }
 
 .nc-inner-container {
-  max-width: 100%; 
+  max-width: 100%;
 }
 
 .nc-fullscreen {

@@ -6,7 +6,7 @@
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
 
     <div class="nc-edit__group">
-      <button class="nc-edit__add-button" type="button" @click="addEvent" >+New Event</button>
+      <button class="nc-edit__add-button" type="button" @click="addEvent" >Add Event</button>
     </div>
 
     <div class="nc-edit__group" v-for="(event, index) in events">
@@ -21,7 +21,7 @@
           />
           <span class="nc-switch__text">off</span>
           <label class="nc-switch" :for="'eventImageToggle-' + index">
-            <input class="nc-switch__input" :id="'eventImageToggle-' + index" type="checkbox" v-model="events[index].imageOn"/>
+            <input @click="()=>(emitToggleImage(events[index].imageOn))" class="nc-switch__input" :id="'eventImageToggle-' + index" type="checkbox" v-model="events[index].imageOn"/>
             <span class="nc-switch__slider"></span>
           </label>
           <span class="nc-switch__text">on</span>
@@ -57,10 +57,17 @@
     },
     methods: {
       updateInput: function(value){
+        debugger;
         this.$emit('input', {
           titleText: this.titleText,
           events: this.events
         })
+      },
+      emitToggleImage: function(value) {
+        // debugger;
+        // this.$emit('input', {
+        //
+        // })
       },
       addEvent: function(){
         this.events.push({

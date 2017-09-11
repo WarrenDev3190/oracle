@@ -2,7 +2,7 @@
 
   <div>
     <navigation/>
-    <div class="nc-design nc-container">
+    <div class="nc-design nc-container__design">
         <div class="nc-design__sections">
           <div class="nc-design__section">
             <div class="nc-design__section__container" v-for="(section, index) in selectedLayout[0].template.sections" v-if="section.toggleable" :key="index">

@@ -2,13 +2,13 @@
 
   <div class="nc-edit">
     <editor-title :title="'Hires'" />
-    
+
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
 
     <div class="nc-edit__group">
-      <button class="nc-edit__add-button" type="button" @click="addHire" >+New Hire</button>
+      <button class="nc-edit__add-button" type="button" @click="addHire" >Add New Hire</button>
     </div>
-    
+
     <div class="nc-edit__group" v-for="(hire, index) in hires">
       <hire-editor class="nc-edit__group__left" v-model="hires[index]" />
       <button class="nc-edit__group__right nc-edit__remove-button" type="button" @click="removeHire(index)" >X</button>

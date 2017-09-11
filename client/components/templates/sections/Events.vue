@@ -48,7 +48,7 @@
               }"
             >
               <span :style="{
-                  'font-weight':'bold',
+                  'font-weight':'bold'
                 }"
               >
                 {{events[0].title}}
@@ -57,7 +57,7 @@
               <br/>
               <span :style="{
                   'font-weight':'bold',
-                  'font-size':'12.8px',
+                  'font-size':'11px'
                 }"
               >
                 {{events[0].date}}:
@@ -65,15 +65,18 @@
               <span v-html="events[0].description">
               </span>
               <a :style="{
-                'font-size':'12.8px',
-                'font-weight':'bold',
+                'font-size':'11px',
                 'text-decoration':'none',
                 'color':accentColor + ' !important'
                 }"
                 :href="events[0].linkUrl"
                 target="_blank"
               >
-                |{{events[0].linkText}}
+                <span :style="{'color':accentColor + ' !important'}">
+                  <font :color="accentColor">
+                    |{{events[0].linkText}}
+                  </font>
+                </span>
               </a>
             </div>
           </td>
@@ -96,8 +99,7 @@
               <br/>
               <br/>
               <span :style="{
-                  'font-weight':'bold',
-                  'font-size':'12.8px',
+                  'font-size':'11px'
                 }"
               >
                 {{events[0].date}}:
@@ -105,7 +107,7 @@
               <span v-html="events[0].description">
               </span>
               <a :style="{
-                'font-size':'12.8px',
+                'font-size':'11px',
                 'font-weight':'bold',
                 'text-decoration':'none',
                 'color':accentColor + ' !important'
@@ -113,7 +115,11 @@
                 :href="events[0].linkUrl"
                 target="_blank"
               >
-                |{{events[0].linkText}}
+                <span :style="{'color':accentColor + ' !important'}">
+                  <font :color="accentColor">
+                    |{{events[0].linkText}}
+                  </font>
+                </span>
               </a>
             </div>
           </td>
@@ -140,7 +146,6 @@
                 :accentColor="accentColor"
                 :key="(n-1)*2"
                 :image="events[(n-1)*2].image"
-                :imageOn="events[(n-1)*2].imageOn"
                 :title="events[(n-1)*2].title"
                 :date="events[(n-1)*2].date"
                 :description="events[(n-1)*2].description"
@@ -151,7 +156,6 @@
             <div v-else>
               <EventNoImg
                 :accentColor="accentColor"
-                :imageOn="events[(n-1)*2].imageOn"
                 :key="(n-1)*2"
                 :title="events[(n-1)*2].title"
                 :date="events[(n-1)*2].date"
@@ -173,7 +177,6 @@
               :accentColor="accentColor"
               :key="(n-1)*2+1"
               :image="events[(n-1)*2+1].image"
-              :imageOn="events[(n-1)*2+1].imageOn"
               :title="events[(n-1)*2+1].title"
               :date="events[(n-1)*2+1].date"
               :description="events[(n-1)*2+1].description"
@@ -185,7 +188,6 @@
             <EventNoImg
               :style="{'margin-left':'20px'}"
               :accentColor="accentColor"
-              :imageOn="events[(n-1)*2+1].imageOn"
               :key="(n-1)*2+1"
               :title="events[(n-1)*2+1].title"
               :date="events[(n-1)*2+1].date"

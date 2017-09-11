@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div class="nc-edit__fill-container">
-    <image-editor :hidden="!selectedLayout()[0].template.sections.events.data.events[index].imageOn" :title="'Image'" v-model="image" @input="updateInput" />
+    <image-editor :hidden="!selectedLayout()[0].template.sections.events.data.events[index].imageOn" :title="'Image'" v-model="image" />
     <line-editor :title="'Title'" v-model="title" @input="updateInput" />
     <line-editor :title="'Date'" v-model="date" @input="updateInput" />
     <line-editor :title="'URL Link'" v-model="linkUrl" @input="updateInput" />
@@ -15,6 +15,8 @@
   import ImageEditor from './ImageEditor.vue'
   import LineEditor from './LineEditor.vue'
   import HtmlEditor from './HtmlEditor.vue'
+  import store from '../../store'
+
   export default {
     components: {
       ImageEditor,
@@ -37,10 +39,11 @@
     },
     methods: {
       updateInput: function(value){
-        this.description = this.description.replace("<p>","").replace("</p>","")
+        this.description = this.description.replace("<p>","").replace("</p>","");
+
         this.$emit('input', {
           image: this.image,
-          imageOn: this.imageOn,
+          imageOn: this.$store.getters['layouts/selectedLayout'][0].template.sections.events.data.events[this.$props.index].imageOn,
           title: this.title,
           date: this.date,
           linkUrl: this.linkUrl,
@@ -62,7 +65,7 @@
       }
     },
     props: {
-      index: 0,
+      index: Number,
       value: {
         default: function(){
           return {
@@ -72,7 +75,7 @@
             linkUrl: "",
             linkText: "",
             description: "",
-            imageOn: true
+            imageOn: false
           }
         },
         type: Object

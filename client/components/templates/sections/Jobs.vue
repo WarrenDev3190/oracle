@@ -25,6 +25,23 @@
       'margin-right':'30px'
       }"
     >
+    <!--blurb that only renders for Time Inc-->
+      <div
+      v-if="currentUsersCompany() === 'Time Inc'"
+      :style="{'margin-bottom': '20px'}"
+      >
+        <span>
+          The best hires are through referrals.
+          Help us meet the bright minds you know or apply to a new role at Time Inc.
+          If you’re referring a friend, be sure to refer them through
+          <a href="http://mytime.timeinc.net/greenhouse/" target="_blank" :style="{'color': accentColor + ' !important', 'text-decoration': 'none'}">Greenhouse</a>
+          to take advantage of our
+          <a href="http://mytime.timeinc.net/benefits-perks/employee-referral/" target="_blank" :style="{'color': accentColor + ' !important', 'text-decoration': 'none'}">Employee Referral Program</a>.
+          Here’s a <a href="http://mytime.timeinc.net/wp-content/uploads/2016/12/refer-a-candidate-to-a-job.pdf" target="_blank" :style="{'color': accentColor + ' !important', 'text-decoration': 'none'}">refresher guide</a>
+          for using greenhouse.
+        </span>
+      </div>
+
       <div v-for="(job, index) in jobs"
         :style="{
             'margin-bottom':'20px'
@@ -69,6 +86,7 @@
 </template>
 <script type="text/javascript">
   import SectionTitle from "./SectionTitle.vue"
+  import { mapGetters } from 'vuex'
   export default {
     components: {
       SectionTitle
@@ -76,6 +94,11 @@
     computed: {
     },
     methods: {
+    },
+    data: function () {
+      return {
+        ...mapGetters('user', ['currentUsersCompany'])
+      }
     },
     props: {
       accentColor:{

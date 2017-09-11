@@ -50,6 +50,9 @@ const getters = {
   },
   userDefinedKeywords (state) {
     return state.properties ? state.properties.keywords : []
+  },
+  currentUsersCompany (state) {
+    return state.properties ? state.properties.details.company.name : 'Default Company'
   }
 }
 

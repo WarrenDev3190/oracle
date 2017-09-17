@@ -31,7 +31,7 @@ const firebaseService = {
         store.commit('user/RECEIVE_USER', user)
         firebaseService.getUserProperties(user.uid)
         .then(properties => store.commit('user/RECEIVE_USER_PROPERTIES', properties))
-        .then(() => router.push({ path: '/topics' }))
+        .then(() => router.push({ path: '/stories' }))
         .catch(loginError => store.commit('user/LOGIN_ERROR', loginError))
       }
     })

@@ -1,3 +1,10 @@
+/**
+ * @Author: warrensadler
+ * @Date:   2017-09-10T19:35:17-05:00
+ * @Last modified by:   warrensadler
+ * @Last modified time: 2017-09-17T15:26:21-05:00
+ */
+
 // client/store/modules/user/index.js
 import firebaseService from '../../../services/firebase'
 import router from '../../../router'
@@ -71,7 +78,7 @@ const mutations = {
     state.loginError = null
   },
   [RECEIVE_USER_PROPERTIES]: (state, userProperties) => {
-    if (Object.hasOwnProperty(userProperties, 'keywords')) { state.properties = userProperties } else {
+    if (userProperties.keywords) { state.properties = userProperties } else {
       state.properties = Object.assign({}, userProperties, { keywords: [] })
     }
   },
@@ -98,7 +105,7 @@ const actions = {
       commit(RECEIVE_USER, user)
       return firebaseService.getUserProperties(user.uid)
     }).then(properties => commit(RECEIVE_USER_PROPERTIES, properties))
-      .then(() => router.push({ path: '/topics' }))
+      .then(() => router.push({ path: '/stories' }))
       .catch(loginError => commit(LOGIN_ERROR, loginError))
   },
   logout ({ commit }) {

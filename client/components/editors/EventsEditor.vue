@@ -57,7 +57,6 @@
         })
       },
       removeEvent: function(index){
-        console.log("REMOVING")
         this.events.splice(index, 1)
       }
     },

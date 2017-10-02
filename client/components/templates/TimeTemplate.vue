@@ -39,18 +39,19 @@
               >
                 {{currentDate}}
             </div>
-            <div v-if="selectedLayout()[0].template.sections.spotlight.imageOn">
-            <spotlight
-              v-if="!sections.spotlight.toggleable || sections.spotlight.on"
-              @click.native="sectionSelected('spotlight')"
-              :class="{hoverable: sections.spotlight.editable}"
-              :barColorStart="sectionBarColorStart"
-              :barColorEnd="sectionBarColorEnd"
-              :barColorSolid="sectionBarColorStart"
-              :bodyHtml="sections.spotlight.data.bodyHtml"
-              :image="sections.spotlight.data.image"
-              :titleText="sections.spotlight.data.titleText"
-            /></div>
+            <div v-if="sections.spotlight.data.imageOn">
+              <spotlight
+                v-if="!sections.spotlight.toggleable || sections.spotlight.on"
+                @click.native="sectionSelected('spotlight')"
+                :class="{hoverable: sections.spotlight.editable}"
+                :barColorStart="sectionBarColorStart"
+                :barColorEnd="sectionBarColorEnd"
+                :barColorSolid="sectionBarColorStart"
+                :bodyHtml="sections.spotlight.data.bodyHtml"
+                :image="sections.spotlight.data.image"
+                :titleText="sections.spotlight.data.titleText"
+              />
+            </div>
             <div v-else>
               <spotlightNoImg
                 v-if="!sections.spotlight.toggleable || sections.spotlight.on"
@@ -145,10 +146,7 @@
     computed: {
       currentDate: function(){
         return currentDateString()
-      },
-      // checkSpotlightImage: function(){
-      //    return selectedLayout()[0].template.sections.spotlight.imageOn
-      // }
+      }
     },
     methods: {
     },
@@ -208,7 +206,8 @@
                           "interdum, ex sed euismod maximus, orci elit posuere erat, vel pretium mauris justo dignissim " +
                           "nisl. Crassut aliquet purus. Aenean tincidunt mi ut elementum faucibus. " +
                           "<strong><a href='http://www.google.com' >Link to Google </a></strong>",
-                image: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/nc-cart.png?alt=media&token=7ca57692-21ed-4246-b843-1a8e3515e459"
+                image: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/nc-cart.png?alt=media&token=7ca57692-21ed-4246-b843-1a8e3515e459",
+                imageOn: true
               }
             },
             news: {

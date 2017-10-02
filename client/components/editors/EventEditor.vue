@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div class="nc-edit__fill-container">
-    <image-editor :hidden="!selectedLayout()[0].template.sections.events.data.events[index].imageOn" :title="'Image'" v-model="image" />
+    <image-editor :title="'Image'" v-model="imageObj" @input="updateInput"/>
     <line-editor :title="'Title'" v-model="title" @input="updateInput" />
     <line-editor :title="'Date'" v-model="date" @input="updateInput" />
     <line-editor :title="'URL Link'" v-model="linkUrl" @input="updateInput" />
@@ -11,11 +11,9 @@
 
 </template>
 <script type="text/javascript">
-  import {mapGetters} from 'vuex'
   import ImageEditor from './ImageEditor.vue'
   import LineEditor from './LineEditor.vue'
   import HtmlEditor from './HtmlEditor.vue'
-  import store from '../../store'
 
   export default {
     components: {
@@ -24,7 +22,18 @@
       HtmlEditor
     },
     computed: {
-
+      imageObj: {
+        get: function(){
+          return {
+            imageUrl: this.image,
+            imageOn: this.imageOn
+          }
+        },
+        set: function(newValue){
+          this.image = newValue.imageUrl
+          this.imageOn = newValue.imageOn
+        }
+      }
     },
     watch:{
       value(newValue){
@@ -43,7 +52,7 @@
 
         this.$emit('input', {
           image: this.image,
-          imageOn: this.$store.getters['layouts/selectedLayout'][0].template.sections.events.data.events[this.$props.index].imageOn,
+          imageOn: this.imageOn,
           title: this.title,
           date: this.date,
           linkUrl: this.linkUrl,
@@ -54,7 +63,6 @@
     },
     data: function(){
       return {
-        ...mapGetters('layouts', ['selectedLayout']),
         image: this.value.image,
         imageOn: this.value.imageOn,
         title: this.value.title,

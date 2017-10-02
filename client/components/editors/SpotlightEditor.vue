@@ -3,19 +3,7 @@
   <div class="nc-edit">
     <editor-title :title="'Spotlight'" />
     <line-editor :title="'Title'" v-model="titleText" @input="updateInput" />
-    <div class="nc-switch__container">
-      <img class="nc-switch__icon"
-        :hidden="checkSpotlightImage"
-        src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/camera1600.png?alt=media&token=83dc93a1-989f-43ad-9e32-873bc0a41989"
-      />
-      <span class="nc-switch__text">off</span>
-      <label class="nc-switch" for="spotlightImageToggle">
-        <input class="nc-switch__input" id="spotlightImageToggle" type="checkbox" v-model="selectedLayout()[0].template.sections.spotlight.imageOn"/>
-        <span class="nc-switch__slider"></span>
-      </label>
-      <span class="nc-switch__text">on</span>
-    </div>
-    <image-editor :hidden="!checkSpotlightImage" :title="'Image'" v-model="image" @input="updateInput" />
+    <image-editor :title="'Image'" v-model="imageObj" @input="updateInput" />
     <html-editor :title="'Text'" v-model="bodyHtml" @input="updateInput" />
   </div>
 
@@ -34,14 +22,24 @@
       LineEditor
     },
     computed: {
-      checkSpotlightImage: function () {
-       return this.selectedLayout()[0].template.sections.spotlight.imageOn
+      imageObj: {
+        get: function(){
+          return {
+            imageUrl: this.image,
+            imageOn: this.imageOn
+          }
+        },
+        set: function(newValue){
+          this.image = newValue.imageUrl
+          this.imageOn = newValue.imageOn
+        }
       }
     },
     watch:{
       value(newValue){
         this.titleText = newValue.titleText
         this.image = newValue.image
+        this.imageOn = newValue.imageOn
         this.bodyHtml = newValue.bodyHtml
       }
     },
@@ -50,11 +48,9 @@
         this.$emit('input', {
           titleText: this.titleText,
           image: this.image,
+          imageOn: this.imageOn,
           bodyHtml: this.bodyHtml
         })
-      },
-      toggleSpotlightImage: function () {
-        this.$store.commit('layouts/TOGGLE_SPOTLIGHT_IMAGE')
       }
     },
     data: function(){
@@ -62,6 +58,7 @@
         ...mapGetters('layouts',['selectedLayout']),
         titleText: this.value.titleText,
         image: this.value.image,
+        imageOn: this.value.imageOn,
         bodyHtml: this.value.bodyHtml
       }
     },
@@ -70,6 +67,7 @@
         default: {
           titleText: "",
           image: "",
+          imageOn: true,
           bodyHtml: ""
         },
         type: Object

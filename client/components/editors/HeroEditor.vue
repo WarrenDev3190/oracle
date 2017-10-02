@@ -3,7 +3,7 @@
   <div class="nc-edit">
     <editor-title :title="'Header'" />
 
-    <image-editor :title="'Header Image'" v-model="logo" @input="updateInput" />
+    <image-editor :title="'Header Image'" :toggleable="false" v-model="imageObj" @input="updateInput" />
   </div>
 
 </template>
@@ -16,6 +16,18 @@
       ImageEditor
     },
     computed: {
+      imageObj: {
+        get: function(){
+          return {
+            imageUrl: this.logo,
+            imageOn: true
+          }
+        },
+        set: function(newValue){
+          this.logo = newValue.imageUrl
+          this.imageOn = newValue.imageOn
+        }
+      }
     },
     watch:{
       value(newValue){

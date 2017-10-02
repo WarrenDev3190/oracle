@@ -16,9 +16,6 @@ const getters = {
 }
 
 const mutations = {
-  [TOGGLE_SPOTLIGHT_IMAGE]: (state) => {
-    state.spotlight.imageOn = !state.spotlight.imageOn
-  },
   [TOGGLE_SELECTED_TEMPLATE]: (state, index) => {
     state.layouts = state.layouts.map(function (layout, i) {
       if (layout.selected) {
@@ -99,7 +96,6 @@ const defaultTemplates = {
       spotlight: {
         title: 'Spotlight',
         on: true,
-        imageOn: true,
         editable: true,
         toggleable: true,
         data: {
@@ -111,6 +107,7 @@ const defaultTemplates = {
                     'interdum, ex sed euismod maximus, orci elit posuere erat, vel pretium mauris justo dignissim ' +
                     'nisl. Crassut aliquet purus. Aenean tincidunt mi ut elementum faucibus. ' +
                     "<strong><a target='_blank' href='http://www.google.com' >Link to Google </a></strong>",
+          imageOn: true,
           image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/131%20x%20131.png?alt=media&token=23bfad71-1acc-4e9f-bdb9-aec6294eaedf'
         }
       },

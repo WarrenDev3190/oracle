@@ -1,7 +1,19 @@
 <template lang="html">
 
   <div class="nc-edit__component">
-      <div class="nc-edit__file-drop">
+      <div class="nc-switch__container" v-show="toggleable">
+        <img class="nc-switch__icon"
+          v-show="!imageOn"
+          src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/camera1600.png?alt=media&token=83dc93a1-989f-43ad-9e32-873bc0a41989"
+        />
+        <span class="nc-switch__text">off</span>
+        <label class="nc-switch">
+          <input class="nc-switch__input" type="checkbox" v-model="imageOn" @click="updateInput"/>
+          <span class="nc-switch__slider"></span>
+        </label>
+        <span class="nc-switch__text">on</span>
+      </div>
+      <div class="nc-edit__file-drop" v-show="imageOn">
         <div class="nc-edit__file-drop__image-container">
           <img class="nc-edit__file-drop__image" src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/camera1600.png?alt=media&token=83dc93a1-989f-43ad-9e32-873bc0a41989" />
         </div>
@@ -42,7 +54,7 @@
     },
     methods: {
       updateInput: function(){
-        this.$emit('input', this.imageUrl)
+        this.$emit('input', {imageUrl: this.imageUrl, imageOn: this.imageOn})
       },
       fileChange: function(files){
         if(files[0] != undefined && files[0] != null){
@@ -64,12 +76,14 @@
     },
     watch: {
       value(newValue){
-        this.imageUrl = newValue
+        this.imageUrl = newValue.imageUrl
+        this.imageOn = newValue.imageOn
       }
     },
     data: function(){
       return {
-        imageUrl: this.value,
+        imageUrl: this.value.imageUrl,
+        imageOn: this.value.imageOn,
         status: this.STATUS_INITIAL
       }
     },
@@ -83,8 +97,17 @@
         type:String
       },
       value: {
-        default: "",
-        type: String
+        default: function(){
+          return {
+            imageUrl: "",
+            imageOn: true
+          }
+        },
+        type: Object
+      },
+      toggleable: {
+        default: true,
+        type: Boolean
       },
       editorId: {
         default: "ImageEditor",

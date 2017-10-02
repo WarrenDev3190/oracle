@@ -10,25 +10,10 @@
     </div>
 
     <div class="nc-edit__group" v-for="(event, index) in events">
-
-
-    <div class="nc-edit__group__left">
-        <button class="nc-edit__remove-button__event nc-edit__remove-button" type="button" @click="removeEvent(index)" >X</button>
-        <div class="nc-switch__container">
-          <img class="nc-switch__icon"
-            :hidden="events[index].imageOn"
-            src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/camera1600.png?alt=media&token=83dc93a1-989f-43ad-9e32-873bc0a41989"
-          />
-          <span class="nc-switch__text">off</span>
-          <label class="nc-switch" :for="'eventImageToggle-' + index">
-            <input @click="()=>(emitToggleImage(events[index].imageOn))" class="nc-switch__input" :id="'eventImageToggle-' + index" type="checkbox" v-model="events[index].imageOn"/>
-            <span class="nc-switch__slider"></span>
-          </label>
-          <span class="nc-switch__text">on</span>
-        </div>
-
-      <event-editor :index='index' v-model="events[index]" :editorId="'EventEditor-' + index" />
-    </div>
+      <div class="nc-edit__group__left">
+        <button class="nc-edit__remove-button__event nc-edit__remove-button" type="button" @click="removeEvent(index)">X</button>
+        <event-editor :index='index' v-model="events[index]" :editorId="'EventEditor-' + index" />
+      </div>
     </div>
   </div>
 
@@ -45,9 +30,6 @@
       EventEditor
     },
     computed: {
-      checkEventsImage: function () {
-      //  return this.selectedLayout()[0].template.sections.events.imageOn
-      }
     },
     watch:{
       value(newValue){
@@ -63,12 +45,6 @@
           events: this.events
         })
       },
-      emitToggleImage: function(value) {
-        // debugger;
-        // this.$emit('input', {
-        //
-        // })
-      },
       addEvent: function(){
         this.events.push({
           image:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/245%20x%20150.png?alt=media&token=9a72f27f-0478-4857-a237-f2585f19a36a",
@@ -81,12 +57,12 @@
         })
       },
       removeEvent: function(index){
+        console.log("REMOVING")
         this.events.splice(index, 1)
       }
     },
     data: function(){
       return {
-        ...mapGetters('layouts', ['selectedLayout']),
         titleText: this.value.titleText,
         events: this.value.events
       }

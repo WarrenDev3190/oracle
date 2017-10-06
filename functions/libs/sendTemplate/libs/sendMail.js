@@ -2,7 +2,7 @@
  * @Author: warrensadler
  * @Date:   2017-08-17T11:35:26-05:00
  * @Last modified by:   warrensadler
- * @Last modified time: 2017-10-06T08:02:42-05:00
+ * @Last modified time: 2017-10-06T08:03:49-05:00
  */
 
 
@@ -32,7 +32,7 @@ module.exports = function sendMail({recipients, from, subject, content}) {
   mail.setFrom(fromEmail);
   mail.setReplyTo(replyTo);
   mail.setSubject(subject);
-  mail.setHeaders({'x-powered-by':'NewsCart'});
+  mail.setHeaders({'X-POWERED-BY':'NewsCart'});
 
   const personalization = new helper.Personalization();
   recipients.forEach(recipient => {

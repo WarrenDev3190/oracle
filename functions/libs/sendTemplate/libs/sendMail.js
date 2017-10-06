@@ -1,3 +1,12 @@
+/**
+ * @Author: warrensadler
+ * @Date:   2017-08-17T11:35:26-05:00
+ * @Last modified by:   warrensadler
+ * @Last modified time: 2017-10-06T08:02:42-05:00
+ */
+
+
+
 const functions = require('firebase-functions')
 const helper = require('sendgrid').mail;
 const sg = require('sendgrid')(functions.config().sendgrid.key);
@@ -23,6 +32,7 @@ module.exports = function sendMail({recipients, from, subject, content}) {
   mail.setFrom(fromEmail);
   mail.setReplyTo(replyTo);
   mail.setSubject(subject);
+  mail.setHeaders({'x-powered-by':'NewsCart'});
 
   const personalization = new helper.Personalization();
   recipients.forEach(recipient => {

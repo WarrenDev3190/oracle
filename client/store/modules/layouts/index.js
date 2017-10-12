@@ -2,9 +2,9 @@ import R from 'ramda'
 import Vue from 'vue'
 import jQuery from 'jquery'
 
-const TOGGLE_SELECTED_TEMPLATE = 'TOGGLE_SELECTED_TEMPLATE'
-const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE'
-const TOGGLE_SPOTLIGHT_IMAGE = 'TOGGLE_SPOTLIGHT_IMAGE'
+const TOGGLE_SELECTED_TEMPLATE = 'TOGGLE_SELECTED_TEMPLATE';
+const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE';
+const TOGGLE_SPOTLIGHT_IMAGE = 'TOGGLE_SPOTLIGHT_IMAGE';
 
 const getters = {
   possibleLayouts (state) {
@@ -13,7 +13,7 @@ const getters = {
   selectedLayout (state) {
     return state.layouts.filter(l => l.selected)
   }
-}
+};
 
 const mutations = {
   [TOGGLE_SELECTED_TEMPLATE]: (state, index) => {
@@ -73,8 +73,8 @@ const mutations = {
     Vue.set(selectedLayout, 'template_key', key)
     selectedLayout.template_key = key
     console.log(selectedLayout)
-  }
-}
+  },
+};
 
 const defaultTemplates = {
   'time-template': {

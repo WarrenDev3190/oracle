@@ -1,3 +1,12 @@
+/**
+ * @Author: warrensadler
+ * @Date:   2017-10-06T08:03:05-05:00
+ * @Email:  warren.sadler@hcahealthcare.com
+ * @Filename: index.js
+ * @Last modified by:   warrensadler
+ * @Last modified time: 2017-10-17T20:51:20-05:00
+ */
+
 import R from 'ramda'
 import Vue from 'vue'
 import jQuery from 'jquery'
@@ -82,6 +91,7 @@ const defaultTemplates = {
     accentColor: '#00A7FF',
     sectionBarColorStart: '#0081eb',
     sectionBarColorEnd: '#00edbf',
+    footerColor: '#003f5c',
     sections: {
       hero: {
         title: 'Header',

@@ -113,6 +113,7 @@
               @click.native="sectionSelected('foot')"
               :class="{hoverable: sections.foot.editable}"
               :accentColor="accentColor"
+              :footerColor="footerColor"
               :email="sections.foot.data.email"
               :footerHtml="sections.foot.data.footerHtml"
             />
@@ -177,6 +178,10 @@
       },
       sectionBarColorEnd:{
         default:'#00edbf',
+        type:String
+      },
+      footerColor:{
+        default:'#003f5c',
         type:String
       },
       sections: {

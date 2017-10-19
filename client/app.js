@@ -12,6 +12,8 @@ import './styles/main.scss'
 
 Vue.use(VueMaterial)
 Vue.use(VeeValidate)
+
+
 Vue.use(VueAnalytics, {
   id: 'UA-98058995-1',
   router
@@ -19,6 +21,8 @@ Vue.use(VueAnalytics, {
 Vue.use(VueIntercom, {
   appId: 'xy4g63ou'
 })
+
+
 
 sync(store, router)
 

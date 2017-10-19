@@ -76,6 +76,7 @@ const mutations = {
   },
 };
 
+//update default Temp
 const defaultTemplates = {
   'time-template': {
     name: 'Dynamic Template',
@@ -243,31 +244,38 @@ const defaultTemplates = {
           hires: [
             {
               name: 'Lucille J. Byrd',
-              position: 'Senior Communications Liason'
+              position: 'Senior Liason',
+              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
             },
             {
               name: 'Steven A. Rew',
-              position: 'Dynamic Interactions Engineer'
+              position: 'Dynamic Engineer',
+              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
             },
             {
               name: 'Jose L. Wyatt',
-              position: 'Product Paradigm Liason'
+              position: 'Product Liason',
+              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
             },
             {
               name: 'Felipe P. Zylstra',
-              position: 'National Web Agent'
+              position: 'National Web Agent',
+              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
             },
             {
               name: 'Sherman J. Rodriguez',
-              position: 'Central Creative Developer'
+              position: 'Central Developer',
+              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
             },
             {
               name: 'Terry E. Tenney',
-              position: 'Legacy Marketing Architect'
+              position: 'Legacy Marketing Architect',
+              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
             },
             {
               name: 'Gabrielle K. Farrell',
-              position: 'Customer Accounts Specialist'
+              position: 'Customer Accounts Specialist',
+              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
             }
           ]
         }
@@ -347,7 +355,6 @@ const state = {
       template: jQuery.extend(true, {}, defaultTemplates['time-template'])
     }
   ]
-
 }
 
 export default {

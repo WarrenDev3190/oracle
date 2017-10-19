@@ -42,7 +42,11 @@
         })
       },
       addHire: function(){
-        this.hires.push({name:"",position:""})
+        this.hires.push({
+          name:"Name",
+          position:"Position",
+          img:'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg'
+        })
       },
       removeHire: function(index){
         this.hires.splice(index, 1)

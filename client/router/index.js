@@ -9,7 +9,6 @@ import Layout from '../components/Layout.vue'
 import Design from '../components/Design.vue'
 import Share from '../components/Share.vue'
 import NotFound from '../components/NotFound.vue'
-import Test from '../components/Test.vue'
 
 Vue.use(Router)
 
@@ -73,11 +72,7 @@ const router = new Router({
       }
 
     },
-    {
-      name: 'test',
-      path: '/test',
-      component: Test
-    },
+
     {
       name: 'not-found',
       path: '*',

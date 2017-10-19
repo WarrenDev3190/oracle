@@ -7,7 +7,7 @@
       </header>
       <div class="nc-inner-container">
         <md-chips @change="handleKeywordsChange" v-model="userDefinedKeywords" md-input-placeholder="Add a Keyword">
-          <template scope="chip">{{ chip.value }}</template>
+          <template slot-scope="chip">{{ chip.value }}</template>
         </md-chips>
       </div>
     </main>

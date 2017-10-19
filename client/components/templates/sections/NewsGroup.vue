@@ -29,7 +29,8 @@
 
 </template>
 <script type="text/javascript">
-  import { newsSourceString, monthDayString } from "../../../utils"
+  import moment from "moment"
+  import { newsSourceString } from "../../../utils"
   import SectionTitle from "./SectionTitle.vue"
   import NewsStory from "./NewsStory.vue"
   export default {
@@ -41,7 +42,7 @@
     },
     methods: {
       articleSubtitle: function(article) {
-        return newsSourceString(article.source) + ", " + monthDayString(article.publishedAt) + ", By " + article.author
+        return newsSourceString(article.source) + ", " + moment(article.publishedAt).format("MMMM DD YYYY") + ", By " + article.author
       }
     },
     props: {

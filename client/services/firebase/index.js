@@ -1,3 +1,12 @@
+/**
+ * @Author: warrensadler
+ * @Date:   2017-09-25T19:31:58-05:00
+ * @Email:  warren.sadler@hcahealthcare.com
+ * @Filename: index.js
+ * @Last modified by:   warrensadler
+ * @Last modified time: 2017-10-18T22:10:05-05:00
+ */
+
 // oracle/client/services/firebase/index.js
 // This module serves as our interface with
 // firebase
@@ -41,6 +50,13 @@ const firebaseService = {
       db.ref(`users/${userId}`).once('value')
       .then(snapshot => resolve(snapshot.val().userProperties))
       .catch(getUserPropertiesError => reject(getUserPropertiesError))
+    })
+  },
+  deleteTemplate ({ userId, templateId }) {
+    return new Promise((resolve, reject) => {
+      db.ref(`users/${userId}/templates/time-template/${templateId}`).remove()
+      .then(() => resolve())
+      .catch((err) => reject(err))
     })
   }
 }

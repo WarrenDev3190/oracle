@@ -16,7 +16,7 @@
       'font-weight':'bold',
       'line-height':'1.0',
       'color':'#fff',
-      'background-color':'#003f5c'
+      'background-color': footerColor
     }"
   >
     <tr>
@@ -91,7 +91,11 @@
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Nunc tristique orci efficitur bibendum dapibus.",
         type:String
-      }
-    }
+      },
+      footerColor: {
+      default: "#003f5c",
+      type: String
+    },
   }
+}
 </script>

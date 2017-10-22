@@ -36,6 +36,7 @@
         this.colors.accentColor.hex = newValue.accentColor
         this.colors.sectionBarColorStart.hex = newValue.sectionBarColorStart
         this.colors.sectionBarColorEnd.hex = newValue.sectionBarColorEnd
+        this.colors.footerColor.hex = newValue.footerColor
         this.sections = newValue.sections
       }
     },
@@ -45,6 +46,7 @@
           accentColor: this.colors.accentColor.hex,
           sectionBarColorStart: this.colors.sectionBarColorStart.hex,
           sectionBarColorEnd: this.colors.sectionBarColorEnd.hex,
+          footerColor: this.colors.footerColor.hex,
           sections: this.sections
         })
       },
@@ -69,7 +71,8 @@
         colors: {
           accentColor: {title: "Link Color", hex: this.value.accentColor},
           sectionBarColorStart: {title: "Primary Color", hex: this.value.sectionBarColorStart},
-          sectionBarColorEnd: {title: "Secondary Color", hex: this.value.sectionBarColorEnd}
+          sectionBarColorEnd: {title: "Secondary Color", hex: this.value.sectionBarColorEnd},
+          footerColor: {title: "Footer Color", hex: this.value.footerColor}
         },
         sections: this.value.sections,
         showSaveDialog: false
@@ -82,6 +85,7 @@
                 accentColor: "#00A7FF",
                 sectionBarColorStart: "#0081eb",
                 sectionBarColorEnd: "#00edbf",
+                footerColor: "#003f5c",
                 sections: {}
             }
         },

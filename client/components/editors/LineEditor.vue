@@ -1,7 +1,7 @@
 <template lang="html">
 
   <div class="nc-edit__component">
-    <input :placeholder="title" class="nc-edit__text-input" type="text" v-model="text" @input="updateInput()" />
+    <input :placeholder="title" class="nc-edit__text-input" :type="type" v-model="text" @input="updateInput()" />
   </div>
 
 </template>
@@ -37,6 +37,10 @@
       },
       editorId: {
         default: "LineEditor",
+        type: String
+      },
+      type: {
+        default: "text",
         type: String
       }
     }

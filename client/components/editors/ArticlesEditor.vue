@@ -7,11 +7,11 @@
         <div class="nc-edit__columns__left">
           <div class="nc-edit__subtitle">{{title}}</div>
           <draggable class="nc-draggable" :list="articles" :options="{group: 'articles', animation: '150'}">
-            <article-mini 
-              v-for="(article, index) in articles" 
+            <article-mini
+              v-for="(article, index) in articles"
               :class="{'nc-edit__selected': editArticle != null && article.index == editArticle.index}"
-              :key="'shownarticle-' + index" 
-              :article="article" 
+              :key="'shownarticle-' + index"
+              :article="article"
                @click.native="selectEditArticle(article)"
             />
           </draggable>
@@ -19,10 +19,10 @@
         <div class="nc-edit__columns__right">
           <div class="nc-edit__subtitle">All Stories</div>
           <draggable class="nc-draggable" :list="scopedAllArticles" :options="{group: 'articles', animation: '150'}"  @add="removePlaceholders">
-            <article-mini 
-              v-for="(article, index) in scopedAllArticles" 
-              :key="'allarticle-' + index" 
-              :article="article" 
+            <article-mini
+              v-for="(article, index) in scopedAllArticles"
+              :key="'allarticle-' + index"
+              :article="article"
             />
           </draggable>
         </div>
@@ -33,6 +33,9 @@
         <div class="nc-edit__subtitle">Article</div>
         <line-editor :title="'Title'" v-model="editArticle.titleAlt" @input="updateInput"/>
         <line-editor :title="'Link'" v-model="editArticle.urlAlt" @input="updateInput" />
+        <line-editor :title="'Source'" v-model="editArticle.source" @input="updateInput" />
+        <line-editor :title="'Author'" v-model="editArticle.author" @input="updateInput" />
+        <line-editor :title="'Publish Date'" v-model="editArticle.publishedAt" :type="'date'" @input="updateInput" />
         <html-editor :editorId="editorId" :title="'Description'" v-model="editArticle.descriptionAlt" @input="updateInput"/>
     </div>
 
@@ -61,7 +64,7 @@
       ArticleMini,
       LineEditor,
       HtmlEditor,
-      draggable
+      draggable,
     },
     computed: {
     },

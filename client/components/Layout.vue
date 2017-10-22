@@ -31,7 +31,7 @@
             </div>
           </div>
           <header class="nc-header">
-              <md-button :style="{'background-color': selectedLayout[0].template_key == null ? 'white' : 'red', 'color': 'white'}" :disabled="selectedLayout[0].template_key == null" @click.native="deleteSelectedTemplate(selectedLayout[0])">Delete Selected Template</md-button>
+              <md-button :style="{'background-color': selectedLayout[0].template_key == null ? 'white' : 'red', 'color': 'white'}" :disabled="selectedLayout[0].template_key == null" @click.native="deleteSelectedTemplate(selectedLayout[0].template_key)">Delete Selected Template</md-button>
           </header>
       </main>
   </div>
@@ -74,11 +74,10 @@ export default {
     selectSavedTemplate: function(template, key){
       this.$store.commit('layouts/RECEIVE_TEMPLATE',{template: jQuery.extend(true, {}, template), key: key})
     },
-    deleteSelectedTemplate({template_key}) {
+    deleteSelectedTemplate(template_key) {
       if(confirm("Are you sure you want to delete this template? \nIt can't be recovered.")) {
         this.$store.dispatch('layouts/deleteTemplate', template_key, {root: true})
         .then(() => {
-          jQuery(`#${template_key}`).remove()
           jQuery('.nc-layout-card:first-of-type').click()
         })
       }

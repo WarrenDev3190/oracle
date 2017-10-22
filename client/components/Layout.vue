@@ -30,11 +30,6 @@
               </figure>
             </div>
           </div>
-
-          <header class="nc-header">
-              <md-button style="background-color: red; color: white;" @click="deleteSeletedTemplate">Delete Select Templates</md-button>
-          </header>
-
       </main>
   </div>
 </template>
@@ -75,12 +70,6 @@ export default {
     },
     selectSavedTemplate: function(template, key){
       this.$store.commit('layouts/RECEIVE_TEMPLATE',{template: jQuery.extend(true, {}, template), key: key})
-    },
-    deleteSeletedTemplate: function () {
-      //console.log('here');
-      let selected_key = this.$store.state.layouts.layouts.filter(l => l.selected)[0].template_key;
-
-      console.log(this.$store.state.layouts.layouts.filter(l => l.selected)[0].template_key);
     }
   }
 }

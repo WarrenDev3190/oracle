@@ -1,3 +1,12 @@
+/**
+ * @Author: warrensadler
+ * @Date:   2017-10-24T16:20:20-05:00
+ * @Email:  warren.sadler@hcahealthcare.com
+ * @Filename: app.js
+ * @Last modified by:   warrensadler
+ * @Last modified time: 2017-10-24T16:21:16-05:00
+ */
+
 import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import VueAnalytics from 'vue-analytics'
@@ -12,6 +21,7 @@ import './styles/main.scss'
 
 Vue.use(VueMaterial)
 Vue.use(VeeValidate)
+
 Vue.use(VueAnalytics, {
   id: 'UA-98058995-1',
   router

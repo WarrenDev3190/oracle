@@ -32,7 +32,7 @@
                 'font':'Arial,Helvetica,sans-serif',
                 'font-size':'14px',
                 'font-weight':'bolder',
-                'margin-left':'30px',
+                'padding-left':'30px',
                 'text-transform':'uppercase',
                 'font-family':'Arial,Helvetica,sans-serif'
               }"

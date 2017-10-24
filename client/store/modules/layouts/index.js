@@ -4,7 +4,7 @@
  * @Email:  warren.sadler@hcahealthcare.com
  * @Filename: index.js
  * @Last modified by:   warrensadler
- * @Last modified time: 2017-10-18T22:24:10-05:00
+ * @Last modified time: 2017-10-24T16:27:17-05:00
  */
 
  import firebaseService from '../../../services/firebase'
@@ -14,12 +14,7 @@
  const TOGGLE_SELECTED_TEMPLATE = 'TOGGLE_SELECTED_TEMPLATE'
  const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE'
  const DELETE_TEMPLATE = 'DELETE_TEMPLATE'
-
- const actions = {
-   deleteTemplate ({ commit, rootState }, templateId) {
-     commit(DELETE_TEMPLATE, { userId: rootState.user.user.uid, templateId, user: rootState.user })
-   }
- }
+ const TOGGLE_SPOTLIGHT_IMAGE = 'TOGGLE_SPOTLIGHT_IMAGE'
 
  const getters = {
    possibleLayouts (state) {
@@ -27,6 +22,12 @@
    },
    selectedLayout (state) {
      return state.layouts.filter(l => l.selected)
+   }
+ }
+
+ const actions = {
+   deleteTemplate ({ commit, rootState }, templateId) {
+     commit(DELETE_TEMPLATE, { userId: rootState.user.user.uid, templateId, user: rootState.user })
    }
  }
 
@@ -265,31 +266,45 @@
            hires: [
              {
                name: 'Lucille J. Byrd',
-               position: 'Senior Communications Liason'
+               position: 'Senior Liason',
+               location: 'Customer Relations',
+               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba'
              },
              {
                name: 'Steven A. Rew',
-               position: 'Dynamic Interactions Engineer'
+               position: 'Dynamic Engineer',
+               location: 'Product Innovation',
+               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba'
              },
              {
                name: 'Jose L. Wyatt',
-               position: 'Product Paradigm Liason'
+               position: 'Product Liason',
+               location: 'International Exports',
+               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba'
              },
              {
                name: 'Felipe P. Zylstra',
-               position: 'National Web Agent'
+               position: 'National Web Agent',
+               location: 'IT',
+               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba'
              },
              {
                name: 'Sherman J. Rodriguez',
-               position: 'Central Creative Developer'
+               position: 'Central Developer',
+               location: 'IT - Applications',
+               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba'
              },
              {
                name: 'Terry E. Tenney',
-               position: 'Legacy Marketing Architect'
+               position: 'Legacy Marketing Architect',
+               location: 'Marketing',
+               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba'
              },
              {
                name: 'Gabrielle K. Farrell',
-               position: 'Customer Accounts Specialist'
+               position: 'Customer Accounts Specialist',
+               location: 'External Relations',
+               image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba'
              }
            ]
          }

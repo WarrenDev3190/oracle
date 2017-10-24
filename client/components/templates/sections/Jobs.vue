@@ -4,7 +4,6 @@
       'width':'100%',
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
-      'text-align':'left',
       'line-height':'1.5',
       'margin-bottom':'20px'
     }"
@@ -28,7 +27,7 @@
     <!--blurb that only renders for Time Inc-->
       <div
       v-if="currentUsersCompany() === 'Time Inc'"
-      :style="{'margin-bottom': '20px'}"
+      :style="{'margin-bottom': '20px', 'text-align':'left'}"
       >
         <span>
           The best hires are through referrals.
@@ -44,7 +43,8 @@
 
       <div v-for="(job, index) in jobs"
         :style="{
-            'margin-bottom':'20px'
+            'margin-bottom':'20px',
+            'text-align':'left'
         }"
         :key="index"
       >

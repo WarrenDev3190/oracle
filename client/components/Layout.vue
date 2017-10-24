@@ -8,7 +8,7 @@
           <div class="nc-inner-container nc-flex--wrap nc-layout-container">
             <div class="nc-layout-card" @click="handleLayoutClick(index)" v-for="(layout, index) in possibleLayouts">
               <figure>
-                <img :src="layout.imageURL" :class="{'nc-layout-card--selected': layout.selected}"/>
+                <img  :src="layout.imageURL" :class="{'nc-layout-card--selected': layout.selected}"/>
                 <caption>{{layout.name}}</caption>
               </figure>
             </div>

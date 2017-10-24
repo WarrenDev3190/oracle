@@ -31,6 +31,9 @@
         else if(page == 'previous'){
           return '<'
         }
+        else if(page == 'new-hires'){
+          return 'New Hires'
+        }
         else{
           return page.charAt(0).toUpperCase() + page.slice(1)
         }
@@ -49,7 +52,8 @@
           'layout',
           'design',
           'share',
-          'next'
+          'next',
+
         ]
       }
     }

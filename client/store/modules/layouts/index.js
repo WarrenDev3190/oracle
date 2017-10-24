@@ -245,37 +245,44 @@ const defaultTemplates = {
             {
               name: 'Lucille J. Byrd',
               position: 'Senior Liason',
-              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
+              location: 'Customer Relations',
+              image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba',
             },
             {
               name: 'Steven A. Rew',
               position: 'Dynamic Engineer',
-              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
+              location: 'Product Innovation',
+              image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba',
             },
             {
               name: 'Jose L. Wyatt',
               position: 'Product Liason',
-              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
+              location: 'International Exports',
+              image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba',
             },
             {
               name: 'Felipe P. Zylstra',
               position: 'National Web Agent',
-              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
+              location: 'IT',
+              image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba',
             },
             {
               name: 'Sherman J. Rodriguez',
               position: 'Central Developer',
-              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
+              location: 'IT - Applications',
+              image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba',
             },
             {
               name: 'Terry E. Tenney',
               position: 'Legacy Marketing Architect',
-              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
+              location: 'Marketing',
+              image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba',
             },
             {
               name: 'Gabrielle K. Farrell',
               position: 'Customer Accounts Specialist',
-              image: 'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg',
+              location: 'External Relations',
+              image: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba',
             }
           ]
         }

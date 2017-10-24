@@ -26,92 +26,90 @@
       }"
     >
 
-    <!--This is original Coding-->
-      <!--<div-->
-        <!--v-for="(hire, index) in newHires"-->
-        <!--:key="index"-->
-        <!--class="col-md-4"-->
-      <!--&gt;-->
-      <!--<img :src="hire.img_url" :style="{-->
-        <!--'width': '200px',-->
-        <!--'height': '200px',-->
-      <!--}"/>-->
-      <!--<br>-->
-        <!--<span :style="{-->
-            <!--'font-size':'9pt',-->
-            <!--'font-weight':'bold'-->
-          <!--}"-->
-        <!--&gt;-->
-          <!--{{hire.name}}-->
-        <!--</span>-->
-        <!--,&nbsp;-->
-        <!--<span :style="{-->
-            <!--'font-size':'9pt'-->
-          <!--}"-->
-        <!--&gt;-->
-          <!--{{hire.position}}-->
-        <!--</span>-->
-      <!--</div>-->
-
-      <!--New Code to Dynamically render New Hires-->
        <table
         :style="{
-        'width':'100%',
-
-      }"
+          'width':'100%',
+          'border-collapse':'collapse'
+        }"
     >
       <tr v-for="n in Math.ceil(newHires.length / 3, 10)"
 
       >
-        <td v-if="newHires[(n-1)*3]"
+        <td
+            align="left"
+            valign="top"
             :style="{
               'padding-bottom':'20px',
-              'padding-left':'30px',
-
+              'word-wrap':'break-word'
             }"
           >
-            <div>
-            <new-hire-card :name="newHires[(n-1)*3].name"
-            :position="newHires[(n-1)*3].position"
-            :img="newHires[(n-1)*3].image"
+            <hire
+              v-if="newHires[(n-1)*3]"
+              :name="newHires[(n-1)*3].name"
+              :position="newHires[(n-1)*3].position"
+              :location="newHires[(n-1)*3].location"
+              :img="newHires[(n-1)*3].image"
             />
+            <div 
+              v-else
+              :style="{
+                'width':'130px'
+              }"
+            >
+            <!-- Placeholder to perserve column widths -->
             </div>
         </td>
-        <td v-if="newHires[(n-1)*3+1]"
+        <td 
+            align="center"
+            valign="top"
             :style="{
               'padding-bottom':'20px',
-              'padding-left':'30px',
-
+              'word-wrap':'break-word'
             }"
           >
-            <div>
-     <div>
-            <new-hire-card :name="newHires[(n-1)*3+1].name"
-            :position="newHires[(n-1)*3+1].position"
-            :img="newHires[(n-1)*3+1].image"
+            <hire
+              v-if="newHires[(n-1)*3+1]"
+              :name="newHires[(n-1)*3+1].name"
+              :position="newHires[(n-1)*3+1].position"
+              :location="newHires[(n-1)*3+1].location"
+              :img="newHires[(n-1)*3+1].image"
             />
-            </div>
+            <div 
+              v-else
+              :style="{
+                'width':'130px'
+              }"
+            >
+            <!-- Placeholder to perserve column widths -->
             </div>
         </td>
-        <td v-if="newHires[(n-1)*3+2]"
+        <td 
+            align="right"
+            valign="top"
             :style="{
               'padding-bottom':'20px',
-              'padding-left':'30px',
-
+              'word-wrap':'break-word'
             }"
           >
-             <div>
-            <new-hire-card :name="newHires[(n-1)*3+2].name"
-            :position="newHires[(n-1)*3+2].position"
-            :img="newHires[(n-1)*3+2].image"
+            <hire
+              v-if="newHires[(n-1)*3+2]"
+              :name="newHires[(n-1)*3+2].name"
+              :position="newHires[(n-1)*3+2].position"
+              :location="newHires[(n-1)*3+2].location"
+              :img="newHires[(n-1)*3+2].image"
             />
+            <div 
+              v-else
+              :style="{
+                'width':'130px'
+              }"
+            >
+            <!-- Placeholder to perserve column widths -->
             </div>
         </td>
 
       </tr>
     </table>
-
-
 
     </div>
   </div>
@@ -119,11 +117,11 @@
 </template>
 <script type="text/javascript">
   import SectionTitle from "./SectionTitle.vue"
-  import NewHireCard from './NewHireCard.vue'
+  import Hire from './Hire.vue'
   export default {
     components: {
       SectionTitle,
-      NewHireCard,
+      Hire
     },
     computed: {
     },
@@ -152,37 +150,44 @@
             {
               name:"Lucille J. Byrd",
               position:"Senior Communications Liason",
-              img: "https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg",
+              location:"Customer Outreach",
+              img: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba",
             },
             {
               name:"Steven A. Rew",
               position:"Dynamic Interactions Engineer",
-              img: "https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg",
+              location:"Employee Safety",
+              img: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba",
             },
             {
               name:"Jose L. Wyatt",
               position:"Product Paradigm Liason",
-              img: "https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg",
+              location:"Product Testing",
+              img: "https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba",
             },
             {
               name:"Felipe P. Zylstra",
               position:"National Web Agent",
-              img:"https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg",
+              location:"IT",
+              img:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba",
             },
             {
               name:"Sherman J. Rodriguez",
               position:"Central Creative Developer",
-              img:"https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg",
+              location:"Idea Factory",
+              img:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba",
             },
             {
               name:"Terry E. Tenney",
               position:"Legacy Marketing Architect",
-              img:"https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg",
+              location:"Marketing",
+              img:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba",
             },
             {
               name:"Gabrielle K. Farrell",
               position:"Customer Accounts Specialist",
-              img:"https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg",
+              location:"Adjustments",
+              img:"https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/hire_placeholder.png?alt=media&token=0b2ea8a2-2c1c-4f7b-af1f-0c2adcbf6fba",
             }
           ]
         },

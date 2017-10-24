@@ -45,6 +45,7 @@
         this.hires.push({
           name:"Name",
           position:"Position",
+          location:"Location",
           img:'https://image.freepik.com/free-icon/business-person-silhouette-wearing-tie_318-49988.jpg'
         })
       },

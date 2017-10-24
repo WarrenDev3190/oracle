@@ -1,10 +1,10 @@
 /**
  * @Author: warrensadler
- * @Date:   2017-09-25T19:31:58-05:00
+ * @Date:   2017-10-24T16:01:40-05:00
  * @Email:  warren.sadler@hcahealthcare.com
  * @Filename: index.js
  * @Last modified by:   warrensadler
- * @Last modified time: 2017-10-18T22:10:05-05:00
+ * @Last modified time: 2017-10-24T16:10:13-05:00
  */
 
 // oracle/client/services/firebase/index.js
@@ -60,5 +60,4 @@ const firebaseService = {
     })
   }
 }
-
 export default firebaseService

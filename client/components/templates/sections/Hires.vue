@@ -4,9 +4,7 @@
       'width':'100%',
       'font-family':'Arial,Helvetica,sans-serif',
       'font-size':'11px',
-      'text-align':'left',
       'margin-bottom':'20px',
-      'line-height':'1.5'
     }"
   >
     <section-title
@@ -20,27 +18,21 @@
       :barColorEnd="barColorEnd"
       :titleText="titleText"
     />
-    <div :style="{
-        'padding-left':'30px',
-        'margin-right':'30px'
+
+
+    <table
+      :style="{
+        'width':'100%',
+        'border-collapse':'collapse'
       }"
     >
-    <div>
-       <table
-        :style="{
-          'width':'100%',
-          'border-collapse':'collapse'
-        }"
-
-    >
-      <tr v-for="n in Math.ceil(newHires.length / 3, 10)"
-
-      >
+      <tr v-for="n in Math.ceil(newHires.length / 3, 10)">
         <td
             align="left"
             valign="top"
             :style="{
               'padding-bottom':'20px',
+              'padding-left':'30px',
               'word-wrap':'break-word'
             }"
           >
@@ -89,6 +81,7 @@
             valign="top"
             :style="{
               'padding-bottom':'20px',
+              'padding-right':'30px',
               'word-wrap':'break-word'
             }"
           >
@@ -111,10 +104,6 @@
 
       </tr>
     </table>
-
-    </div>
-
-    </div>
   </div>
 
 </template>

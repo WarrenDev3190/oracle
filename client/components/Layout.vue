@@ -8,7 +8,7 @@
           <div class="nc-inner-container nc-flex--wrap nc-layout-container">
             <div class="nc-layout-card" @click="handleLayoutClick(index)" v-for="(layout, index) in possibleLayouts">
               <figure>
-                <img :src="layout.imageURL" :class="{'nc-layout-card--selected': layout.selected}"/>
+                <img  :src="layout.imageURL" :class="{'nc-layout-card--selected': layout.selected}"/>
                 <caption>{{layout.name}}</caption>
               </figure>
             </div>
@@ -23,13 +23,16 @@
                 <caption>Default Template</caption>
               </figure>
             </div>
-            <div class="nc-layout-card nc-layout-card-mini" @click="selectSavedTemplate(template, index)" v-for="(template, index) in savedTemplates">
+            <div :id="index" class="nc-layout-card nc-layout-card-mini" @click="selectSavedTemplate(template, index)" v-for="(template, index) in savedTemplates">
               <figure>
                 <img  :src="selectedLayout[0].imageURL" :class="{'nc-layout-card--selected': selectedLayout[0].template_key == index}"/>
                 <caption>{{template.name}}</caption>
               </figure>
             </div>
           </div>
+          <header class="nc-header">
+              <md-button :style="{'background-color': selectedLayout[0].template_key == null ? 'white' : 'red', 'color': 'white'}" :disabled="selectedLayout[0].template_key == null" @click.native="deleteSelectedTemplate(selectedLayout[0].template_key)">Delete Selected Template</md-button>
+          </header>
       </main>
   </div>
 </template>
@@ -70,6 +73,14 @@ export default {
     },
     selectSavedTemplate: function(template, key){
       this.$store.commit('layouts/RECEIVE_TEMPLATE',{template: jQuery.extend(true, {}, template), key: key})
+    },
+    deleteSelectedTemplate(template_key) {
+      if(confirm("Are you sure you want to delete this template? \nIt can't be recovered.")) {
+        this.$store.dispatch('layouts/deleteTemplate', template_key, {root: true})
+        .then(() => {
+          jQuery('.nc-layout-card:first-of-type').click()
+        })
+      }
     }
   }
 }

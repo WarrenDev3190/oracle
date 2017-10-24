@@ -72,6 +72,7 @@ const router = new Router({
       }
 
     },
+
     {
       name: 'not-found',
       path: '*',
@@ -79,7 +80,8 @@ const router = new Router({
       meta: {
         order: undefined
       }
-    }
+    },
+
   ]
 })
 

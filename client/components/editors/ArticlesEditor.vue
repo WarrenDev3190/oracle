@@ -34,6 +34,7 @@
         <line-editor :title="'Title'" v-model="editArticle.titleAlt" @input="updateInput"/>
         <line-editor :title="'Link'" v-model="editArticle.urlAlt" @input="updateInput" />
         <line-editor :title="'Source'" v-model="editArticle.source" @input="updateInput" />
+        <line-editor :title="'Author'" v-model="editArticle.author" @input="updateInput" />
         <line-editor :title="'Publish Date'" v-model="editArticle.publishedAt" :type="'date'" @input="updateInput" />
         <html-editor :editorId="editorId" :title="'Description'" v-model="editArticle.descriptionAlt" @input="updateInput"/>
     </div>

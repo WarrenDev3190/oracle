@@ -21,16 +21,17 @@
       :titleText="titleText"
     />
     <div :style="{
-        'margin-left':'30px',
+        'padding-left':'30px',
         'margin-right':'30px'
       }"
     >
-
+    <div>
        <table
         :style="{
           'width':'100%',
           'border-collapse':'collapse'
         }"
+
     >
       <tr v-for="n in Math.ceil(newHires.length / 3, 10)"
 
@@ -50,7 +51,7 @@
               :location="newHires[(n-1)*3].location"
               :img="newHires[(n-1)*3].image"
             />
-            <div 
+            <div
               v-else
               :style="{
                 'width':'130px'
@@ -59,7 +60,7 @@
             <!-- Placeholder to perserve column widths -->
             </div>
         </td>
-        <td 
+        <td
             align="center"
             valign="top"
             :style="{
@@ -74,7 +75,7 @@
               :location="newHires[(n-1)*3+1].location"
               :img="newHires[(n-1)*3+1].image"
             />
-            <div 
+            <div
               v-else
               :style="{
                 'width':'130px'
@@ -83,7 +84,7 @@
             <!-- Placeholder to perserve column widths -->
             </div>
         </td>
-        <td 
+        <td
             align="right"
             valign="top"
             :style="{
@@ -98,7 +99,7 @@
               :location="newHires[(n-1)*3+2].location"
               :img="newHires[(n-1)*3+2].image"
             />
-            <div 
+            <div
               v-else
               :style="{
                 'width':'130px'
@@ -110,6 +111,8 @@
 
       </tr>
     </table>
+
+    </div>
 
     </div>
   </div>

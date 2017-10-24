@@ -3,21 +3,59 @@
     :style="{
       'width':'130px'
     }"
+    width="130"
   >
     <div style="text-align: left">
       <img :style="{
           'width':'130px',
           'height':'130px'
         }"
+           width="130"
+           height="130"
            :src="img"
       />
     </div>
-    <div style="text-align: left">
-      <span style="font-weight: bold">{{name}}</span>
-      <br/>
-      <span>{{position}}</span>
-      <br/>
-      <span style="font-style: italic">{{location}}</span>
+    <div style="text-align: left"
+         :style="{
+          'width':'130px'
+        }"
+         width="130"
+    >
+
+
+      <table style="margin: 0; padding: 0">
+
+        <tr><td width="130">
+        <div style="max-width:130px; margin:0 auto;"
+             :style="{
+            'width':'130px'
+          }"
+        >
+          <span width="130" style="font-weight: bold;margin: 0;padding: 0;">{{name}}</span>
+        </div>
+        </td></tr>
+
+        <tr><td width="130">
+      <div style="max-width:130px; margin:0 auto;"
+           :style="{
+          'width':'130px'
+        }"
+      >
+        <span width="130" style="margin: 0;padding: 0;">{{position}}</span>
+      </div>
+        </td></tr>
+
+        <tr><td width="130">
+      <div style="max-width:130px; margin:0 auto;"
+           :style="{
+          'width':'130px'
+        }"
+      >
+        <span width="130" style="font-style: italic;margin: 0;padding: 0;">{{location}}</span>
+      </div>
+        </td></tr>
+      </table>
+
     </div>
   </div>
 </template>

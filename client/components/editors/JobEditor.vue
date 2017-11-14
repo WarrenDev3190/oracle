@@ -4,7 +4,6 @@
     <line-editor :title="'Title'" v-model="title" @input="updateInput" />
     <line-editor :title="'Location'" v-model="location" @input="updateInput" />
     <line-editor :title="'URL Link'" v-model="link" @input="updateInput" />
-    <html-editor :editorId="editorId" :title="'Description'" v-model="description" @input="updateInput" />
   </div>
 
 </template>

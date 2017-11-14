@@ -7,7 +7,8 @@
           'margin-left':'30px',
           'margin-right':'30px',
           'overflow-x':'hidden',
-          'max-width':'540px'
+          'max-width':'540px',
+          'margin-bottom':'-10px'
         }"
       :barColorStart="barColorStart"
       :barColorEnd="barColorEnd"
@@ -33,7 +34,7 @@
           >
             <img :style="{
                 'width':'131px',
-                'height':'131px'
+                'height':'131px',
               }"
               width="131"
               height="131"

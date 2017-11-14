@@ -21,7 +21,7 @@
   >
     <tr>
       <td :style="{
-          'padding-bottom':'20px',
+          'padding-bottom':'0px',
           'padding-top':'20px',
           'padding-left':'30px',
           'padding-right':'30px',

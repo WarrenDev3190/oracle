@@ -1,8 +1,7 @@
 <template lang="html">
 
   <div :style="{
-      'width':'100%',
-      'padding-top':'20px'
+      'width':'100%'
     }"
   >
     <section-title

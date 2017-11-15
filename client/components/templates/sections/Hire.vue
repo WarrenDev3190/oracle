@@ -18,11 +18,11 @@
     </tr>
     <tr style="text-align: left">
       <td>
-        <span style="font-weight: bold">{{name}}</span>
+        <span style="font-weight : bold; font-family : Arial,Helvetica,sans-serif;">{{name}}</span>
         <br/>
         <span>{{position}}</span>
         <br/>
-        <span style="font-style: italic">{{location}}</span>
+        <span style="font-style: italic; font-family : Arial,Helvetica,sans-serif;">{{location}}</span>
       </td>
     </tr>
   </table>

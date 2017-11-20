@@ -1,4 +1,14 @@
+/**
+ * @Author: warrensadler
+ * @Date:   2017-08-17T11:35:26-05:00
+ * @Email:  warren.sadler@hcahealthcare.com
+ * @Filename: index.js
+ * @Last modified by:   warrensadler
+ * @Last modified time: 2017-11-20T13:43:11-06:00
+ */
+
 import Vue from 'vue'
+import moment from 'moment'
 import { reduceByKey, apFormat } from '../../../utils'
 
 const state = {
@@ -39,6 +49,7 @@ const mutations = {
         Vue.set(article, 'filterDate', 'No Date Given')
       } else {
         var prefixD = article.publishedAt.substring(0, article.publishedAt.indexOf('T'))
+        article.publishedAt = moment(article.publishedAt).format('MMMM D') // Format Date: i.e. November 20
         if (prefixD.trim() === '') {
           Vue.set(article, 'filterDate', 'No Date Given')
         } else {

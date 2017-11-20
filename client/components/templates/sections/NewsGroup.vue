@@ -42,7 +42,7 @@
     },
     methods: {
       articleSubtitle: function(article) {
-        return newsSourceString(article.source) + ", " + moment(article.publishedAt).format("MMMM DD YYYY") + ", By " + article.author
+        return newsSourceString(article.source) + ", " + moment(article.publishedAt).format("MMMM D") + ", By " + article.author
       }
     },
     props: {

@@ -1,3 +1,12 @@
+// @Author: warrensadler
+// @Date:   2017-09-04T20:51:23-05:00
+// @Email:  warren.sadler@hcahealthcare.com
+// @Filename: _design.scss
+// @Last modified by:   warrensadler
+// @Last modified time: 2017-11-20T04:41:54-06:00
+
+
+
 $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
 
 .nc-design{
@@ -6,7 +15,7 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
 
   &__sections{
     padding: 0 4%;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     width: 100%;
   }
 
@@ -83,7 +92,7 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
     &__template{
       background: $nc-white;
       border: 1px solid $nc-gray-border;
-      height: 500px;
+      height: 550px;
       min-width: 400px;
       overflow: auto;
       padding-bottom: 2px;
@@ -103,14 +112,13 @@ $nc-card-shadow: 0 3px 4px rgba(0,0,0,0.25);
       border-top: 1px solid $nc-gray-border;
       border-bottom: 1px solid $nc-gray-border;
       flex-grow: 1;
-      height: 500px;
+      height: 550px;
       max-height: 550px;
       overflow: scroll;
       min-width: 400px;
       overflow-x: hidden;
       overflow-y: scroll;
       padding-bottom: 2px;
-      padding-top: 2px;
 
       @media screen and (max-width: 850px) {
         order: 1;

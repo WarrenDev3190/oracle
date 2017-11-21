@@ -125,15 +125,9 @@ export default {
       }  
     },
     signup() {
-      console.log("SIGNUP CLICKED")
       if(this.errors.any() == false){
         //No errors so sign the user up
-        this.$store.dispatch('user/signup', {email: this.email, password: this.confirm_password}).then(x => {
-          console.log("SIGNUP SUCCESS")
-        })
-        .catch(error => {
-          console.log("ERROR SIGNING UP")
-        })
+        this.$store.dispatch('user/signup', {email: this.email, password: this.confirm_password})
       }
     },
     sendRecoveryEmail() {
@@ -141,7 +135,6 @@ export default {
         this.showModal = false
         this.recovery.email = ''
       }).catch(error => {
-        console.log("ERROR IN SEND RECOVERY: ",error)
         this.showModal = false
         this.forgot_password_error = error.message
         this.showForgotPasswordModal = true

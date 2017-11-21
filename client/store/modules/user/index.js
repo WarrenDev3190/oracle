@@ -13,7 +13,6 @@ const state = {
   user: null,
   properties: null,
   loginError: null,
-  signupError: null,
 }
 
 const getters = {
@@ -69,8 +68,6 @@ const RECEIVE_USER = 'RECEIVE_USER'
 const RECEIVE_USER_PROPERTIES = 'RECEIVE_USER_PROPERTIES'
 const LOGOUT = 'LOGOUT'
 const LOGIN_ERROR = 'LOGIN_ERROR'
-const SIGNUP = 'SIGNUP'
-const SIGNUP_ERROR = 'SIGNUP_ERROR'
 const UPDATE_SELECTED_TOPICS = 'UPDATE_SELECTED_TOPICS'
 const UPDATE_KEYWORDS = 'UPDATE_KEYWORDS'
 
@@ -79,7 +76,6 @@ const mutations = {
   [RECEIVE_USER]: (state, user) => {
     state.user = user
     state.loginError = null
-    state.signupError = null
   },
   [RECEIVE_USER_PROPERTIES]: (state, userProperties) => {
     if (userProperties.keywords) { state.properties = userProperties } else {
@@ -92,9 +88,6 @@ const mutations = {
   },
   [LOGIN_ERROR]: (state, loginError) => {
     state.loginError = loginError
-  },
-  [SIGNUP_ERROR]: (state, signupError) => {
-    state.signupError = signupError
   },
   [UPDATE_SELECTED_TOPICS]: (state, index) => {
     state.properties.topics[index].selected = !state.properties.topics[index].selected

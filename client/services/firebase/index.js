@@ -72,7 +72,6 @@ const firebaseService = {
     })
   },
   getUserProperties (userId) {
-    console.log("IN GET USER PROPS: ",userId)
     return new Promise((resolve, reject) => {
       db.ref(`users/${userId}`).once('value')
       .then(snapshot => resolve(snapshot.val().userProperties))

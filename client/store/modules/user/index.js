@@ -12,7 +12,8 @@ import router from '../../../router'
 const state = {
   user: null,
   properties: null,
-  loginError: null
+  loginError: null,
+  signupError: null,
 }
 
 const getters = {
@@ -68,6 +69,8 @@ const RECEIVE_USER = 'RECEIVE_USER'
 const RECEIVE_USER_PROPERTIES = 'RECEIVE_USER_PROPERTIES'
 const LOGOUT = 'LOGOUT'
 const LOGIN_ERROR = 'LOGIN_ERROR'
+const SIGNUP = 'SIGNUP'
+const SIGNUP_ERROR = 'SIGNUP_ERROR'
 const UPDATE_SELECTED_TOPICS = 'UPDATE_SELECTED_TOPICS'
 const UPDATE_KEYWORDS = 'UPDATE_KEYWORDS'
 
@@ -76,6 +79,7 @@ const mutations = {
   [RECEIVE_USER]: (state, user) => {
     state.user = user
     state.loginError = null
+    state.signupError = null
   },
   [RECEIVE_USER_PROPERTIES]: (state, userProperties) => {
     if (userProperties.keywords) { state.properties = userProperties } else {
@@ -88,6 +92,9 @@ const mutations = {
   },
   [LOGIN_ERROR]: (state, loginError) => {
     state.loginError = loginError
+  },
+  [SIGNUP_ERROR]: (state, signupError) => {
+    state.signupError = signupError
   },
   [UPDATE_SELECTED_TOPICS]: (state, index) => {
     state.properties.topics[index].selected = !state.properties.topics[index].selected
@@ -108,12 +115,39 @@ const actions = {
       .then(() => router.push({ path: '/stories' }))
       .catch(loginError => commit(LOGIN_ERROR, loginError))
   },
+  
+  signup ({
+    commit
+  }, { email, password }) {
+    return new Promise((resolve,reject) => {
+      firebaseService.signup(email, password).then(user => {
+        commit(RECEIVE_USER, user)
+        router.push({ path: '/stories' })
+        resolve(user)
+      })
+      .catch((error) => {
+        reject(error)
+      }) 
+    })
+  },
+  forgotPassword ({
+    commit
+  }, { email }) {
+     return new Promise((resolve, reject) => {
+        firebaseService.forgotPassword(email).then(x => {
+          resolve('successful password reset')
+        })
+        .catch((error) => {
+          reject(error)
+        })
+     })
+  },
   logout ({ commit }) {
     firebaseService.logout().then(() => commit(LOGOUT)).then(() => {
       router.push({ path: '/' })
       return
     })
-  }
+  },
 }
 
 export default {

@@ -30,6 +30,32 @@ const firebaseService = {
       .catch(signOutError => reject(signOutError))
     })
   },
+  signup (email, password) {
+    return new Promise((resolve, reject) => {
+      auth.createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        resolve(user)
+      })
+      .catch(error => {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          reject(errorMessage)
+      })
+    })
+  },
+  forgotPassword (email) {
+    return new Promise((resolve, reject) => {
+      auth.sendPasswordResetEmail(email)
+        .then(() => { 
+          // Email sent.
+          resolve('SUCCESSFULLY SENT RECOVERY EMAIL')
+      }).catch((forgotPasswordError) => {
+        // An error happened.
+        reject(forgotPasswordError)
+      })
+    })
+  },
   /**
    * [listenForAuthStateChanged fires firebase auth listener
    * docs found here: https://firebase.google.com/docs/reference/js/firebase.auth.Auth#onAuthStateChanged]
@@ -46,6 +72,7 @@ const firebaseService = {
     })
   },
   getUserProperties (userId) {
+    console.log("IN GET USER PROPS: ",userId)
     return new Promise((resolve, reject) => {
       db.ref(`users/${userId}`).once('value')
       .then(snapshot => resolve(snapshot.val().userProperties))

@@ -12,14 +12,14 @@
           <router-link :to="page">{{pageTitle(page)}}</router-link>
         </li>
       </nav>
-      <div class="account">
-        <div class="account-info" @click="drop=drop ? false:true">
-          <md-icon id="account-icon">account_circle</md-icon>
+      <div class="nc-account">
+        <div class="nc-account__info" @click="drop=drop ? false:true">
+          <md-icon>account_circle</md-icon>
           <span>{{currentUser().email.split('@')[0]}}</span>
-          <md-icon id="account-arrow-icon">keyboard_arrow_down</md-icon>
+          <md-icon>keyboard_arrow_down</md-icon>
         </div>
-        <div v-show="drop" id="myDropdown" class="dropdown-content">
-          <span @click="handleOption(i)" v-for="i in dropDownList">{{i}}</span>
+        <div v-show="drop" class="nc-dropdown__content">
+          <span class="nc-dropdown__element"@click="handleOption(i)" v-for="i in dropDownList">{{i}}</span>
         </div>
       </div>
     </ul>

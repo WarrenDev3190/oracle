@@ -31,7 +31,7 @@
         },
         set: function(newValue){
           this.image = newValue.imageUrl
-          this.imageOn = newValue.imageOn
+          this.imageOn = !newValue.imageOn
         }
       }
     },

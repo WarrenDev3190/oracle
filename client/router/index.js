@@ -23,20 +23,20 @@ const router = new Router({
         order: undefined
       }
     },
-    {
-      name: 'topics',
-      path: '/topics',
-      component: Topics,
-      meta: {
-        order: 0
-      }
-    },
+    // {
+    //   name: 'topics',
+    //   path: '/topics',
+    //   component: Topics,
+    //   meta: {
+    //     order: 0
+    //   }
+    // },
     {
       name: 'keywords',
       path: '/keywords',
       component: Keywords,
       meta: {
-        order: 1
+        order: 0
       }
     },
     {
@@ -44,7 +44,7 @@ const router = new Router({
       path: '/stories',
       component: Stories,
       meta: {
-        order: 2
+        order: 1
       }
     },
     {
@@ -52,7 +52,7 @@ const router = new Router({
       path: '/layout',
       component: Layout,
       meta: {
-        order: 3
+        order: 2
       }
     },
     {
@@ -60,7 +60,7 @@ const router = new Router({
       path: '/design',
       component: Design,
       meta: {
-        order: 4
+        order: 3
       }
     },
     {
@@ -68,7 +68,7 @@ const router = new Router({
       path: '/share',
       component: Share,
       meta: {
-        order: 5
+        order: 4
       }
 
     },

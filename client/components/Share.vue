@@ -3,16 +3,16 @@
   <div>
     <navigation/>
     <div class="nc-share nc-container">
-      <div class="nc-share__left">
+      <!-- <div class="nc-share__left">
         <div class="nc-share__preview">
           <div class="nc-share__preview__title">Preview</div>
           <component class="nc-share__preview__template-border" ref="template" :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" />
         </div>
-      </div>
+      </div> -->
 
 
       <div class="nc-share__right">
-        <div class="nc-share__share-method-wrapper">
+        <!-- <div class="nc-share__share-method-wrapper">
           <md-input-container class="nc-share__share-method-wrapper__share-method">
             <md-select class="nc-share__export__filetype-select" name="shareMethod" v-model="shareMethod" placeholder="Select sharing method">
               <md-option :value="type" :key="i" v-for="(type,i) in shareMethods">{{type}}</md-option>
@@ -22,7 +22,7 @@
         <div class="nc-share__export" :hidden="isHiddenExport">
           <div class="nc-share__content-wrapper">
            <button class="nc-share__export__export-button" type="button" @click="exportFile">Export</button>
-         </div>
+         </div> -->
 
         </div>
         <div class="nc-share__send-email" :hidden="isHiddenEmail">
@@ -175,7 +175,7 @@ export default {
         newEmail: "",
         fileType: "EML",
         fileTypes: ["EML"],
-        shareMethod: "",
+        shareMethod: "Email",
         shareMethods: ["Export to EML", "Email"],
         fromEmail: '',
         newsletterSubject: '',

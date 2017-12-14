@@ -25,13 +25,13 @@ const getters = {
   },
   articlesSourceGrouped: (state, getters) => {
     return {
-      'all': getters.allArticles,
+      'all Sources': getters.allArticles,
       ...reduceByKey('source')(getters.allArticles)
     }
   },
   articlesFilterDateGrouped: (state, getters) => {
     return {
-      'all': getters.allArticles,
+      'all Dates': getters.allArticles,
       ...reduceByKey('filterDate')(getters.allArticles)
     }
   }

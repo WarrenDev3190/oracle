@@ -11,22 +11,23 @@
   min-width: calc(250px - 20px);
   margin: 10px;
   float: left;
-  max-width: 275px;
-  height: 370px;
+  width:380px;
+  max-width: 380px;
+  height: 275px;
   background-position: center;
   background-size: cover;
   // border: solid 3px $nc-gray;
-  border-radius: 3px;
+  border-radius: 2px;
   color: $nc-white;
   position: relative;
-  box-shadow: 0 -1px 1px 0 rgba(0,0,0,.05), 2px 1px 2px 0 rgba(0,0,0,.2);
+  //box-shadow: 0 -1px 1px 0 rgba(0,0,0,.05), 2px 1px 2px 0 rgba(0,0,0,.2);
 
   &:hover {
     cursor: pointer;
   }
 
   &--selected {
-    border: solid 3px $nc-green;
+    border: solid 5px $nc-green;
 
     &::before {
 

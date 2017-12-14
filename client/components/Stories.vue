@@ -10,7 +10,7 @@
         <div class="nc-articles__controls" v-if="allArticles.length > 0">
           <div class="nc-articles__controls__left">
             <md-input-container>
-               <label for="sourceFilter">Select By Source</label>
+               <!-- <label for="sourceFilter">Select By Source</label> -->
                <md-select name="sourceFilter" v-model="sourceFilter">
                   <md-option :value="group" :key="i" v-for="(group,i) in Object.keys(articlesSourceGrouped)">{{group | idToTitle}}</md-option>
                </md-select>
@@ -18,7 +18,7 @@
           </div>
           <div class="nc-articles__controls__right">
             <md-input-container>
-                <label for="dateFilter">Select By Date</label>
+                <!-- <label for="dateFilter">Select By Date</label> -->
                 <md-select name="dateFilter" v-model="dateFilter">
                    <md-option :value="filterDate" :key="i" v-for="(filterDate,i) in sortedFilterDate(articlesFilterDateGrouped)">{{filterDate | idToTitle}}</md-option>
                 </md-select>
@@ -54,7 +54,7 @@
             //Sort so all is at top, all other non-dates are next, and dates are below most recent to least recent
             var dateA = new Date(a)
             var dateB = new Date(b)
-            if(a == "all"){
+            if(a == "all Dates"){
               return -1
             }
             else if(dateA == null || isNaN(dateA)){
@@ -94,7 +94,7 @@
         }
         //Filter by both source and date
         return articles.filter(function(a) {
-          return (source == "all" || a.source == source) && (date == "all" || a.filterDate == date)
+          return (source == "all Sources" || a.source == source) && (date == "all Dates" || a.filterDate == date)
         })
       }
     },
@@ -104,8 +104,8 @@
     },
     data() {
       return {
-        sourceFilter: 'all',
-        dateFilter: 'all'
+        sourceFilter: 'all Sources',
+        dateFilter: 'all Dates'
       }
     },
     filters: {

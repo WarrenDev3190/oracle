@@ -9,7 +9,11 @@
             class="nc-nav-item"
             :class="{'nc-nav-item--active': (page === currentPage)}"
         >
-          <router-link :to="page">{{pageTitle(page)}}</router-link>
+          <router-link :to="page">
+            <img v-if="page === 'next'" src="static/imgs/chevron_right.png" alt=">">
+            <img v-else-if="page === 'previous'" src="static/imgs/chevron_left.png.png" alt="<">
+            {{pageTitle(page)}}
+          </router-link>
         </li>
       </nav>
     </ul>
@@ -26,10 +30,10 @@
     methods: {
       pageTitle(page) {
         if(page == 'next'){
-          return '>'
+          // return '>'
         }
         else if(page == 'previous'){
-          return '<'
+          // return '<'
         }
         else if(page == 'new-hires'){
           return 'New Hires'
@@ -46,7 +50,6 @@
       return {
         pages: [
           'previous',
-          'topics',
           'keywords',
           'stories',
           'layout',

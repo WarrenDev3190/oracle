@@ -10,8 +10,8 @@
             :class="{'nc-nav-item--active': (page === currentPage)}"
         >
           <router-link :to="page">
-            <img v-if="page === 'next'" src="static/imgs/chevron_right.png" alt=">">
-            <img v-else-if="page === 'previous'" src="static/imgs/chevron_left.png.png" alt="<">
+            <img v-if="page === 'next'" src="/imgs/chevron_right.png" alt=">">
+            <img v-else-if="page === 'previous'" src="/imgs/chevron_left.png" alt="<">
             {{pageTitle(page)}}
           </router-link>
         </li>

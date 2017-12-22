@@ -3,12 +3,12 @@
   <div>
     <navigation/>
     <div class="nc-share nc-container">
-      <!-- <div class="nc-share__left">
+      <div class="nc-share__left">
         <div class="nc-share__preview">
           <div class="nc-share__preview__title">Preview</div>
           <component class="nc-share__preview__template-border" ref="template" :is="selectedLayout[0].component" v-bind="selectedLayout[0].template" />
         </div>
-      </div> -->
+      </div>
 
 
       <div class="nc-share__right">
@@ -31,7 +31,9 @@
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="newsletterSubject" placeholder="Subject" />
             <div class="nc-share__send-email__email-input__container ">
               <input class="nc-share__send-email__email-input__email-input-field nc-share__send-email__add-email md-input-container" v-on:keydown.enter="addEmail" type="text" v-model="newEmail" placeholder="Email Recipients"
-              /><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn hoverable" type="button" @click="addEmail">Add</button>
+              /><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn hoverable"
+                :class="{'nc-share__send-email__add-disabled':isEmailEmpty}"
+                type="button" @click="addEmail">Add</button>
             </div>
             <br />
             <button ref="sendButton" :disabled="!isDisabled" class="nc-share__send-email__send-button hoverable" type="button" @click="sendEmails()">Send</button>
@@ -79,6 +81,9 @@ export default {
       return this.emails.length != 0
       && this.fromEmail.trim() != ''
       && this.newsletterSubject != ''
+    },
+    isEmailEmpty: function() {
+      return this.newEmail.length === 0;
     }
   },
   methods: {

@@ -11,8 +11,10 @@ $btn-padding: .75em 1.25em;
     margin: 0 auto 2.5em;
   }
   &__left {
+    top: -50000px;
+    position: absolute;
       width: 60%;
-      display: none;
+      visibility: hidden;
       padding: 0;
       margin: 15px 0 15px;
   }

@@ -3,7 +3,7 @@
     <navigation/>
     <section class="nc-container">
       <header class="nc-header">
-        <h3>Select the stories you'd like to share.</h3>
+        <h3>Select stories</h3>
       </header>
       <md-progress md-indeterminate v-if="allArticles.length <= 0"></md-progress>
       <div class="nc-articles__container">

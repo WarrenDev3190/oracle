@@ -3,7 +3,7 @@
       <navigation/>
       <main class="nc-container">
           <header class="nc-header">
-              <h3>Layout</h3>
+              <h3>Choose a layout</h3>
           </header>
           <div class="nc-inner-container nc-flex--wrap nc-layout-container">
             <div class="nc-layout-card" @click="handleLayoutClick(index)" v-for="(layout, index) in possibleLayouts">
@@ -14,13 +14,13 @@
             </div>
           </div>
           <header class="nc-header">
-              <h3>Saved Templates</h3>
+              <h3>Saved designs</h3>
           </header>
           <div class="nc-inner-container nc-flex--wrap">
             <div class="nc-layout-card nc-layout-card-mini" @click="clearSavedTemplate()">
               <figure>
                 <img src="https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/NoTemplate.png?alt=media&token=e4d69abc-adc8-425f-b128-13ea497b4dea" :class="{'nc-layout-card--selected': selectedLayout[0].template_key == null}"/>
-                <caption>Default Template</caption>
+                <caption>New Design</caption>
               </figure>
             </div>
             <div :id="index" class="nc-layout-card nc-layout-card-mini" @click="selectSavedTemplate(template, index)" v-for="(template, index) in savedTemplates">

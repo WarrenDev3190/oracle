@@ -22,9 +22,13 @@
   }
 }
 
+.md-select .md-select-value {
+  color: rgba(0, 0, 0, .5);
+}
+
 .md-theme-default.md-select {
   &::after {
-    color: rgba(0,0,0,0.9) !important;
+    color: rgba(0,0,0,0.5) !important;
     transform: translateY(-50%) scaleY(1) scaleX(1.5);
   }
 }

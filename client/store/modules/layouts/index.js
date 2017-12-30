@@ -100,7 +100,7 @@
 
  const defaultTemplates = {
    'time-template': {
-     name: 'Dynamic Template',
+     name: 'Company Newsletter',
      accentColor: '#00A7FF',
      sectionBarColorStart: '#0081eb',
      sectionBarColorEnd: '#00edbf',
@@ -376,7 +376,7 @@
    layouts: [
      {
        type: 'time-template',
-       name: 'Dynamic Template',
+       name: 'Company Newsletter',
        imageURL: 'https://firebasestorage.googleapis.com/v0/b/projectoracle-b9c0e.appspot.com/o/Dynamic%20Template.png?alt=media&token=e8d4f318-28f9-42ec-b5d6-f72852163a7d',
        selected: true,
        component: 'time-template',

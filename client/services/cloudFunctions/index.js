@@ -10,6 +10,6 @@
 import axios from 'axios'
 
 const cloudfunctions = axios.create({
-  baseURL: 'http://localhost:4000/'
+  baseURL: 'https://us-central1-projectoracle-b9c0e.cloudfunctions.net'
 })
 export default cloudfunctions

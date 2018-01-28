@@ -13,7 +13,7 @@
         </li>
       </nav>
       <div class="nc-account">
-        <div class="nc-account__info" @click="drop=drop ? false:true">
+        <div class="nc-account__info" v-click-outside="hideDropDown" @click="drop=drop ? false:true">
           <md-icon>account_circle</md-icon>
           <span>{{currentUser().email.split('@')[0]}}</span>
           <md-icon>keyboard_arrow_down</md-icon>
@@ -28,11 +28,16 @@
 <script type="text/javascript">
   import { capitalize } from '../utils'
   import { mapGetters } from 'vuex'
+  import ClickOutside from 'vue-click-outside'
+
   export default {
     computed: {
       currentPage() {
         return this.$router.currentRoute.name
       },
+    },
+    directives: {
+      ClickOutside
     },
     mounted(){
     },
@@ -63,7 +68,10 @@
       },
       settings() {
         console.log("IN SETTINGS")
-      }
+      },
+      hideDropDown() {
+      	this.drop = false
+      },
     },
     filters: {
       capitalize

@@ -54,6 +54,7 @@
           'stories',
           'layout',
           'design',
+          'ship',
           'share',
           'next',
 

@@ -8,6 +8,7 @@ import Stories from '../components/Stories.vue'
 import Layout from '../components/Layout.vue'
 import Design from '../components/Design.vue'
 import Share from '../components/Share.vue'
+import Ship from '../components/Ship.vue'
 import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
@@ -64,11 +65,19 @@ const router = new Router({
       }
     },
     {
+      name: 'ship',
+      path: '/ship',
+      component: Ship,
+      meta: {
+        order: 4
+      }
+    },
+    {
       name: 'share',
       path: '/share',
       component: Share,
       meta: {
-        order: 4
+        order: 5
       }
 
     },

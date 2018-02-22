@@ -9,6 +9,7 @@ import Layout from '../components/Layout.vue'
 import Design from '../components/Design.vue'
 import Share from '../components/Share.vue'
 import Contacts from '../components/Contacts.vue'
+import ContactList from '../components/ContactList.vue'
 import NotFound from '../components/NotFound.vue'
 
 Vue.use(Router)
@@ -77,6 +78,15 @@ const router = new Router({
       name: 'contacts',
       path: '/contacts',
       component: Contacts,
+      meta: {
+        order: undefined
+      }
+
+    },
+    {
+      name: 'contact-list',
+      path: '/contact-list',
+      component: ContactList,
       meta: {
         order: undefined
       }

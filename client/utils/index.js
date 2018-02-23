@@ -27,7 +27,8 @@ export const apFormat = (title) => {
     'on',
     'yet',
     'by',
-    'or']
+    'or'
+  ]
   const characterExclusions = ['"', "'", "'", '-', '"', '"']
   const words = title.split(' ').map(title => title.trim()).map(function (title) {
     if (apFormatExclusions.indexOf(title) === -1) {
@@ -36,7 +37,7 @@ export const apFormat = (title) => {
       return title
     }
   })
-    // handles quoted first words
+  // handles quoted first words
   if (characterExclusions.indexOf(words[0][0]) === -1) {
     words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1)
   } else {
@@ -69,7 +70,8 @@ export const isUpdateMutation = R.compose(
 
 export const getMonthName = (monthNum) => {
   var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December']
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ]
 
   return monthNames[monthNum]
 }

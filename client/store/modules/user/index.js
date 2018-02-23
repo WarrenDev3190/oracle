@@ -78,8 +78,12 @@ const mutations = {
     state.loginError = null
   },
   [RECEIVE_USER_PROPERTIES]: (state, userProperties) => {
-    if (userProperties.keywords) { state.properties = userProperties } else {
-      state.properties = Object.assign({}, userProperties, { keywords: [] })
+    if (userProperties.keywords) {
+      state.properties = userProperties
+    } else {
+      state.properties = Object.assign({}, userProperties, {
+        keywords: []
+      })
     }
   },
   [LOGOUT]: (state) => {
@@ -100,17 +104,26 @@ const mutations = {
 const actions = {
   attemptLogin ({
     commit
-  }, { email, password }) {
+  }, {
+    email,
+    password
+  }) {
     firebaseService.login(email, password).then(user => {
       commit(RECEIVE_USER, user)
       return firebaseService.getUserProperties(user.uid)
     }).then(properties => commit(RECEIVE_USER_PROPERTIES, properties))
-      .then(() => router.push({ path: '/stories' }))
+      .then(() => router.push({
+        path: '/stories'
+      }))
       .catch(loginError => commit(LOGIN_ERROR, loginError))
   },
-  logout ({ commit }) {
+  logout ({
+    commit
+  }) {
     firebaseService.logout().then(() => commit(LOGOUT)).then(() => {
-      router.push({ path: '/' })
+      router.push({
+        path: '/'
+      })
       return
     })
   }

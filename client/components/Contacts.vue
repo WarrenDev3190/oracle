@@ -8,9 +8,9 @@
         </div>
         <h3 class="nc-contacts__title">My Lists</h3>
         <!-- List Preview -->
-          <div class="nc-contacts__preview-wrapper nc-flex" v-for="(list, index) in lists">
-            <p class="nc-contacts__preview">{{list.name}}</p>
-            <p class="nc-contacts__preview">{{list.contacts}} contacts</p>
+          <div class="nc-contacts__preview-wrapper nc-flex" v-for="contactList in contactLists">
+            <p class="nc-contacts__preview">{{contactList.name}}</p>
+            <p class="nc-contacts__preview">{{contactList.contacts.length}} contacts</p>
             <div class="nc-contacts__preview__actions-wrapper nc-flex">
               <i class="material-icons nc-contacts__icon-edit">create</i>
               <i class="material-icons nc-contacts__icon-trash">delete</i>
@@ -23,16 +23,14 @@
 </template>
 
 <script>
-import Navigation from './Navigation.vue'
+import { mapGetters } from "vuex";
+import Navigation from "./Navigation.vue";
 export default {
   components: {
     Navigation
   },
-  data(){
-    return {
-      lists: [{name: 'Sales', contacts: 20},{name: 'Engineering', contacts: 20},{name: 'Product Marketing', contacts: 20}]
-    }
+  computed: {
+    ...mapGetters("contacts", ["contactLists"])
   }
-
-}
+};
 </script>

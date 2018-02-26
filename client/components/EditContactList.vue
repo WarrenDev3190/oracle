@@ -8,8 +8,8 @@
         <h3 class="nc-contacts__title">Lists/<span class="nc-contacts__title-sub">List Details</span></h3>
         <div class="nc-contacts__input-wrapper__block nc-flex">
           <div class="nc-contacts__input-wrapper">
-            <input class="nc-contacts__input" v-model="userContactsLists[contactListId].name" type="text" name="" value="" placeholder="List Name">
-            <input class="nc-contacts__input" v-model="userContactsLists[contactListId].from" type="text" name="" value="" placeholder="From Email">
+            <input class="nc-contacts__input" v-model="newContactListName" type="text" name="" value="" placeholder="List Name">
+            <input class="nc-contacts__input" v-model="newFromEmail" type="text" name="" value="" placeholder="From Email">
           </div>
           <md-button class="md-raised md-primary nc-button--primary nc-contacts__button" @click.native="saveContactList">Save List</md-button>
         </div>
@@ -27,7 +27,7 @@
         <md-button class="md-raised md-primary nc-contacts__new-contact__button" @click.native="addContact">Add</md-button>
       </div>
       <!-- Contacts -->
-      <div class="nc-contacts__contact-wrapper nc-flex" v-for="(newContact, index) in userContactsLists[contactListId].contacts">
+      <div class="nc-contacts__contact-wrapper nc-flex" v-for="(newContact, index) in newContacts">
         <p>{{newContact.name}}</p>
         <p>{{newContact.email}}</p>
         <i class="material-icons nc-contacts__icon-trash" @click="removeContact(index)">delete</i>
@@ -44,6 +44,11 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     Navigation
+  },
+  created() {
+    this.newContactListName = this.userContactsLists[this.contactListId].name;
+    this.newFromEmail = this.userContactsLists[this.contactListId].from;
+    this.newContacts = this.userContactsLists[this.contactListId].contacts;
   },
   methods: {
     onFileChange(e) {
@@ -71,27 +76,29 @@ export default {
         });
     },
     saveContactList() {
-      let newContactList = {
+      let editedContactList = {
         name: this.newContactListName,
         from: this.newFromEmail,
         contacts: this.newContacts
       };
-      this.$store.commit("user/UPDATE_CONTACTS", newContactList);
+      this.$store.commit("user/UPDATE_CONTACTS_EDIT", {
+        editedContactList,
+        index: this.contactListId
+      });
+      this.$router.go(-1);
     },
     addContact() {
       let newContact = {
         name: this.newContactName,
         email: this.newContactEmail
       };
+      debugger;
       this.newContacts = [...this.newContacts, newContact];
       this.newContactName = "";
       this.newContactEmail = "";
     },
     removeContact(index) {
-      this.newContacts = this.newContacts.filter((c, i) => {
-        if (i === index) return false;
-        return true;
-      });
+      this.newContacts.splice(index, 1);
     }
   },
   computed: {

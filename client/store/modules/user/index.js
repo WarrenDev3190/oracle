@@ -69,6 +69,7 @@ const getters = {
 
 // Action Types
 const RECEIVE_USER = 'RECEIVE_USER'
+const UPDATE_CONTACTS_EDIT = 'UPDATE_CONTACTS_EDIT'
 const RECEIVE_USER_PROPERTIES = 'RECEIVE_USER_PROPERTIES'
 const LOGOUT = 'LOGOUT'
 const LOGIN_ERROR = 'LOGIN_ERROR'
@@ -119,6 +120,18 @@ const mutations = {
       state.properties.contacts = []
       state.properties.contacts.push(contacts)
     }
+  },
+  [UPDATE_CONTACTS_EDIT]: (state, {
+    index,
+    editedContactList
+  }) => {
+    state.properties.contacts = state.properties.contacts.map((cl, i) => {
+      if (i === index) {
+        return editedContactList
+      } else {
+        return cl
+      }
+    })
   },
   [UPDATE_CONTACTS_DELETE]: (state, index) => {
     state.properties.contacts.splice(index, 1)

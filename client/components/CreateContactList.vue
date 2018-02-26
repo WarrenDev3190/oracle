@@ -76,6 +76,7 @@ export default {
         contacts: this.newContacts
       };
       this.$store.commit("user/UPDATE_CONTACTS", newContactList);
+      this.$router.go(-1);
     },
     addContact() {
       let newContact = {

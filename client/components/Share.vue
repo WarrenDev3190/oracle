@@ -35,10 +35,10 @@
                 :class="{'nc-share__send-email__add-disabled':isEmailEmpty}"
                 type="button" @click="addEmail">Add</button>
             </div>
-            <md-input-container style="margin:40px 0">
-              <label style="padding:0 0 0 30px" for="contacts">Or Select Contact List</label>
+            <md-input-container style="margin:40px 0;display:flex;align-items:center;justify-content:center">
+              <label ref="selectLabel" class="nc-select-label--share" for="contacts">Or Select Contact List</label>
               <md-select style="padding:30px 0" name="contacts" id="contactList" v-model="selectedContactList">
-                <md-option v-for="(contactList, index) in userContactsLists" :key="index" :value="index">{{contactList.name}}</md-option>
+                <md-option class="md-select-value" v-for="(contactList, index) in userContactsLists" :key="index" :value="index">{{contactList.name}}</md-option>
               </md-select>
             </md-input-container>
             <br />
@@ -73,7 +73,7 @@ export default {
       this.emails = this.userContactsLists[selectedList].contacts.map(
         x => x.email
       );
-      debugger;
+      this.$refs.selectLabel.classList.add("nc-selected-label--share");
     }
   },
   computed: {
@@ -217,3 +217,16 @@ export default {
   props: {}
 };
 </script>
+<style>
+label.nc-select-label--share {
+  padding: 10px 0 0 25px;
+}
+
+.nc-selected-label--share {
+  transform: translateY(-20px);
+}
+
+label.nc-select-label--share + .md-select .md-select-value {
+  transform: translateY(-15px);
+}
+</style>

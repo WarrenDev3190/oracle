@@ -94,6 +94,7 @@ const router = new Router({
     name: 'edit-contact',
     path: '/edit-contact/:contactListId',
     component: EditContactList,
+    props: true,
     meta: {
         order: undefined
       }

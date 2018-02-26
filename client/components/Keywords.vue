@@ -14,19 +14,19 @@
   </div>
 </template>
 <script type="text/javascript">
-  import { mapGetters } from 'vuex'
-  import Navigation from './Navigation.vue'
-  export default {
-    components: {
-      Navigation
-    },
-    computed: {
-      ...mapGetters('user', ['userDefinedKeywords'])
-    },
-    methods: {
-      handleKeywordsChange(updatedKeywords) {
-          this.$store.commit('user/UPDATE_KEYWORDS', updatedKeywords)
-      }
+import { mapGetters } from "vuex";
+import Navigation from "./Navigation.vue";
+export default {
+  components: {
+    Navigation
+  },
+  computed: {
+    ...mapGetters("user", ["userDefinedKeywords"])
+  },
+  methods: {
+    handleKeywordsChange(updatedKeywords) {
+      this.store.commit("user/UPDATE_KEYWORDS", updatedKeywords);
     }
   }
+};
 </script>

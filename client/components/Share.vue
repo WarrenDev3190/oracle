@@ -31,10 +31,16 @@
             <input class="nc-share__send-email__email-input-full-width md-input-container" type="text" v-model="newsletterSubject" placeholder="Subject" />
             <div class="nc-share__send-email__email-input__container ">
               <input class="nc-share__send-email__email-input__email-input-field nc-share__send-email__add-email md-input-container" v-on:keydown.enter="addEmail" type="text" v-model="newEmail" placeholder="Email Recipients"
-              /><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn hoverable"
+/><button class="nc-share__send-email__add-button nc-share__send-email__add-email-btn hoverable"
                 :class="{'nc-share__send-email__add-disabled':isEmailEmpty}"
                 type="button" @click="addEmail">Add</button>
             </div>
+            <md-input-container style="margin:40px 0">
+              <label style="padding:0 0 0 30px" for="contacts">Or Select Contact List</label>
+              <md-select style="padding:30px 0" name="contacts" id="contactList" v-model="selectedContactList">
+                <md-option v-for="(contactList, index) in userContactsLists" :key="index" :value="index">{{contactList.name}}</md-option>
+              </md-select>
+            </md-input-container>
             <br />
             <button ref="sendButton" :disabled="!isDisabled" class="nc-share__send-email__send-button hoverable" type="button" @click="sendEmails()">Send</button>
             <div class="nc-share__send-email__emails">
@@ -52,142 +58,162 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import cloudFunctions from '../services/cloudFunctions'
-import Navigation from './Navigation.vue'
-import TimeTemplate from './templates/TimeTemplate.vue'
+import { mapGetters } from "vuex";
+import cloudFunctions from "../services/cloudFunctions";
+import Navigation from "./Navigation.vue";
+import TimeTemplate from "./templates/TimeTemplate.vue";
 export default {
   components: {
     Navigation,
     TimeTemplate
   },
+  watch: {
+    selectedContactList(selectedList) {
+      this.fromEmail = this.userContactsLists[selectedList].from;
+      this.emails = this.userContactsLists[selectedList].contacts.map(
+        x => x.email
+      );
+      debugger;
+    }
+  },
   computed: {
-    ...mapGetters('layouts', ['selectedLayout']),
+    ...mapGetters("layouts", ["selectedLayout"]),
+    ...mapGetters("user", ["userContactsLists"]),
     isHiddenExport: function() {
-      if (this.shareMethod === "Export to EML"){
+      if (this.shareMethod === "Export to EML") {
         return false;
-      }else{
+      } else {
         return true;
       }
     },
     isHiddenEmail: function() {
       if (this.shareMethod === "Email") {
-        return false
-      }else{
+        return false;
+      } else {
         return true;
       }
     },
     isDisabled: function() {
-      return this.emails.length != 0
-      && this.fromEmail.trim() != ''
-      && this.newsletterSubject != ''
+      return (
+        this.emails.length != 0 &&
+        this.fromEmail.trim() != "" &&
+        this.newsletterSubject != ""
+      );
     },
     isEmailEmpty: function() {
       return this.newEmail.length === 0;
     }
   },
   methods: {
-    resetSendButton: function(){
-      this.$refs["sendButton"].innerHTML = "Send"
+    resetSendButton: function() {
+      this.$refs["sendButton"].innerHTML = "Send";
     },
-    addEmail: function(){
-      if(this.newEmail != ""){
-        this.newEmail.split(',')
-        .map(email => email.trim())
-        .filter(email => email != "")
-        .map(email => this.emails.unshift(email));
-        this.newEmail = ""
+    addEmail: function() {
+      if (this.newEmail != "") {
+        this.newEmail
+          .split(",")
+          .map(email => email.trim())
+          .filter(email => email != "")
+          .map(email => this.emails.unshift(email));
+        this.newEmail = "";
       }
     },
-    removeEmail: function(index){
-      this.emails.splice(index, 1)
+    removeEmail: function(index) {
+      this.emails.splice(index, 1);
     },
-    sendEmails: function(){
-      this.$refs["sendButton"].disabled = true
-      this.$refs["sendButton"].innerHTML = "Sending..."
-      var emailText = encodeURIComponent(this.preprocessTemplateHtml())
-      var emailB64 = window.btoa(emailText)
-      cloudFunctions.post("/sendTemplate", {
-        "from": this.fromEmail,
-        "subject": this.newsletterSubject,
-        "recipients": this.emails,
-        "content": emailB64
-      }).then(success => {
-          this.$refs["sendButton"].disabled = false
-          this.$refs["sendButton"].innerHTML = "Sent!"
-          setTimeout(this.resetSendButton, 5000)
-        }
-      ).catch(err => {
-          this.$refs["sendButton"].disabled = false
-          this.$refs["sendButton"].innerHTML = "Bombed"
-          setTimeout(this.resetSendButton, 5000)
-        }
-      )
-
+    sendEmails: function() {
+      this.$refs["sendButton"].disabled = true;
+      this.$refs["sendButton"].innerHTML = "Sending...";
+      var emailText = encodeURIComponent(this.preprocessTemplateHtml());
+      var emailB64 = window.btoa(emailText);
+      cloudFunctions
+        .post("/sendTemplate", {
+          from: this.fromEmail,
+          subject: this.newsletterSubject,
+          recipients: this.emails,
+          content: emailB64
+        })
+        .then(success => {
+          this.$refs["sendButton"].disabled = false;
+          this.$refs["sendButton"].innerHTML = "Sent!";
+          setTimeout(this.resetSendButton, 5000);
+        })
+        .catch(err => {
+          this.$refs["sendButton"].disabled = false;
+          this.$refs["sendButton"].innerHTML = "Bombed";
+          setTimeout(this.resetSendButton, 5000);
+        });
     },
-    exportFile: function(){
-      switch(this.fileType){
+    exportFile: function() {
+      switch (this.fileType) {
         case "EML":
-          this.exportEmlFile()
+          this.exportEmlFile();
           break;
         default:
-          this.exportEmlFile()
+          this.exportEmlFile();
           break;
       }
     },
-    exportEmlFile: function(){
-      var emailText = "Subject: " + this.subject + "\n" +
-                      "X-Unsent: 1\n" +
-                      "Content-type: text/html;\n"
-      emailText = emailText + "\n\n" + this.preprocessTemplateHtml()
-      var file = new Blob([emailText], {type: "eml"});
-      var d = new Date()
-      var fileName = "NewsCart Template " + d.toUTCString() + ".eml"
+    exportEmlFile: function() {
+      var emailText =
+        "Subject: " +
+        this.subject +
+        "\n" +
+        "X-Unsent: 1\n" +
+        "Content-type: text/html;\n";
+      emailText = emailText + "\n\n" + this.preprocessTemplateHtml();
+      var file = new Blob([emailText], { type: "eml" });
+      var d = new Date();
+      var fileName = "NewsCart Template " + d.toUTCString() + ".eml";
       if (window.navigator.msSaveOrOpenBlob)
-          window.navigator.msSaveOrOpenBlob(file, fileName);
+        window.navigator.msSaveOrOpenBlob(file, fileName);
       else {
-          var a = document.createElement("a"),
-                  url = URL.createObjectURL(file);
-          a.href = url;
-          a.download = fileName;
-          document.body.appendChild(a);
-          a.click();
-          setTimeout(function() {
-              document.body.removeChild(a);
-              window.URL.revokeObjectURL(url);
-          }, 0);
+        var a = document.createElement("a"),
+          url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 0);
       }
     },
-    preprocessTemplateHtml: function(){
-      var template = this.$refs['template'].$el.cloneNode(true)
-      var replaceEls = template.querySelectorAll('[name=image_replace]')
-      for(var i=0; i < replaceEls.length; i++){
-        var encodedHtml = encodeURI(replaceEls[i].innerHTML)
-        while(replaceEls[i].firstChild){
-          replaceEls[i].removeChild(replaceEls[i].firstChild)
+    preprocessTemplateHtml: function() {
+      var template = this.$refs["template"].$el.cloneNode(true);
+      var replaceEls = template.querySelectorAll("[name=image_replace]");
+      for (var i = 0; i < replaceEls.length; i++) {
+        var encodedHtml = encodeURI(replaceEls[i].innerHTML);
+        while (replaceEls[i].firstChild) {
+          replaceEls[i].removeChild(replaceEls[i].firstChild);
         }
-        var img = document.createElement("IMG")
-        img.src = "https://newscart-imageconvert-micro.herokuapp.com/htmlToPng?html=" + encodedHtml
-        console.log(img.src)
-        replaceEls[i].appendChild(img)
+        var img = document.createElement("IMG");
+        img.src =
+          "https://newscart-imageconvert-micro.herokuapp.com/htmlToPng?html=" +
+          encodedHtml;
+        console.log(img.src);
+        replaceEls[i].appendChild(img);
       }
-      return "<html><head></head><body>" + template.outerHTML + "</body></html>"
+      return (
+        "<html><head></head><body>" + template.outerHTML + "</body></html>"
+      );
     }
   },
   data: function() {
-      return {
-        subject: "NewsCart Newsletter",
-        newEmail: "",
-        fileType: "EML",
-        fileTypes: ["EML"],
-        shareMethod: "Email",
-        shareMethods: ["Export to EML", "Email"],
-        fromEmail: '',
-        newsletterSubject: '',
-        emails: []
-      }
+    return {
+      subject: "NewsCart Newsletter",
+      newEmail: "",
+      fileType: "EML",
+      fileTypes: ["EML"],
+      shareMethod: "Email",
+      shareMethods: ["Export to EML", "Email"],
+      fromEmail: "",
+      newsletterSubject: "",
+      emails: [],
+      selectedContactList: undefined
+    };
   },
-  props: {
-  }
-}
+  props: {}
+};
 </script>

@@ -1,20 +1,17 @@
 .nc-nav {
   background: $nc-blue;
-  box-shadow: 0 0 4px rgba(0,0,0,.25);
+  box-shadow: 0 0 4px rgba(0, 0, 0, .25);
   width: 100%;
-
   &__brand {
     margin: 0;
-
     img {
       position: absolute;
       top: 20px;
-      left:60px;
+      left: 60px;
       width: auto;
       height: 30px;
     }
   }
-
   &__navigation {
     border-bottom: 1px solid $nc-gray-border;
     border-top: 1px solid $nc-gray-border;
@@ -23,14 +20,15 @@
     padding: 0;
     width: 100%;
   }
-
-  &__inner-nav { width: auto; }
-
+  &__navigation:last-child {
+    flex-basis: end;
+  }
+  &__inner-nav {
+    width: auto;
+  }
   &-item {
     list-style: none;
-
     a {
-
       color: $nc-white !important;
       display: block;
       font-size: 1.15em;
@@ -38,15 +36,21 @@
       line-height: 1;
       padding: 1.5em 1.75em;
       text-transform: uppercase;
-
       &:hover {
         color: $nc-blue;
         text-decoration: none !important;
       }
     }
-
     &--active {
-      a { color: #28f392 !important; }
+      a {
+        color: #28f392 !important;
+      }
     }
+  }
+}
+
+.nc-settings {
+  .md-icon.md-theme-default.material-icons {
+    background: white !important;
   }
 }

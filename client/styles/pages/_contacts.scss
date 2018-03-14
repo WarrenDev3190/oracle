@@ -1,0 +1,144 @@
+.nc-contacts {
+  &__page {
+    width: 75%;
+    display: block;
+    margin: auto;
+  }
+  &__wrapper {
+    margin-top: 50px;
+    //width: 65%;
+  }
+
+  &__button{
+    height: 40px;
+    margin: 0;
+    transition: .2s;
+
+    &-wrapper{
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    &-csv{
+      background: $nc-gray !important;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title{
+    color: $nc-gray;
+    &-sub{
+      color: $nc-gray;
+      font-weight: 400;
+    }
+  }
+
+  &__icon{
+    &-edit {
+      color: $nc-gray;
+      margin: 3px;
+      transition: .3s;
+      &:hover{
+        color: $nc-blue;
+      }
+    }
+    &-trash {
+      color: $nc-gray;
+      margin: 3px;
+      transition: .3s;
+      &:hover{
+        color: $nc-error-red;
+
+      }
+    }
+  }
+
+  &__preview{
+    color: $nc-dark-gray;
+    font-weight: 500;
+    margin: 15px;
+    flex: 1;
+
+    &-wrapper{
+      width: 100%;
+      border: 1px solid $nc-gray-border;
+      height: 65px;
+      margin: 15px 0;
+      justify-content: space-between;
+      align-items: center;
+      transition: .2s;
+
+      &:hover{
+        @include contact-list-shadow;
+        cursor: pointer;
+      }
+      &:active{
+        position: relative;
+        top: 2px;
+        left: 1px;
+      }
+    }
+
+    &__actions{
+      &-wrapper{
+        width: 15%;
+        height: 100%;
+        margin: 15px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &__input{
+    width: 100%;
+    margin: 5px 0;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 3px 10px;
+    font-weight: 600;
+
+    &-wrapper{
+      width: 50%;
+      &__block{
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__contact{
+
+    &-wrapper{
+      width: 100%;
+      padding: 10px;
+      justify-content: space-between;
+    }
+  }
+
+  &__new-contact{
+
+    &-wrapper{
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 30px;
+
+      & input{
+      width: 30%;
+      height: 40px;
+      box-sizing: border-box;
+      padding: 3px 10px;
+      font-weight: 600;
+      }
+    }
+    &__button{
+      width: 30%;
+      margin: 0;
+    }
+  }
+}
